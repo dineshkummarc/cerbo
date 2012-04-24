@@ -1,39 +1,39 @@
 <?php
 
-	class BDD
-	{
+class BDD
+{
 
-		//! Connexion � la base de donn�es.
-		private $cnx;
+    //! Connexion à la base de données.
+    private $cnx;
 
-		function __construct()
-		{
+    function __construct()
+    {
 
-			$config = parse_ini_file( "settings/bdd.ini", true );
+        $config = parse_ini_file( "settings/bdd.ini", true );
 
-			$this->cnx = mysql_connect( 
-                $config['mysql']['host'],
-                $config['mysql']['login'],
-                $config['mysql']['password']
-            );
+        $this->cnx = mysql_connect( 
+            $config['mysql']['host'],
+            $config['mysql']['login'],
+            $config['mysql']['password']
+        );
 
-			mysql_select_db( $config['mysql']['database'] );
+        mysql_select_db( $config['mysql']['database'] );
 
-		}
+    }
 
-		/**
-		 * Destructeur avec fermeture automatique de la connexion � la base de donn�es.
-		 */
-		function __destruct()
-		{
-			mysql_close( $this->cnx );
-		}
+    /**
+     * Destructeur avec fermeture automatique de la connexion à la base de données.
+     */
+    function __destruct()
+    {
+        mysql_close( $this->cnx );
+    }
 
-		function query( $sql )
-		{
-			return mysql_query( $sql, $this->cnx );
-		}
+    function query( $sql )
+    {
+        return mysql_query( $sql, $this->cnx );
+    }
 
-	}
+}
 
 ?>

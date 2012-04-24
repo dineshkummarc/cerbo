@@ -5,6 +5,7 @@
 
         public $module = null;
         public $template = "blank";
+        public $parametres = array();
 
 		function __construct()
 		{
@@ -27,13 +28,18 @@
             // TODO
             
             // lance le rendu
-            echo $twig_renderer->render( "$this->template.twig", array() );
+            echo $twig_renderer->render( "$this->template.twig", $this->parameters );
 
         }
 
         function setTemplate ( $template )
         {
             $this->template = $template;
+        }
+
+        function addVariable ( $identifiant, $valeur )
+        {
+            $this->parameters[$identifiant] = $valeur;
         }
 
 		function __destruct()
