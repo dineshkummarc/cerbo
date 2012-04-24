@@ -46,7 +46,7 @@ class Module
         {
             foreach( explode( '/', $parties[1] ) as $arg )
             {
-                $_GET['url_parameters'][] = $arg;
+                $_GET['url_parameters'][] = urldecode( $arg );
             }
         }
 
