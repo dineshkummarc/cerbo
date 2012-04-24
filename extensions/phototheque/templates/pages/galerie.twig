@@ -1,9 +1,11 @@
 {% extends 'layouts/standard.twig' %}
 
-{% block titre %}Galerie{% endblock %}
+{% block titre %}{{ galerie|capitalize }} - Galerie{% endblock %}
 
 {% block body %}
 
     <h1>Galerie photos</h1>
+
+    <h2>{{ galerie|capitalize }}</h2>
 
 {% endblock %}

@@ -26,7 +26,7 @@ class Module
             $query = substr( $query, 1 );
 
         // On fait le trie entre le module a afficher et les parametres passés
-        $parties = explode( "?", $query );
+        $parties = explode( '//', $query );
 
         // On sauvegarde le module
         $query = $parties[0];
@@ -34,10 +34,9 @@ class Module
         // On sauvegarde les parametres dans le tableau de GET comme si tout était normale
         $_GET = array();
         if( isset( $parties[1] ) )
-            foreach( explode( "&", $parties[1] ) as $couple )
+            foreach( explode( '/', $parties[1] ) as $arg )
             {
-                $couple = explode( "=", $couple );
-                $_GET[$couple[0]] = $couple[1];
+                $_GET['url_parameters'][] = $arg;
             }
 
         if ( $query == "" )
