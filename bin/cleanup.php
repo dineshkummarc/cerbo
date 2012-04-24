@@ -1,0 +1,5 @@
+<?php
+
+    // NETTOIE TOUS LES FICHIERS DE CONFIGURATION
+
+?>
