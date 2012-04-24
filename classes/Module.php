@@ -1,11 +1,20 @@
 <?php
 
+/**
+ * Gestion du module
+ */
 class Module
 {
 
     public $module;
     public $file;
 
+    /**
+     * Constructeur.
+     *
+     * Detecte quel module utiliser en se basant sur l'URI demandée au serveur.
+     * Passe tous les éléments après un double slash en $_GET.
+     */
     function __construct()
     {
 
@@ -33,11 +42,13 @@ class Module
 
         // On sauvegarde les parametres dans le tableau de GET comme si tout était normale
         $_GET = array();
-        if( isset( $parties[1] ) )
+        if ( isset( $parties[1] ) )
+        {
             foreach( explode( '/', $parties[1] ) as $arg )
             {
                 $_GET['url_parameters'][] = $arg;
             }
+        }
 
         if ( $query == "" )
             $query = "accueil";
