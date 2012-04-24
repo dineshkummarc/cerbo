@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteRule ^themes/.*  -   [L]
+RewriteRule ^var/.*     -   [L]
+
+RewriteRule .*          index\.php
