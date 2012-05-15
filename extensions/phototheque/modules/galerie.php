@@ -1,5 +1,8 @@
 <?php
 
+    // Définition des droits nécessaires
+    $Securite->doit( 'IDENTIFIE', true );
+
     // Définition du template à utiliser
     $Page->setTemplate( 'pages/galerie' );
 

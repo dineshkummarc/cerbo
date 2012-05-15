@@ -1,0 +1,17 @@
+<utilisateurs>
+
+    <utilisateur>
+        <id>1</id>
+        <login>admin</login>
+        <password>admin</password>
+        <nom>Administrateur</nom>
+    </utilisateur>
+
+    <utilisateur>
+        <id>2</id>
+        <login>anonymous</login>
+        <password>Anonymous</password>
+        <nom>Anonymous</nom>
+    </utilisateur>
+
+</utilisateurs>

@@ -1,7 +1,7 @@
 <?php
 
 	require_once 'autoload.php';
-    require_once 'lib/twig/Autoloader.php';
+    require_once 'lib/Twig/Autoloader.php';
 
     Twig_Autoloader::register();
 
@@ -13,13 +13,11 @@
         $templates_folders[] = 'extensions/'.$extension.'/templates';
     }
 
-
     $loader = new Twig_Loader_Filesystem( $templates_folders );
     $twig = new Twig_Environment( $loader, array(
     //    'cache' => 'var/twig'
     ) );
 
-	$bdd = new BDD();
 	$session = new Session();
 
 	// Création de la page.
