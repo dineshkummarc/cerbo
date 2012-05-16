@@ -1,0 +1,17 @@
+<extension>
+
+    <nom>Vote</nom>
+    <version>0.1</version>
+    <auteurs>
+        <auteur>MARTIN Damien [damien@martin-damien.fr]</auteur>
+    </auteurs>
+    <description>
+    <![CDATA[
+        Possibilité de voter (vote par étoile) sur un objet dans Nina.
+    ]]>
+    </description>
+    <dependances>
+        <extension version=">0.1">nina</extension>
+    </dependances>
+
+</extension>

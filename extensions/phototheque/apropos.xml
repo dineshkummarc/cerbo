@@ -1,0 +1,17 @@
+<extension>
+
+    <nom>Phototheque</nom>
+    <version>0.1</version>
+    <auteurs>
+        <auteur>MARTIN Damien [damien@martin-damien.fr]</auteur>
+    </auteurs>
+    <description>
+    <![CDATA[
+        Petite galerie photos pour Nina.
+    ]]>
+    </description>
+    <dependances>
+        <extension version=">0.1">nina</extension>
+    </dependances>
+
+</extension>

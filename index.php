@@ -1,31 +1,41 @@
 <?php
 
 	require_once 'autoload.php';
-    require_once 'lib/Twig/Autoloader.php'; Twig_Autoloader::register();
-    require_once 'classes/Twig.php';
+    require_once 'lib/Twig/Autoloader.php'; 
+    Twig_Autoloader::register();
 
     $config = parse_ini_file( 'settings/application.ini', true );
 
     // Définition des dossiers où se trouvent les templates
-    $templates_folders = array( 'templates' );
+    $templates_folders = array();
+
+    // Ajout des designs à la racine
+    foreach ( $config['DESIGN']['Utiliser'] as $design )
+    {
+        if ( file_exists( 'design/' . $design . '/templates' ) )
+        {
+            $templates_folders[] = 'design/' . $design . '/templates';
+        }
+    }
 
     // Parcours des extensions actives pour les ajouter à l'application
     foreach ( $config['EXTENSIONS']['ExtensionsActives'] as $extension )
     {
-        // Ajout des templates
-        if ( file_exists( 'extensions/'.$extension.'/templates' ) )
+        foreach ( $config['DESIGN']['Utiliser'] as $design )
         {
-            $templates_folders[] = 'extensions/'.$extension.'/templates';
+            // Ajout des templates
+            if ( file_exists( 'extensions/' . $extension . '/design/' . $design . '/templates' ) )
+            {
+                $templates_folders[] = 'extensions/' . $extension . '/design/' . $design . '/templates';
+            }
         }
     }
 
-    $loader = new Twig_Loader_Filesystem( $templates_folders );
+    $loader = new Twig_Loader_Filesystem( array_reverse( $templates_folders ) );
     $twig = new Twig_Environment( $loader, array(
     //    'cache' => 'var/twig'
     ) );
     
-    // Ajout de l'extension Twig de base
-    $twig->addExtension( new TwigNina() );
     // Parcours des extensions actives pour les ajouter à l'application
     foreach ( $config['EXTENSIONS']['ExtensionsActives'] as $extension )
     {
