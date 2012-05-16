@@ -9,8 +9,6 @@ require_once( 'extensions/XMLDataSource/lib/simple_html_dom.php' );
 class XMLDataSource extends DataSource implements DataSourceInterface
 {
 
-    public $dossier_xml;    // Emplacement des fichiers XML
-
     public function __construct()
     {
         // Rien de particulier à faire ici
@@ -28,8 +26,6 @@ class XMLDataSource extends DataSource implements DataSourceInterface
             $params = "$params/";
         }
 
-        $this->dossier_xml = $params; 
-
     }
 
     /**
@@ -46,45 +42,60 @@ class XMLDataSource extends DataSource implements DataSourceInterface
         foreach ( $xml->find( $table ) as $entree )
         {
 
-            $verification_booleenne = false;
+            $verification_booleenne = true;
 
             // On vérifie que les conditions sont bonnes
             foreach ( $parametres as $param )
             {
 
-                $champ      = $param[0];
-                $operateur  = $param[1];
-                $valeur     = $param[2];
+                $operateur  = (string)$param[1];
+                $valeur     = (string)$param[2];
+
+                // On regarde pour le sous element correcte
+                $match = $entree->find( $param[0] );
+                if ( count( $match ) > 1 )
+                {
+                    // TODO Illogique
+                }
+                elseif( count( $match ) == 0 )
+                {
+                    // TODO Champ inexistant
+                }
+                else
+                {
+                    // TODO Extraction des données du champ pour comparaison
+                    $champ = $match[0]->plaintext;
+                }
 
                 switch ( $operateur )
                 {
 
                     case '=':
-                        $operation = ( $entree->$champ == $valeur ) ? true : false ;
+                        $operation = ( $champ == $valeur ) ? true : false ;
                         break;
 
                     case 'LIKE':
-                        $operation = ( strpos( $entree->$champ, $valeur ) !== false ) ? true : false ;
+                        $operation = ( strpos( $champ, $valeur ) !== false ) ? true : false ;
                         break;
 
                     case '<':
-                        $operation = ( $entree->$champ < $valeur ) ? true : false ;
+                        $operation = ( $champ < $valeur ) ? true : false ;
                         break;
 
                     case '<=':
-                        $operation = ( $entree->$champ <= $valeur ) ? true : false ;
+                        $operation = ( $champ <= $valeur ) ? true : false ;
                         break;
 
                     case '>':
-                        $operation = ( $entree->$champ > $valeur ) ? true : false ;
+                        $operation = ( $champ > $valeur ) ? true : false ;
                         break;
 
                     case '>=':
-                        $operation = ( $entree->$champ >= $valeur ) ? true : false ;
+                        $operation = ( $champ >= $valeur ) ? true : false ;
                         break;
 
                     case '!=':
-                        $operation = ( $entree->$champ != $valeur ) ? true : false ;
+                        $operation = ( $champ != $valeur ) ? true : false ;
                         break;
 
                 }
@@ -101,6 +112,8 @@ class XMLDataSource extends DataSource implements DataSourceInterface
 
         }
 
+        // FIXME print_r( $resultats );
+
         return $resultats;
 
     }
@@ -116,7 +129,7 @@ class XMLDataSource extends DataSource implements DataSourceInterface
      */
     public function getFichier( $table )
     {
-        return $this->dossier_xml . $table . '.xml';
+        return 'extensions/XMLDataSource/data/' . $table . '.xml';
     }
 
 }

@@ -1,8 +1,5 @@
 <?php
 
-$_REGLES[] = 'IDENTIFIE';
-
-
 class Securite
 {
 
@@ -10,7 +7,7 @@ class Securite
 
     public function __construct()
     {
-        
+        // Rien à faire ici pour le moment
     }
 
     public function doit( $identifieur_securite, $valeur )
@@ -21,6 +18,8 @@ class Securite
     public function estAutorise()
     {
 
+        // Règle pour l'identification
+        // C'est la seule règle en dur (c'est le seul élément standard)
         if ( isset( $this->regles['IDENTIFIE'] ) && $this->regles['IDENTIFIE'] == 1 )
         {
             // Règle de base, on vérifie que l'utilisateur est connecté

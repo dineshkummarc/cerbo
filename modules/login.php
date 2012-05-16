@@ -21,8 +21,8 @@
         {
             // Identification réussie
             // TODO Chargement des informations
-            $utilisateur = mysql_fetch_object( $res );
-            $_SESSION['login'] = $utilisateur->login;
+            // $utilisateur = mysql_fetch_object( $res );
+            // $_SESSION['login'] = $utilisateur->login;
         }
         else
         {
