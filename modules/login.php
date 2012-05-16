@@ -19,10 +19,15 @@
         // Vérification des paramètres de connection
         if ( count( $res ) == 1 )
         {
+
             // Identification réussie
-            // TODO Chargement des informations
-            // $utilisateur = mysql_fetch_object( $res );
-            // $_SESSION['login'] = $utilisateur->login;
+            $utilisateur = $res[0];
+            $_SESSION['login']  = $utilisateur['login'];
+            $_SESSION['nom']    = $utilisateur['nom'];
+            $_SESSION['id']     = $utilisateur['id'];
+
+            Page::rediriger( '' );
+
         }
         else
         {

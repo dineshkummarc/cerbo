@@ -1,6 +1,6 @@
 <?php
 
 	Session::terminer();
-	header( "Location: /" );
+	Page::rediriger( '' );
 
 ?>

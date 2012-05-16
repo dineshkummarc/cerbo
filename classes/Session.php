@@ -16,7 +16,7 @@ class Session
 
         if ( !isset( $_SESSION['login'] ) )
         {
-            $this->initialiserSession();
+            Session::initialiserSession();
         }
 
     }
@@ -28,25 +28,17 @@ class Session
     public static function terminer()
     {
         session_destroy();
-        $_SESSION['login'] = 'anonymous';
-        $_SESSION['name'] = 'Anonymous';
+        Session::initialiserSession();
     }
 
     /**
      * Initialise la session avec des valeurs par défaut
      */
-    function initialiserSession()
+    public static function initialiserSession()
     {
-        $_SESSION['login'] = 'anonymous';
-    }
-
-    public static function enregistrerUtilisateurCourant( Utilisateur $utilisateur )
-    {
-
-        $_SESSION['login'] = $utilisateur->getLogin();
-        $_SESSION['nom'] = $utilisateur->getNomComplet();
-        $_SESSION['id'] = $utilisateur->ID;
-
+        $_SESSION['login']  = 'anonymous';
+        $_SESSION['nom']    = 'Anonymous';
+        $_SESSION['id']     = 2;
     }
 
     public static function estIdentifie()

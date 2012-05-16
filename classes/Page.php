@@ -44,6 +44,8 @@ class Page
         $Page = $this;
         $Securite = $this->securite;
 
+        $config = parse_ini_file( 'settings/application.ini', true );
+
         // Charge les données depuis le module (et déroule code du module si il y a)
 
         // On regarde si le module existe dans les modules courants.
@@ -56,7 +58,6 @@ class Page
         else
         {
             // Parcours des extensions
-            $config = parse_ini_file( 'settings/application.ini', true );
             foreach ( $config['EXTENSIONS']['ExtensionsActives'] as $extension )
             {
                 if ( file_exists( 'extensions/'.$extension.'/modules/'.$this->module->file ) )
@@ -67,9 +68,12 @@ class Page
         }
 
         // Vérifie les paramètres de sécurité
-        if ( !$this->securite->estAutorise() )
+        if ( $this->module->module != 'login' && $this->module->module != 'logout' )
         {
-            Page::rediriger( 'login' );
+            if ( !$this->securite->estAutorise() )
+            {
+                Page::rediriger( 'login' );
+            }
         }
 
         // Lance le rendu
@@ -109,6 +113,26 @@ class Page
         $config = parse_ini_file( 'settings/application.ini', true );
         $prefix = $config['URL']['EnleverDuChemin'];
         header("Location: $prefix/$module");
+    }
+
+    /**
+     * Créé une URL pour l'URI donnée (module + paramètres)
+     * en prennant en compte EnleverDuChemin de application.ini
+     */
+    public static function creerURL( $uri )
+    {
+
+        $config = parse_ini_file( 'settings/application.ini', true );
+
+        if ( substr( $uri, 0, 1 ) != '/' )
+        {
+            $uri = '/' . $uri;
+        }
+        
+        $url = $config['URL']['EnleverDuChemin'] . $uri;
+        
+        return $url;
+
     }
 
 }

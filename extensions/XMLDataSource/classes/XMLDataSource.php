@@ -112,16 +112,18 @@ class XMLDataSource extends DataSource implements DataSourceInterface
 
         }
 
-        // FIXME print_r( $resultats );
-
         return $resultats;
 
     }
 
     public function formatStandard( $entree )
     {
-        // TODO Transformer un noeud du DOM en tableau (indexé).
-        return "HELLO KITTY";
+        $valeur = array();
+        foreach ( $entree->children() as $child )
+        {
+            $valeur[$child->tag] = $child->plaintext;
+        }
+        return $valeur;
     }
 
     /**

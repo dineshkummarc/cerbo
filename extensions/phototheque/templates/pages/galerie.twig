@@ -8,4 +8,15 @@
 
     <h2>{{ galerie|capitalize }}</h2>
 
+    <ul>
+    {% for dossier in phototheque_get_dossiers() %}
+        <li>
+            {% set url_galerie = 'galerie//' ~ dossier %}
+            <a href='{{ url_galerie|url_propre }}'>
+                {{ dossier }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+
 {% endblock %}
