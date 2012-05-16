@@ -1,6 +1,11 @@
 RewriteEngine On
 
+# Dossiers
 RewriteRule ^themes/.*  -   [L]
 RewriteRule ^var/.*     -   [L]
+RewriteRule ^design/.*  -   [L]
+
+# Fichiers bruts
+RewriteRule ^.*\.([css|jpg|jpeg|png|gif])$ - [L]
 
 RewriteRule .*          index\.php
