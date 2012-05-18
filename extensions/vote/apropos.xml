@@ -11,7 +11,7 @@
     ]]>
     </description>
     <dependances>
-        <extension version=">0.1">nina</extension>
+        <extension version=">0.1">sandra</extension>
     </dependances>
 
 </extension>

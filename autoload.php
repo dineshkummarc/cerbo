@@ -1,6 +1,6 @@
 <?php
 
-function __nina_autoload( $class_name )
+function __sandra_autoload( $class_name )
 {
     if ( file_exists( dirname( __FILE__ )."/classes/$class_name.php" ) )
     {
@@ -20,6 +20,6 @@ function __nina_autoload( $class_name )
     }
 }
 
-spl_autoload_register( '__nina_autoload' );
+spl_autoload_register( '__sandra_autoload' );
 
 ?>
