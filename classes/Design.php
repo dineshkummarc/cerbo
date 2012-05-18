@@ -10,17 +10,20 @@ class Design
         $config = parse_ini_file( 'settings/application.ini', true );
 
         // Extraction des tableaux des extensions et des designs
-        $extensions = array_reverse( $config['DESIGN']['Utiliser'] );
+        $extensions = array_reverse( $config['EXTENSIONS']['ExtensionsActives'] );
         $designs = array_reverse( $config['DESIGN']['Utiliser'] );
+
+        $prefixe = ( trim( $config['URL']['EnleverDuChemin'] ) != '' ) ? $config['URL']['EnleverDuChemin'] . '/' : '/' ;
 
         // Parcours des extensions
         foreach ( $designs as $design )
         {
             foreach ( $extensions as $extension )
             {
+                //echo '<p>extensions/' . $extension . '/design/' . $design . '/' . $fichier . '</p>';
                 if ( file_exists( 'extensions/' . $extension . '/design/' . $design . '/' . $fichier ) )
                 {
-                    return 'extensions/' . $extension . '/design/' . $design . '/' . $fichier;
+                    return $prefixe . 'extensions/' . $extension . '/design/' . $design . '/' . $fichier;
                 }
             }
         }
@@ -30,7 +33,7 @@ class Design
         {
             if ( file_exists( 'design/' . $design . '/' . $fichier ) )
             {
-                return 'design/' . $design . '/' . $fichier;
+                return $prefixe . 'design/' . $design . '/' . $fichier;
             }
         }
 

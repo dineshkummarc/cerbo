@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['hdom_5finfo_5fbegin',['HDOM_INFO_BEGIN',['../simple__html__dom_8php.html#a18bc2baf215f9fa2889795e860e30a8f',1,'simple_html_dom.php']]],
+  ['hdom_5finfo_5fend',['HDOM_INFO_END',['../simple__html__dom_8php.html#a13c34186f5e8fa871944f1d39f893ca4',1,'simple_html_dom.php']]],
+  ['hdom_5finfo_5fendspace',['HDOM_INFO_ENDSPACE',['../simple__html__dom_8php.html#a886a1a55b0a5ea6c66e0eff6fdea87bc',1,'simple_html_dom.php']]],
+  ['hdom_5finfo_5finner',['HDOM_INFO_INNER',['../simple__html__dom_8php.html#aabbc85c183b84f80d434add6347dd7fd',1,'simple_html_dom.php']]],
+  ['hdom_5finfo_5fouter',['HDOM_INFO_OUTER',['../simple__html__dom_8php.html#a008676ca7c003de95f7e6ea6ff92a63b',1,'simple_html_dom.php']]],
+  ['hdom_5finfo_5fquote',['HDOM_INFO_QUOTE',['../simple__html__dom_8php.html#a1b5b6bdcc0c5597e0e9f0f881ff9ab3c',1,'simple_html_dom.php']]],
+  ['hdom_5finfo_5fspace',['HDOM_INFO_SPACE',['../simple__html__dom_8php.html#a05a5288384d1d6deb25e6b5cb67eba9b',1,'simple_html_dom.php']]],
+  ['hdom_5finfo_5ftext',['HDOM_INFO_TEXT',['../simple__html__dom_8php.html#a9750656802ea115d7b3797e22cf2f07e',1,'simple_html_dom.php']]],
+  ['hdom_5fquote_5fdouble',['HDOM_QUOTE_DOUBLE',['../simple__html__dom_8php.html#a25b2e9df879f0e9e6c19a2b1a0560270',1,'simple_html_dom.php']]],
+  ['hdom_5fquote_5fno',['HDOM_QUOTE_NO',['../simple__html__dom_8php.html#ad587bc18546aacd6ec20b68dc1ef9379',1,'simple_html_dom.php']]],
+  ['hdom_5fquote_5fsingle',['HDOM_QUOTE_SINGLE',['../simple__html__dom_8php.html#a6c2fdccdefefb69968227c6c3ec6611a',1,'simple_html_dom.php']]],
+  ['hdom_5ftype_5fcomment',['HDOM_TYPE_COMMENT',['../simple__html__dom_8php.html#a150eac2dfb509c2e71c53f1a1dbde7ab',1,'simple_html_dom.php']]],
+  ['hdom_5ftype_5felement',['HDOM_TYPE_ELEMENT',['../simple__html__dom_8php.html#ae4ed40ab10a6b4194cfc3114bd3902a2',1,'simple_html_dom.php']]],
+  ['hdom_5ftype_5fendtag',['HDOM_TYPE_ENDTAG',['../simple__html__dom_8php.html#a741ba1a55baf1b9d1ecb1f85e2627ef8',1,'simple_html_dom.php']]],
+  ['hdom_5ftype_5froot',['HDOM_TYPE_ROOT',['../simple__html__dom_8php.html#a5a01433d1f7448627983b4210646875a',1,'simple_html_dom.php']]],
+  ['hdom_5ftype_5ftext',['HDOM_TYPE_TEXT',['../simple__html__dom_8php.html#a5918dbd4526d477e5fe865f333e9538c',1,'simple_html_dom.php']]],
+  ['hdom_5ftype_5funknown',['HDOM_TYPE_UNKNOWN',['../simple__html__dom_8php.html#a9b8b189e64f2ed2f007a3733ac6b92d2',1,'simple_html_dom.php']]]
+];

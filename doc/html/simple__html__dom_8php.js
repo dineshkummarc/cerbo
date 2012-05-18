@@ -1,0 +1,25 @@
+var simple__html__dom_8php =
+[
+    [ "DEFAULT_BR_TEXT", "simple__html__dom_8php.html#af934fcb7094d73cbf2d81fe142915c07", null ],
+    [ "DEFAULT_TARGET_CHARSET", "simple__html__dom_8php.html#a68caecf7e025598ca05828747d2952e9", null ],
+    [ "HDOM_INFO_BEGIN", "simple__html__dom_8php.html#a18bc2baf215f9fa2889795e860e30a8f", null ],
+    [ "HDOM_INFO_END", "simple__html__dom_8php.html#a13c34186f5e8fa871944f1d39f893ca4", null ],
+    [ "HDOM_INFO_ENDSPACE", "simple__html__dom_8php.html#a886a1a55b0a5ea6c66e0eff6fdea87bc", null ],
+    [ "HDOM_INFO_INNER", "simple__html__dom_8php.html#aabbc85c183b84f80d434add6347dd7fd", null ],
+    [ "HDOM_INFO_OUTER", "simple__html__dom_8php.html#a008676ca7c003de95f7e6ea6ff92a63b", null ],
+    [ "HDOM_INFO_QUOTE", "simple__html__dom_8php.html#a1b5b6bdcc0c5597e0e9f0f881ff9ab3c", null ],
+    [ "HDOM_INFO_SPACE", "simple__html__dom_8php.html#a05a5288384d1d6deb25e6b5cb67eba9b", null ],
+    [ "HDOM_INFO_TEXT", "simple__html__dom_8php.html#a9750656802ea115d7b3797e22cf2f07e", null ],
+    [ "HDOM_QUOTE_DOUBLE", "simple__html__dom_8php.html#a25b2e9df879f0e9e6c19a2b1a0560270", null ],
+    [ "HDOM_QUOTE_NO", "simple__html__dom_8php.html#ad587bc18546aacd6ec20b68dc1ef9379", null ],
+    [ "HDOM_QUOTE_SINGLE", "simple__html__dom_8php.html#a6c2fdccdefefb69968227c6c3ec6611a", null ],
+    [ "HDOM_TYPE_COMMENT", "simple__html__dom_8php.html#a150eac2dfb509c2e71c53f1a1dbde7ab", null ],
+    [ "HDOM_TYPE_ELEMENT", "simple__html__dom_8php.html#ae4ed40ab10a6b4194cfc3114bd3902a2", null ],
+    [ "HDOM_TYPE_ENDTAG", "simple__html__dom_8php.html#a741ba1a55baf1b9d1ecb1f85e2627ef8", null ],
+    [ "HDOM_TYPE_ROOT", "simple__html__dom_8php.html#a5a01433d1f7448627983b4210646875a", null ],
+    [ "HDOM_TYPE_TEXT", "simple__html__dom_8php.html#a5918dbd4526d477e5fe865f333e9538c", null ],
+    [ "HDOM_TYPE_UNKNOWN", "simple__html__dom_8php.html#a9b8b189e64f2ed2f007a3733ac6b92d2", null ],
+    [ "dump_html_tree", "simple__html__dom_8php.html#a1f67414b1908776b16f3fc8c6953c13f", null ],
+    [ "file_get_html", "simple__html__dom_8php.html#ac2d9d7ae135e915c7221620d8dd9a20d", null ],
+    [ "str_get_html", "simple__html__dom_8php.html#a450a050ad06a68189f7808201067a22e", null ]
+];

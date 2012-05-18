@@ -1,0 +1,606 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Nina:  Fichier source de /home/damien/www/nina/lib/Twig/ExpressionParser.php</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Nina
+   
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_expression_parser_8php.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">/home/damien/www/nina/lib/Twig/ExpressionParser.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_expression_parser_8php.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 <span class="comment">/*</span>
+<a name="l00004"></a>00004 <span class="comment"> * This file is part of Twig.</span>
+<a name="l00005"></a>00005 <span class="comment"> *</span>
+<a name="l00006"></a>00006 <span class="comment"> * (c) 2009 Fabien Potencier</span>
+<a name="l00007"></a>00007 <span class="comment"> * (c) 2009 Armin Ronacher</span>
+<a name="l00008"></a>00008 <span class="comment"> *</span>
+<a name="l00009"></a>00009 <span class="comment"> * For the full copyright and license information, please view the LICENSE</span>
+<a name="l00010"></a>00010 <span class="comment"> * file that was distributed with this source code.</span>
+<a name="l00011"></a>00011 <span class="comment"> */</span>
+<a name="l00012"></a>00012 
+<a name="l00024"></a><a class="code" href="class_twig___expression_parser.html">00024</a> <span class="keyword">class </span><a class="code" href="class_twig___expression_parser.html">Twig_ExpressionParser</a>
+<a name="l00025"></a>00025 {
+<a name="l00026"></a><a class="code" href="class_twig___expression_parser.html#abe5a3390382bf3aba3867940eec28a61">00026</a>     <span class="keyword">const</span> <a class="code" href="class_twig___expression_parser.html#abe5a3390382bf3aba3867940eec28a61">OPERATOR_LEFT</a> = 1;
+<a name="l00027"></a><a class="code" href="class_twig___expression_parser.html#a90a1202797b2ac98156a907ac86d0052">00027</a>     <span class="keyword">const</span> <a class="code" href="class_twig___expression_parser.html#a90a1202797b2ac98156a907ac86d0052">OPERATOR_RIGHT</a> = 2;
+<a name="l00028"></a>00028 
+<a name="l00029"></a><a class="code" href="class_twig___expression_parser.html#a147a766daa03d52576c7345fea31c945">00029</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___expression_parser.html#a147a766daa03d52576c7345fea31c945">$parser</a>;
+<a name="l00030"></a><a class="code" href="class_twig___expression_parser.html#ae627d836785e9074fdd05ea18ed73415">00030</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___expression_parser.html#ae627d836785e9074fdd05ea18ed73415">$unaryOperators</a>;
+<a name="l00031"></a><a class="code" href="class_twig___expression_parser.html#a0daebcbd551638ff610aee2905c70974">00031</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___expression_parser.html#a0daebcbd551638ff610aee2905c70974">$binaryOperators</a>;
+<a name="l00032"></a>00032 
+<a name="l00033"></a><a class="code" href="class_twig___expression_parser.html#ab976f2623fcf3bfe631ecfed19139d61">00033</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#ab976f2623fcf3bfe631ecfed19139d61">__construct</a>(<a class="code" href="class_twig___parser.html">Twig_Parser</a> <a class="code" href="class_twig___expression_parser.html#a147a766daa03d52576c7345fea31c945">$parser</a>, array <a class="code" href="class_twig___expression_parser.html#ae627d836785e9074fdd05ea18ed73415">$unaryOperators</a>, array <a class="code" href="class_twig___expression_parser.html#a0daebcbd551638ff610aee2905c70974">$binaryOperators</a>)
+<a name="l00034"></a>00034     {
+<a name="l00035"></a>00035         $this-&gt;parser = <a class="code" href="class_twig___expression_parser.html#a147a766daa03d52576c7345fea31c945">$parser</a>;
+<a name="l00036"></a>00036         $this-&gt;unaryOperators = <a class="code" href="class_twig___expression_parser.html#ae627d836785e9074fdd05ea18ed73415">$unaryOperators</a>;
+<a name="l00037"></a>00037         $this-&gt;binaryOperators = <a class="code" href="class_twig___expression_parser.html#a0daebcbd551638ff610aee2905c70974">$binaryOperators</a>;
+<a name="l00038"></a>00038     }
+<a name="l00039"></a>00039 
+<a name="l00040"></a><a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">00040</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>($precedence = 0)
+<a name="l00041"></a>00041     {
+<a name="l00042"></a>00042         $expr = $this-&gt;<a class="code" href="class_twig___expression_parser.html#ad3c735d971b18f6f257dd9262d628f00">getPrimary</a>();
+<a name="l00043"></a>00043         $token = $this-&gt;parser-&gt;getCurrentToken();
+<a name="l00044"></a>00044         <span class="keywordflow">while</span> ($this-&gt;<a class="code" href="class_twig___expression_parser.html#a94df003406378be0d7c78f6ff1fd12ba">isBinary</a>($token) &amp;&amp; $this-&gt;binaryOperators[$token-&gt;getValue()][<span class="stringliteral">&#39;precedence&#39;</span>] &gt;= $precedence) {
+<a name="l00045"></a>00045             $op = $this-&gt;binaryOperators[$token-&gt;getValue()];
+<a name="l00046"></a>00046             $this-&gt;parser-&gt;getStream()-&gt;next();
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048             <span class="keywordflow">if</span> (isset($op[<span class="stringliteral">&#39;callable&#39;</span>])) {
+<a name="l00049"></a>00049                 $expr = call_user_func($op[<span class="stringliteral">&#39;callable&#39;</span>], $this-&gt;parser, $expr);
+<a name="l00050"></a>00050             } <span class="keywordflow">else</span> {
+<a name="l00051"></a>00051                 $expr1 = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>(self::OPERATOR_LEFT === $op[<span class="stringliteral">&#39;associativity&#39;</span>] ? $op[<span class="stringliteral">&#39;precedence&#39;</span>] + 1 : $op[<span class="stringliteral">&#39;precedence&#39;</span>]);
+<a name="l00052"></a>00052                 $class = $op[<span class="stringliteral">&#39;class&#39;</span>];
+<a name="l00053"></a>00053                 $expr = <span class="keyword">new</span> $class($expr, $expr1, $token-&gt;getLine());
+<a name="l00054"></a>00054             }
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056             $token = $this-&gt;parser-&gt;getCurrentToken();
+<a name="l00057"></a>00057         }
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059         <span class="keywordflow">if</span> (0 === $precedence) {
+<a name="l00060"></a>00060             <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_twig___expression_parser.html#aa7c8eaf0835312785a61fca03baa062b">parseConditionalExpression</a>($expr);
+<a name="l00061"></a>00061         }
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063         <span class="keywordflow">return</span> $expr;
+<a name="l00064"></a>00064     }
+<a name="l00065"></a>00065 
+<a name="l00066"></a><a class="code" href="class_twig___expression_parser.html#ad3c735d971b18f6f257dd9262d628f00">00066</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#ad3c735d971b18f6f257dd9262d628f00">getPrimary</a>()
+<a name="l00067"></a>00067     {
+<a name="l00068"></a>00068         $token = $this-&gt;parser-&gt;getCurrentToken();
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070         <span class="keywordflow">if</span> ($this-&gt;<a class="code" href="class_twig___expression_parser.html#ac819054852f12938e03d283e9002bfae">isUnary</a>($token)) {
+<a name="l00071"></a>00071             $operator = $this-&gt;unaryOperators[$token-&gt;getValue()];
+<a name="l00072"></a>00072             $this-&gt;parser-&gt;getStream()-&gt;next();
+<a name="l00073"></a>00073             $expr = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>($operator[<span class="stringliteral">&#39;precedence&#39;</span>]);
+<a name="l00074"></a>00074             $class = $operator[<span class="stringliteral">&#39;class&#39;</span>];
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076             <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_twig___expression_parser.html#ad6aaf1c175652606d37f74ef5e008664">parsePostfixExpression</a>(<span class="keyword">new</span> $class($expr, $token-&gt;getLine()));
+<a name="l00077"></a>00077         } elseif ($token-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;(&#39;</span>)) {
+<a name="l00078"></a>00078             $this-&gt;parser-&gt;getStream()-&gt;next();
+<a name="l00079"></a>00079             $expr = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>();
+<a name="l00080"></a>00080             $this-&gt;parser-&gt;getStream()-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;)&#39;</span>, <span class="stringliteral">&#39;An opened parenthesis is not properly closed&#39;</span>);
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082             <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_twig___expression_parser.html#ad6aaf1c175652606d37f74ef5e008664">parsePostfixExpression</a>($expr);
+<a name="l00083"></a>00083         }
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085         <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_twig___expression_parser.html#af4649c23ab84785567030a0673a9ee76">parsePrimaryExpression</a>();
+<a name="l00086"></a>00086     }
+<a name="l00087"></a>00087 
+<a name="l00088"></a><a class="code" href="class_twig___expression_parser.html#aa7c8eaf0835312785a61fca03baa062b">00088</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#aa7c8eaf0835312785a61fca03baa062b">parseConditionalExpression</a>($expr)
+<a name="l00089"></a>00089     {
+<a name="l00090"></a>00090         <span class="keywordflow">while</span> ($this-&gt;parser-&gt;getStream()-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;?&#39;</span>)) {
+<a name="l00091"></a>00091             $this-&gt;parser-&gt;getStream()-&gt;next();
+<a name="l00092"></a>00092             $expr2 = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>();
+<a name="l00093"></a>00093             $this-&gt;parser-&gt;getStream()-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;:&#39;</span>, <span class="stringliteral">&#39;The ternary operator must have a default value&#39;</span>);
+<a name="l00094"></a>00094             $expr3 = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>();
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096             $expr = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___conditional.html">Twig_Node_Expression_Conditional</a>($expr, $expr2, $expr3, $this-&gt;parser-&gt;getCurrentToken()-&gt;getLine());
+<a name="l00097"></a>00097         }
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099         <span class="keywordflow">return</span> $expr;
+<a name="l00100"></a>00100     }
+<a name="l00101"></a>00101 
+<a name="l00102"></a><a class="code" href="class_twig___expression_parser.html#ac819054852f12938e03d283e9002bfae">00102</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#ac819054852f12938e03d283e9002bfae">isUnary</a>(<a class="code" href="class_twig___token.html">Twig_Token</a> $token)
+<a name="l00103"></a>00103     {
+<a name="l00104"></a>00104         <span class="keywordflow">return</span> $token-&gt;<a class="code" href="class_twig___token.html#a9cdad590920515cc2bb0fc6bccaf462a">test</a>(<a class="code" href="class_twig___token.html#a143eb58464c5398fe7aeb1d482d5822f">Twig_Token::OPERATOR_TYPE</a>) &amp;&amp; isset($this-&gt;unaryOperators[$token-&gt;<a class="code" href="class_twig___token.html#ac0bc18784b182c89fcfd276625aef435">getValue</a>()]);
+<a name="l00105"></a>00105     }
+<a name="l00106"></a>00106 
+<a name="l00107"></a><a class="code" href="class_twig___expression_parser.html#a94df003406378be0d7c78f6ff1fd12ba">00107</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#a94df003406378be0d7c78f6ff1fd12ba">isBinary</a>(<a class="code" href="class_twig___token.html">Twig_Token</a> $token)
+<a name="l00108"></a>00108     {
+<a name="l00109"></a>00109         <span class="keywordflow">return</span> $token-&gt;<a class="code" href="class_twig___token.html#a9cdad590920515cc2bb0fc6bccaf462a">test</a>(<a class="code" href="class_twig___token.html#a143eb58464c5398fe7aeb1d482d5822f">Twig_Token::OPERATOR_TYPE</a>) &amp;&amp; isset($this-&gt;binaryOperators[$token-&gt;<a class="code" href="class_twig___token.html#ac0bc18784b182c89fcfd276625aef435">getValue</a>()]);
+<a name="l00110"></a>00110     }
+<a name="l00111"></a>00111 
+<a name="l00112"></a><a class="code" href="class_twig___expression_parser.html#af4649c23ab84785567030a0673a9ee76">00112</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#af4649c23ab84785567030a0673a9ee76">parsePrimaryExpression</a>()
+<a name="l00113"></a>00113     {
+<a name="l00114"></a>00114         $token = $this-&gt;parser-&gt;getCurrentToken();
+<a name="l00115"></a>00115         <span class="keywordflow">switch</span> ($token-&gt;getType()) {
+<a name="l00116"></a>00116             <span class="keywordflow">case</span> <a class="code" href="class_twig___token.html#a5dde6b9e81eb5c8dd046842570c5dab4">Twig_Token::NAME_TYPE</a>:
+<a name="l00117"></a>00117                 $this-&gt;parser-&gt;getStream()-&gt;next();
+<a name="l00118"></a>00118                 <span class="keywordflow">switch</span> ($token-&gt;getValue()) {
+<a name="l00119"></a>00119                     <span class="keywordflow">case</span> <span class="stringliteral">&#39;true&#39;</span>:
+<a name="l00120"></a>00120                     <span class="keywordflow">case</span> <span class="stringliteral">&#39;TRUE&#39;</span>:
+<a name="l00121"></a>00121                         $node = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___constant.html">Twig_Node_Expression_Constant</a>(<span class="keyword">true</span>, $token-&gt;getLine());
+<a name="l00122"></a>00122                         <span class="keywordflow">break</span>;
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124                     <span class="keywordflow">case</span> <span class="stringliteral">&#39;false&#39;</span>:
+<a name="l00125"></a>00125                     <span class="keywordflow">case</span> <span class="stringliteral">&#39;FALSE&#39;</span>:
+<a name="l00126"></a>00126                         $node = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___constant.html">Twig_Node_Expression_Constant</a>(<span class="keyword">false</span>, $token-&gt;getLine());
+<a name="l00127"></a>00127                         <span class="keywordflow">break</span>;
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129                     <span class="keywordflow">case</span> <span class="stringliteral">&#39;none&#39;</span>:
+<a name="l00130"></a>00130                     <span class="keywordflow">case</span> <span class="stringliteral">&#39;NONE&#39;</span>:
+<a name="l00131"></a>00131                     <span class="keywordflow">case</span> <span class="stringliteral">&#39;null&#39;</span>:
+<a name="l00132"></a>00132                     <span class="keywordflow">case</span> <span class="stringliteral">&#39;NULL&#39;</span>:
+<a name="l00133"></a>00133                         $node = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___constant.html">Twig_Node_Expression_Constant</a>(null, $token-&gt;getLine());
+<a name="l00134"></a>00134                         <span class="keywordflow">break</span>;
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136                     <span class="keywordflow">default</span>:
+<a name="l00137"></a>00137                         <span class="keywordflow">if</span> (<span class="charliteral">&#39;(&#39;</span> === $this-&gt;parser-&gt;getCurrentToken()-&gt;getValue()) {
+<a name="l00138"></a>00138                             $node = $this-&gt;<a class="code" href="class_twig___expression_parser.html#acf5750a843dfd9532b700e0e28c83381">getFunctionNode</a>($token-&gt;getValue(), $token-&gt;getLine());
+<a name="l00139"></a>00139                         } <span class="keywordflow">else</span> {
+<a name="l00140"></a>00140                             $node = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___name.html">Twig_Node_Expression_Name</a>($token-&gt;getValue(), $token-&gt;getLine());
+<a name="l00141"></a>00141                         }
+<a name="l00142"></a>00142                 }
+<a name="l00143"></a>00143                 <span class="keywordflow">break</span>;
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145             <span class="keywordflow">case</span> <a class="code" href="class_twig___token.html#a0053ba5957db87c3549cd18418ddc7ec">Twig_Token::NUMBER_TYPE</a>:
+<a name="l00146"></a>00146                 $this-&gt;parser-&gt;getStream()-&gt;next();
+<a name="l00147"></a>00147                 $node = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___constant.html">Twig_Node_Expression_Constant</a>($token-&gt;getValue(), $token-&gt;getLine());
+<a name="l00148"></a>00148                 <span class="keywordflow">break</span>;
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150             <span class="keywordflow">case</span> <a class="code" href="class_twig___token.html#a8f9407ce6f57b891a8bd3dc9a2614cb5">Twig_Token::STRING_TYPE</a>:
+<a name="l00151"></a>00151             <span class="keywordflow">case</span> <a class="code" href="class_twig___token.html#a74d54f60a6d271eb3b268a00b0fca731">Twig_Token::INTERPOLATION_START_TYPE</a>:
+<a name="l00152"></a>00152                 $node = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a99a1301121a1b6e34fb7ce044baef1cf">parseStringExpression</a>();
+<a name="l00153"></a>00153                 <span class="keywordflow">break</span>;
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155             <span class="keywordflow">default</span>:
+<a name="l00156"></a>00156                 <span class="keywordflow">if</span> ($token-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;[&#39;</span>)) {
+<a name="l00157"></a>00157                     $node = $this-&gt;<a class="code" href="class_twig___expression_parser.html#ac8125f8f7746662e24757a1207fe9986">parseArrayExpression</a>();
+<a name="l00158"></a>00158                 } elseif ($token-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;{&#39;</span>)) {
+<a name="l00159"></a>00159                     $node = $this-&gt;<a class="code" href="class_twig___expression_parser.html#aa1ab124f21f6eb72bdda3f835a747237">parseHashExpression</a>();
+<a name="l00160"></a>00160                 } <span class="keywordflow">else</span> {
+<a name="l00161"></a>00161                     <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(sprintf(<span class="stringliteral">&#39;Unexpected token &quot;%s&quot; of value &quot;%s&quot;&#39;</span>, <a class="code" href="class_twig___token.html#a0fa2573a9f56fc58ca2f9a4ce0424e36">Twig_Token::typeToEnglish</a>($token-&gt;getType(), $token-&gt;getLine()), $token-&gt;getValue()), $token-&gt;getLine());
+<a name="l00162"></a>00162                 }
+<a name="l00163"></a>00163         }
+<a name="l00164"></a>00164 
+<a name="l00165"></a>00165         <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_twig___expression_parser.html#ad6aaf1c175652606d37f74ef5e008664">parsePostfixExpression</a>($node);
+<a name="l00166"></a>00166     }
+<a name="l00167"></a>00167 
+<a name="l00168"></a><a class="code" href="class_twig___expression_parser.html#a99a1301121a1b6e34fb7ce044baef1cf">00168</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#a99a1301121a1b6e34fb7ce044baef1cf">parseStringExpression</a>()
+<a name="l00169"></a>00169     {
+<a name="l00170"></a>00170         $stream = $this-&gt;parser-&gt;getStream();
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172         $nodes = array();
+<a name="l00173"></a>00173         <span class="comment">// a string cannot be followed by another string in a single expression</span>
+<a name="l00174"></a>00174         $nextCanBeString = <span class="keyword">true</span>;
+<a name="l00175"></a>00175         <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
+<a name="l00176"></a>00176             <span class="keywordflow">if</span> ($stream-&gt;test(<a class="code" href="class_twig___token.html#a8f9407ce6f57b891a8bd3dc9a2614cb5">Twig_Token::STRING_TYPE</a>) &amp;&amp; $nextCanBeString) {
+<a name="l00177"></a>00177                 $token = $stream-&gt;next();
+<a name="l00178"></a>00178                 $nodes[] = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___constant.html">Twig_Node_Expression_Constant</a>($token-&gt;getValue(), $token-&gt;getLine());
+<a name="l00179"></a>00179                 $nextCanBeString = <span class="keyword">false</span>;
+<a name="l00180"></a>00180             } elseif ($stream-&gt;test(<a class="code" href="class_twig___token.html#a74d54f60a6d271eb3b268a00b0fca731">Twig_Token::INTERPOLATION_START_TYPE</a>)) {
+<a name="l00181"></a>00181                 $stream-&gt;next();
+<a name="l00182"></a>00182                 $nodes[] = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>();
+<a name="l00183"></a>00183                 $stream-&gt;expect(<a class="code" href="class_twig___token.html#a6f5d78c437002c2ab0496c6322a940fb">Twig_Token::INTERPOLATION_END_TYPE</a>);
+<a name="l00184"></a>00184                 $nextCanBeString = <span class="keyword">true</span>;
+<a name="l00185"></a>00185             } <span class="keywordflow">else</span> {
+<a name="l00186"></a>00186                 <span class="keywordflow">break</span>;
+<a name="l00187"></a>00187             }
+<a name="l00188"></a>00188         }
+<a name="l00189"></a>00189 
+<a name="l00190"></a>00190         $expr = array_shift($nodes);
+<a name="l00191"></a>00191         <span class="keywordflow">foreach</span> ($nodes as $node) {
+<a name="l00192"></a>00192             $expr = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___binary___concat.html">Twig_Node_Expression_Binary_Concat</a>($expr, $node, $node-&gt;getLine());
+<a name="l00193"></a>00193         }
+<a name="l00194"></a>00194 
+<a name="l00195"></a>00195         <span class="keywordflow">return</span> $expr;
+<a name="l00196"></a>00196     }
+<a name="l00197"></a>00197 
+<a name="l00198"></a><a class="code" href="class_twig___expression_parser.html#ac8125f8f7746662e24757a1207fe9986">00198</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#ac8125f8f7746662e24757a1207fe9986">parseArrayExpression</a>()
+<a name="l00199"></a>00199     {
+<a name="l00200"></a>00200         $stream = $this-&gt;parser-&gt;getStream();
+<a name="l00201"></a>00201         $stream-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;[&#39;</span>, <span class="stringliteral">&#39;An array element was expected&#39;</span>);
+<a name="l00202"></a>00202 
+<a name="l00203"></a>00203         $node = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___array.html">Twig_Node_Expression_Array</a>(array(), $stream-&gt;getCurrent()-&gt;getLine());
+<a name="l00204"></a>00204         $first = <span class="keyword">true</span>;
+<a name="l00205"></a>00205         <span class="keywordflow">while</span> (!$stream-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;]&#39;</span>)) {
+<a name="l00206"></a>00206             <span class="keywordflow">if</span> (!$first) {
+<a name="l00207"></a>00207                 $stream-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;,&#39;</span>, <span class="stringliteral">&#39;An array element must be followed by a comma&#39;</span>);
+<a name="l00208"></a>00208 
+<a name="l00209"></a>00209                 <span class="comment">// trailing ,?</span>
+<a name="l00210"></a>00210                 <span class="keywordflow">if</span> ($stream-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;]&#39;</span>)) {
+<a name="l00211"></a>00211                     <span class="keywordflow">break</span>;
+<a name="l00212"></a>00212                 }
+<a name="l00213"></a>00213             }
+<a name="l00214"></a>00214             $first = <span class="keyword">false</span>;
+<a name="l00215"></a>00215 
+<a name="l00216"></a>00216             $node-&gt;<a class="code" href="class_twig___node___expression___array.html#a28a4df69551951ee00cdfb59c0a72c57">addElement</a>($this-&gt;<a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>());
+<a name="l00217"></a>00217         }
+<a name="l00218"></a>00218         $stream-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;]&#39;</span>, <span class="stringliteral">&#39;An opened array is not properly closed&#39;</span>);
+<a name="l00219"></a>00219 
+<a name="l00220"></a>00220         <span class="keywordflow">return</span> $node;
+<a name="l00221"></a>00221     }
+<a name="l00222"></a>00222 
+<a name="l00223"></a><a class="code" href="class_twig___expression_parser.html#aa1ab124f21f6eb72bdda3f835a747237">00223</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#aa1ab124f21f6eb72bdda3f835a747237">parseHashExpression</a>()
+<a name="l00224"></a>00224     {
+<a name="l00225"></a>00225         $stream = $this-&gt;parser-&gt;getStream();
+<a name="l00226"></a>00226         $stream-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;{&#39;</span>, <span class="stringliteral">&#39;A hash element was expected&#39;</span>);
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228         $node = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___array.html">Twig_Node_Expression_Array</a>(array(), $stream-&gt;getCurrent()-&gt;getLine());
+<a name="l00229"></a>00229         $first = <span class="keyword">true</span>;
+<a name="l00230"></a>00230         <span class="keywordflow">while</span> (!$stream-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;}&#39;</span>)) {
+<a name="l00231"></a>00231             <span class="keywordflow">if</span> (!$first) {
+<a name="l00232"></a>00232                 $stream-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;,&#39;</span>, <span class="stringliteral">&#39;A hash value must be followed by a comma&#39;</span>);
+<a name="l00233"></a>00233 
+<a name="l00234"></a>00234                 <span class="comment">// trailing ,?</span>
+<a name="l00235"></a>00235                 <span class="keywordflow">if</span> ($stream-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;}&#39;</span>)) {
+<a name="l00236"></a>00236                     <span class="keywordflow">break</span>;
+<a name="l00237"></a>00237                 }
+<a name="l00238"></a>00238             }
+<a name="l00239"></a>00239             $first = <span class="keyword">false</span>;
+<a name="l00240"></a>00240 
+<a name="l00241"></a>00241             <span class="comment">// a hash key can be:</span>
+<a name="l00242"></a>00242             <span class="comment">//</span>
+<a name="l00243"></a>00243             <span class="comment">//  * a number -- 12</span>
+<a name="l00244"></a>00244             <span class="comment">//  * a string -- &#39;a&#39;</span>
+<a name="l00245"></a>00245             <span class="comment">//  * a name, which is equivalent to a string -- a</span>
+<a name="l00246"></a>00246             <span class="comment">//  * an expression, which must be enclosed in parentheses -- (1 + 2)</span>
+<a name="l00247"></a>00247             <span class="keywordflow">if</span> ($stream-&gt;test(<a class="code" href="class_twig___token.html#a8f9407ce6f57b891a8bd3dc9a2614cb5">Twig_Token::STRING_TYPE</a>) || $stream-&gt;test(<a class="code" href="class_twig___token.html#a5dde6b9e81eb5c8dd046842570c5dab4">Twig_Token::NAME_TYPE</a>) || $stream-&gt;test(<a class="code" href="class_twig___token.html#a0053ba5957db87c3549cd18418ddc7ec">Twig_Token::NUMBER_TYPE</a>)) {
+<a name="l00248"></a>00248                 $token = $stream-&gt;next();
+<a name="l00249"></a>00249                 $key = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___constant.html">Twig_Node_Expression_Constant</a>($token-&gt;getValue(), $token-&gt;getLine());
+<a name="l00250"></a>00250             } elseif ($stream-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;(&#39;</span>)) {
+<a name="l00251"></a>00251                 $key = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>();
+<a name="l00252"></a>00252             } <span class="keywordflow">else</span> {
+<a name="l00253"></a>00253                 $current = $stream-&gt;getCurrent();
+<a name="l00254"></a>00254 
+<a name="l00255"></a>00255                 <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(sprintf(<span class="stringliteral">&#39;A hash key must be a quoted string, a number, a name, or an expression enclosed in parentheses (unexpected token &quot;%s&quot; of value &quot;%s&quot;&#39;</span>, <a class="code" href="class_twig___token.html#a0fa2573a9f56fc58ca2f9a4ce0424e36">Twig_Token::typeToEnglish</a>($current-&gt;getType(), $current-&gt;getLine()), $current-&gt;getValue()), $current-&gt;getLine());
+<a name="l00256"></a>00256             }
+<a name="l00257"></a>00257 
+<a name="l00258"></a>00258             $stream-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;:&#39;</span>, <span class="stringliteral">&#39;A hash key must be followed by a colon (:)&#39;</span>);
+<a name="l00259"></a>00259             $value = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>();
+<a name="l00260"></a>00260 
+<a name="l00261"></a>00261             $node-&gt;addElement($value, $key);
+<a name="l00262"></a>00262         }
+<a name="l00263"></a>00263         $stream-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;}&#39;</span>, <span class="stringliteral">&#39;An opened hash is not properly closed&#39;</span>);
+<a name="l00264"></a>00264 
+<a name="l00265"></a>00265         <span class="keywordflow">return</span> $node;
+<a name="l00266"></a>00266     }
+<a name="l00267"></a>00267 
+<a name="l00268"></a><a class="code" href="class_twig___expression_parser.html#ad6aaf1c175652606d37f74ef5e008664">00268</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#ad6aaf1c175652606d37f74ef5e008664">parsePostfixExpression</a>($node)
+<a name="l00269"></a>00269     {
+<a name="l00270"></a>00270         <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
+<a name="l00271"></a>00271             $token = $this-&gt;parser-&gt;getCurrentToken();
+<a name="l00272"></a>00272             <span class="keywordflow">if</span> ($token-&gt;getType() == <a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>) {
+<a name="l00273"></a>00273                 <span class="keywordflow">if</span> (<span class="charliteral">&#39;.&#39;</span> == $token-&gt;getValue() || <span class="charliteral">&#39;[&#39;</span> == $token-&gt;getValue()) {
+<a name="l00274"></a>00274                     $node = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a39de613eaf1404c8b0e3e676feaf5131">parseSubscriptExpression</a>($node);
+<a name="l00275"></a>00275                 } elseif (<span class="charliteral">&#39;|&#39;</span> == $token-&gt;getValue()) {
+<a name="l00276"></a>00276                     $node = $this-&gt;<a class="code" href="class_twig___expression_parser.html#aa34dd7e6733af986a5d59be68e0cc24e">parseFilterExpression</a>($node);
+<a name="l00277"></a>00277                 } <span class="keywordflow">else</span> {
+<a name="l00278"></a>00278                     <span class="keywordflow">break</span>;
+<a name="l00279"></a>00279                 }
+<a name="l00280"></a>00280             } <span class="keywordflow">else</span> {
+<a name="l00281"></a>00281                 <span class="keywordflow">break</span>;
+<a name="l00282"></a>00282             }
+<a name="l00283"></a>00283         }
+<a name="l00284"></a>00284 
+<a name="l00285"></a>00285         <span class="keywordflow">return</span> $node;
+<a name="l00286"></a>00286     }
+<a name="l00287"></a>00287 
+<a name="l00288"></a><a class="code" href="class_twig___expression_parser.html#acf5750a843dfd9532b700e0e28c83381">00288</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#acf5750a843dfd9532b700e0e28c83381">getFunctionNode</a>($name, $line)
+<a name="l00289"></a>00289     {
+<a name="l00290"></a>00290         $args = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7d9e9372bc6498d076030a4caf7bc188">parseArguments</a>();
+<a name="l00291"></a>00291         <span class="keywordflow">switch</span> ($name) {
+<a name="l00292"></a>00292             <span class="keywordflow">case</span> <span class="stringliteral">&#39;parent&#39;</span>:
+<a name="l00293"></a>00293                 <span class="keywordflow">if</span> (!count($this-&gt;parser-&gt;getBlockStack())) {
+<a name="l00294"></a>00294                     <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(<span class="stringliteral">&#39;Calling &quot;parent&quot; outside a block is forbidden&#39;</span>, $line);
+<a name="l00295"></a>00295                 }
+<a name="l00296"></a>00296 
+<a name="l00297"></a>00297                 <span class="keywordflow">if</span> (!$this-&gt;parser-&gt;getParent() &amp;&amp; !$this-&gt;parser-&gt;hasTraits()) {
+<a name="l00298"></a>00298                     <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(<span class="stringliteral">&#39;Calling &quot;parent&quot; on a template that does not extend nor &quot;use&quot; another template is forbidden&#39;</span>, $line);
+<a name="l00299"></a>00299                 }
+<a name="l00300"></a>00300 
+<a name="l00301"></a>00301                 <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___parent.html">Twig_Node_Expression_Parent</a>($this-&gt;parser-&gt;peekBlockStack(), $line);
+<a name="l00302"></a>00302             <span class="keywordflow">case</span> <span class="stringliteral">&#39;block&#39;</span>:
+<a name="l00303"></a>00303                 <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___block_reference.html">Twig_Node_Expression_BlockReference</a>($args-&gt;getNode(0), <span class="keyword">false</span>, $line);
+<a name="l00304"></a>00304             <span class="keywordflow">case</span> <span class="stringliteral">&#39;attribute&#39;</span>:
+<a name="l00305"></a>00305                 <span class="keywordflow">if</span> (count($args) &lt; 2) {
+<a name="l00306"></a>00306                     <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(<span class="stringliteral">&#39;The &quot;attribute&quot; function takes at least two arguments (the variable and the attributes)&#39;</span>, $line);
+<a name="l00307"></a>00307                 }
+<a name="l00308"></a>00308 
+<a name="l00309"></a>00309                 <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___get_attr.html">Twig_Node_Expression_GetAttr</a>($args-&gt;getNode(0), $args-&gt;getNode(1), count($args) &gt; 2 ? $args-&gt;getNode(2) : <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___array.html">Twig_Node_Expression_Array</a>(array(), $line), <a class="code" href="interface_twig___template_interface.html#afbad1c07ee4c5a6ab24612dd1e419c80">Twig_TemplateInterface::ANY_CALL</a>, $line);
+<a name="l00310"></a>00310             <span class="keywordflow">default</span>:
+<a name="l00311"></a>00311                 <span class="keywordflow">if</span> (null !== $alias = $this-&gt;parser-&gt;getImportedFunction($name)) {
+<a name="l00312"></a>00312                     $arguments = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___array.html">Twig_Node_Expression_Array</a>(array(), $line);
+<a name="l00313"></a>00313                     <span class="keywordflow">foreach</span> ($args as $n) {
+<a name="l00314"></a>00314                         $arguments-&gt;addElement($n);
+<a name="l00315"></a>00315                     }
+<a name="l00316"></a>00316 
+<a name="l00317"></a>00317                     $node = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___method_call.html">Twig_Node_Expression_MethodCall</a>($alias[<span class="stringliteral">&#39;node&#39;</span>], $alias[<span class="stringliteral">&#39;name&#39;</span>], $arguments, $line);
+<a name="l00318"></a>00318                     $node-&gt;setAttribute(<span class="stringliteral">&#39;safe&#39;</span>, <span class="keyword">true</span>);
+<a name="l00319"></a>00319 
+<a name="l00320"></a>00320                     <span class="keywordflow">return</span> $node;
+<a name="l00321"></a>00321                 }
+<a name="l00322"></a>00322 
+<a name="l00323"></a>00323                 $class = $this-&gt;<a class="code" href="class_twig___expression_parser.html#ad80d45c2a2b09906b569159558c4bdb7">getFunctionNodeClass</a>($name);
+<a name="l00324"></a>00324 
+<a name="l00325"></a>00325                 <span class="keywordflow">return</span> <span class="keyword">new</span> $class($name, $args, $line);
+<a name="l00326"></a>00326         }
+<a name="l00327"></a>00327     }
+<a name="l00328"></a>00328 
+<a name="l00329"></a><a class="code" href="class_twig___expression_parser.html#a39de613eaf1404c8b0e3e676feaf5131">00329</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#a39de613eaf1404c8b0e3e676feaf5131">parseSubscriptExpression</a>($node)
+<a name="l00330"></a>00330     {
+<a name="l00331"></a>00331         $stream = $this-&gt;parser-&gt;getStream();
+<a name="l00332"></a>00332         $token = $stream-&gt;next();
+<a name="l00333"></a>00333         $lineno = $token-&gt;getLine();
+<a name="l00334"></a>00334         $arguments = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___array.html">Twig_Node_Expression_Array</a>(array(), $lineno);
+<a name="l00335"></a>00335         $type = <a class="code" href="interface_twig___template_interface.html#afbad1c07ee4c5a6ab24612dd1e419c80">Twig_TemplateInterface::ANY_CALL</a>;
+<a name="l00336"></a>00336         <span class="keywordflow">if</span> ($token-&gt;getValue() == <span class="charliteral">&#39;.&#39;</span>) {
+<a name="l00337"></a>00337             $token = $stream-&gt;next();
+<a name="l00338"></a>00338             <span class="keywordflow">if</span> (
+<a name="l00339"></a>00339                 $token-&gt;getType() == <a class="code" href="class_twig___token.html#a5dde6b9e81eb5c8dd046842570c5dab4">Twig_Token::NAME_TYPE</a>
+<a name="l00340"></a>00340                 ||
+<a name="l00341"></a>00341                 $token-&gt;getType() == <a class="code" href="class_twig___token.html#a0053ba5957db87c3549cd18418ddc7ec">Twig_Token::NUMBER_TYPE</a>
+<a name="l00342"></a>00342                 ||
+<a name="l00343"></a>00343                 ($token-&gt;getType() == <a class="code" href="class_twig___token.html#a143eb58464c5398fe7aeb1d482d5822f">Twig_Token::OPERATOR_TYPE</a> &amp;&amp; preg_match(<a class="code" href="class_twig___lexer.html#a16ad69f49b3f1e3d15823ce6760c49c1">Twig_Lexer::REGEX_NAME</a>, $token-&gt;getValue()))
+<a name="l00344"></a>00344             ) {
+<a name="l00345"></a>00345                 $arg = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___constant.html">Twig_Node_Expression_Constant</a>($token-&gt;getValue(), $lineno);
+<a name="l00346"></a>00346 
+<a name="l00347"></a>00347                 <span class="keywordflow">if</span> ($stream-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;(&#39;</span>)) {
+<a name="l00348"></a>00348                     $type = <a class="code" href="interface_twig___template_interface.html#a296b9e68df98717f0c552180d8770665">Twig_TemplateInterface::METHOD_CALL</a>;
+<a name="l00349"></a>00349                     <span class="keywordflow">foreach</span> ($this-&gt;<a class="code" href="class_twig___expression_parser.html#a7d9e9372bc6498d076030a4caf7bc188">parseArguments</a>() as $n) {
+<a name="l00350"></a>00350                         $arguments-&gt;addElement($n);
+<a name="l00351"></a>00351                     }
+<a name="l00352"></a>00352                 }
+<a name="l00353"></a>00353             } <span class="keywordflow">else</span> {
+<a name="l00354"></a>00354                 <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(<span class="stringliteral">&#39;Expected name or number&#39;</span>, $lineno);
+<a name="l00355"></a>00355             }
+<a name="l00356"></a>00356         } <span class="keywordflow">else</span> {
+<a name="l00357"></a>00357             $type = <a class="code" href="interface_twig___template_interface.html#a3458e5e24f091e589f85fdf4e3f270d9">Twig_TemplateInterface::ARRAY_CALL</a>;
+<a name="l00358"></a>00358 
+<a name="l00359"></a>00359             $arg = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>();
+<a name="l00360"></a>00360 
+<a name="l00361"></a>00361             <span class="comment">// slice?</span>
+<a name="l00362"></a>00362             <span class="keywordflow">if</span> ($stream-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;:&#39;</span>)) {
+<a name="l00363"></a>00363                 $stream-&gt;next();
+<a name="l00364"></a>00364 
+<a name="l00365"></a>00365                 <span class="keywordflow">if</span> ($stream-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;]&#39;</span>)) {
+<a name="l00366"></a>00366                     $length = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___constant.html">Twig_Node_Expression_Constant</a>(null, $token-&gt;getLine());
+<a name="l00367"></a>00367                 } <span class="keywordflow">else</span> {
+<a name="l00368"></a>00368                     $length = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>();
+<a name="l00369"></a>00369                 }
+<a name="l00370"></a>00370 
+<a name="l00371"></a>00371                 $class = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a2b155b7af439e396d00f424dc65f70cc">getFilterNodeClass</a>(<span class="stringliteral">&#39;slice&#39;</span>);
+<a name="l00372"></a>00372                 $arguments = <span class="keyword">new</span> <a class="code" href="class_twig___node.html">Twig_Node</a>(array($arg, $length));
+<a name="l00373"></a>00373                 $filter = <span class="keyword">new</span> $class($node, <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___constant.html">Twig_Node_Expression_Constant</a>(<span class="stringliteral">&#39;slice&#39;</span>, $token-&gt;getLine()), $arguments, $token-&gt;<a class="code" href="class_twig___node.html#aef9c32f6066788a101028a1d4150f8cb">getLine</a>());
+<a name="l00374"></a>00374 
+<a name="l00375"></a>00375                 $stream-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;]&#39;</span>);
+<a name="l00376"></a>00376 
+<a name="l00377"></a>00377                 <span class="keywordflow">return</span> $filter;
+<a name="l00378"></a>00378             }
+<a name="l00379"></a>00379 
+<a name="l00380"></a>00380             $stream-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;]&#39;</span>);
+<a name="l00381"></a>00381         }
+<a name="l00382"></a>00382 
+<a name="l00383"></a>00383         <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___get_attr.html">Twig_Node_Expression_GetAttr</a>($node, $arg, $arguments, $type, $lineno);
+<a name="l00384"></a>00384     }
+<a name="l00385"></a>00385 
+<a name="l00386"></a><a class="code" href="class_twig___expression_parser.html#aa34dd7e6733af986a5d59be68e0cc24e">00386</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#aa34dd7e6733af986a5d59be68e0cc24e">parseFilterExpression</a>($node)
+<a name="l00387"></a>00387     {
+<a name="l00388"></a>00388         $this-&gt;parser-&gt;getStream()-&gt;next();
+<a name="l00389"></a>00389 
+<a name="l00390"></a>00390         <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_twig___expression_parser.html#a042523e3f2021f368ceee6ce9fd2ea0e">parseFilterExpressionRaw</a>($node);
+<a name="l00391"></a>00391     }
+<a name="l00392"></a>00392 
+<a name="l00393"></a><a class="code" href="class_twig___expression_parser.html#a042523e3f2021f368ceee6ce9fd2ea0e">00393</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#a042523e3f2021f368ceee6ce9fd2ea0e">parseFilterExpressionRaw</a>($node, $tag = null)
+<a name="l00394"></a>00394     {
+<a name="l00395"></a>00395         <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
+<a name="l00396"></a>00396             $token = $this-&gt;parser-&gt;getStream()-&gt;expect(<a class="code" href="class_twig___token.html#a5dde6b9e81eb5c8dd046842570c5dab4">Twig_Token::NAME_TYPE</a>);
+<a name="l00397"></a>00397 
+<a name="l00398"></a>00398             $name = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___constant.html">Twig_Node_Expression_Constant</a>($token-&gt;getValue(), $token-&gt;getLine());
+<a name="l00399"></a>00399             <span class="keywordflow">if</span> (!$this-&gt;parser-&gt;getStream()-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;(&#39;</span>)) {
+<a name="l00400"></a>00400                 $arguments = <span class="keyword">new</span> <a class="code" href="class_twig___node.html">Twig_Node</a>();
+<a name="l00401"></a>00401             } <span class="keywordflow">else</span> {
+<a name="l00402"></a>00402                 $arguments = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7d9e9372bc6498d076030a4caf7bc188">parseArguments</a>();
+<a name="l00403"></a>00403             }
+<a name="l00404"></a>00404 
+<a name="l00405"></a>00405             $class = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a2b155b7af439e396d00f424dc65f70cc">getFilterNodeClass</a>($name-&gt;getAttribute(<span class="stringliteral">&#39;value&#39;</span>));
+<a name="l00406"></a>00406 
+<a name="l00407"></a>00407             $node = <span class="keyword">new</span> $class($node, $name, $arguments, $token-&gt;getLine(), $tag);
+<a name="l00408"></a>00408 
+<a name="l00409"></a>00409             <span class="keywordflow">if</span> (!$this-&gt;parser-&gt;getStream()-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;|&#39;</span>)) {
+<a name="l00410"></a>00410                 <span class="keywordflow">break</span>;
+<a name="l00411"></a>00411             }
+<a name="l00412"></a>00412 
+<a name="l00413"></a>00413             $this-&gt;parser-&gt;getStream()-&gt;next();
+<a name="l00414"></a>00414         }
+<a name="l00415"></a>00415 
+<a name="l00416"></a>00416         <span class="keywordflow">return</span> $node;
+<a name="l00417"></a>00417     }
+<a name="l00418"></a>00418 
+<a name="l00419"></a><a class="code" href="class_twig___expression_parser.html#a7d9e9372bc6498d076030a4caf7bc188">00419</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#a7d9e9372bc6498d076030a4caf7bc188">parseArguments</a>()
+<a name="l00420"></a>00420     {
+<a name="l00421"></a>00421         $args = array();
+<a name="l00422"></a>00422         $stream = $this-&gt;parser-&gt;getStream();
+<a name="l00423"></a>00423 
+<a name="l00424"></a>00424         $stream-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;(&#39;</span>, <span class="stringliteral">&#39;A list of arguments must be opened by a parenthesis&#39;</span>);
+<a name="l00425"></a>00425         <span class="keywordflow">while</span> (!$stream-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;)&#39;</span>)) {
+<a name="l00426"></a>00426             <span class="keywordflow">if</span> (!empty($args)) {
+<a name="l00427"></a>00427                 $stream-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;,&#39;</span>, <span class="stringliteral">&#39;Arguments must be separated by a comma&#39;</span>);
+<a name="l00428"></a>00428             }
+<a name="l00429"></a>00429             $args[] = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>();
+<a name="l00430"></a>00430         }
+<a name="l00431"></a>00431         $stream-&gt;expect(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;)&#39;</span>, <span class="stringliteral">&#39;A list of arguments must be closed by a parenthesis&#39;</span>);
+<a name="l00432"></a>00432 
+<a name="l00433"></a>00433         <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_twig___node.html">Twig_Node</a>($args);
+<a name="l00434"></a>00434     }
+<a name="l00435"></a>00435 
+<a name="l00436"></a><a class="code" href="class_twig___expression_parser.html#a9d63b236eb972c8932a82eb72b6b74d2">00436</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#a9d63b236eb972c8932a82eb72b6b74d2">parseAssignmentExpression</a>()
+<a name="l00437"></a>00437     {
+<a name="l00438"></a>00438         $targets = array();
+<a name="l00439"></a>00439         <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
+<a name="l00440"></a>00440             $token = $this-&gt;parser-&gt;getStream()-&gt;expect(<a class="code" href="class_twig___token.html#a5dde6b9e81eb5c8dd046842570c5dab4">Twig_Token::NAME_TYPE</a>, null, <span class="stringliteral">&#39;Only variables can be assigned to&#39;</span>);
+<a name="l00441"></a>00441             <span class="keywordflow">if</span> (in_array($token-&gt;getValue(), array(<span class="stringliteral">&#39;true&#39;</span>, <span class="stringliteral">&#39;false&#39;</span>, <span class="stringliteral">&#39;none&#39;</span>))) {
+<a name="l00442"></a>00442                 <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(sprintf(<span class="stringliteral">&#39;You cannot assign a value to &quot;%s&quot;&#39;</span>, $token-&gt;getValue()), $token-&gt;getLine());
+<a name="l00443"></a>00443             }
+<a name="l00444"></a>00444             $targets[] = <span class="keyword">new</span> <a class="code" href="class_twig___node___expression___assign_name.html">Twig_Node_Expression_AssignName</a>($token-&gt;getValue(), $token-&gt;getLine());
+<a name="l00445"></a>00445 
+<a name="l00446"></a>00446             <span class="keywordflow">if</span> (!$this-&gt;parser-&gt;getStream()-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;,&#39;</span>)) {
+<a name="l00447"></a>00447                 <span class="keywordflow">break</span>;
+<a name="l00448"></a>00448             }
+<a name="l00449"></a>00449             $this-&gt;parser-&gt;getStream()-&gt;next();
+<a name="l00450"></a>00450         }
+<a name="l00451"></a>00451 
+<a name="l00452"></a>00452         <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_twig___node.html">Twig_Node</a>($targets);
+<a name="l00453"></a>00453     }
+<a name="l00454"></a>00454 
+<a name="l00455"></a><a class="code" href="class_twig___expression_parser.html#a723d955922d5703cae23f36dcdbfdc06">00455</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#a723d955922d5703cae23f36dcdbfdc06">parseMultitargetExpression</a>()
+<a name="l00456"></a>00456     {
+<a name="l00457"></a>00457         $targets = array();
+<a name="l00458"></a>00458         <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
+<a name="l00459"></a>00459             $targets[] = $this-&gt;<a class="code" href="class_twig___expression_parser.html#a7071b8b73762e33627251e6515b0fe20">parseExpression</a>();
+<a name="l00460"></a>00460             <span class="keywordflow">if</span> (!$this-&gt;parser-&gt;getStream()-&gt;test(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, <span class="charliteral">&#39;,&#39;</span>)) {
+<a name="l00461"></a>00461                 <span class="keywordflow">break</span>;
+<a name="l00462"></a>00462             }
+<a name="l00463"></a>00463             $this-&gt;parser-&gt;getStream()-&gt;next();
+<a name="l00464"></a>00464         }
+<a name="l00465"></a>00465 
+<a name="l00466"></a>00466         <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_twig___node.html">Twig_Node</a>($targets);
+<a name="l00467"></a>00467     }
+<a name="l00468"></a>00468 
+<a name="l00469"></a><a class="code" href="class_twig___expression_parser.html#ad80d45c2a2b09906b569159558c4bdb7">00469</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#ad80d45c2a2b09906b569159558c4bdb7">getFunctionNodeClass</a>($name)
+<a name="l00470"></a>00470     {
+<a name="l00471"></a>00471         $functionMap = $this-&gt;parser-&gt;getEnvironment()-&gt;getFunctions();
+<a name="l00472"></a>00472         <span class="keywordflow">if</span> (isset($functionMap[$name]) &amp;&amp; $functionMap[$name] instanceof <a class="code" href="class_twig___function___node.html">Twig_Function_Node</a>) {
+<a name="l00473"></a>00473             <span class="keywordflow">return</span> $functionMap[$name]-&gt;getClass();
+<a name="l00474"></a>00474         }
+<a name="l00475"></a>00475 
+<a name="l00476"></a>00476         <span class="keywordflow">return</span> <span class="stringliteral">&#39;Twig_Node_Expression_Function&#39;</span>;
+<a name="l00477"></a>00477     }
+<a name="l00478"></a>00478 
+<a name="l00479"></a><a class="code" href="class_twig___expression_parser.html#a2b155b7af439e396d00f424dc65f70cc">00479</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___expression_parser.html#a2b155b7af439e396d00f424dc65f70cc">getFilterNodeClass</a>($name)
+<a name="l00480"></a>00480     {
+<a name="l00481"></a>00481         $filterMap = $this-&gt;parser-&gt;getEnvironment()-&gt;getFilters();
+<a name="l00482"></a>00482         <span class="keywordflow">if</span> (isset($filterMap[$name]) &amp;&amp; $filterMap[$name] instanceof <a class="code" href="class_twig___filter___node.html">Twig_Filter_Node</a>) {
+<a name="l00483"></a>00483             <span class="keywordflow">return</span> $filterMap[$name]-&gt;getClass();
+<a name="l00484"></a>00484         }
+<a name="l00485"></a>00485 
+<a name="l00486"></a>00486         <span class="keywordflow">return</span> <span class="stringliteral">&#39;Twig_Node_Expression_Filter&#39;</span>;
+<a name="l00487"></a>00487     }
+<a name="l00488"></a>00488 }
+</pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Énumérations</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_expression_parser_8php.html">ExpressionParser.php</a>      </li>
+
+    <li class="footer">Généré le Jeudi Mai 17 2012 16:28:58 pour Nina par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

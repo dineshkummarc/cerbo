@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Nina:  Fichier source de /home/damien/www/nina/lib/Twig/Lexer.php</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Nina
+   
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_lexer_8php.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">/home/damien/www/nina/lib/Twig/Lexer.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_lexer_8php.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 <span class="comment">/*</span>
+<a name="l00004"></a>00004 <span class="comment"> * This file is part of Twig.</span>
+<a name="l00005"></a>00005 <span class="comment"> *</span>
+<a name="l00006"></a>00006 <span class="comment"> * (c) 2009 Fabien Potencier</span>
+<a name="l00007"></a>00007 <span class="comment"> * (c) 2009 Armin Ronacher</span>
+<a name="l00008"></a>00008 <span class="comment"> *</span>
+<a name="l00009"></a>00009 <span class="comment"> * For the full copyright and license information, please view the LICENSE</span>
+<a name="l00010"></a>00010 <span class="comment"> * file that was distributed with this source code.</span>
+<a name="l00011"></a>00011 <span class="comment"> */</span>
+<a name="l00012"></a>00012 
+<a name="l00019"></a><a class="code" href="class_twig___lexer.html">00019</a> <span class="keyword">class </span><a class="code" href="class_twig___lexer.html">Twig_Lexer</a> <span class="keyword">implements</span> <a class="code" href="interface_twig___lexer_interface.html">Twig_LexerInterface</a>
+<a name="l00020"></a>00020 {
+<a name="l00021"></a><a class="code" href="class_twig___lexer.html#a72ead29e4317fbc4335fd3ba764e8b59">00021</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___lexer.html#a72ead29e4317fbc4335fd3ba764e8b59">$tokens</a>;
+<a name="l00022"></a><a class="code" href="class_twig___lexer.html#a7949acdaecc70b9f035c12a7069db132">00022</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___lexer.html#a7949acdaecc70b9f035c12a7069db132">$code</a>;
+<a name="l00023"></a><a class="code" href="class_twig___lexer.html#a256b6d58b346bcd39d5bf5d49de70df2">00023</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___lexer.html#a256b6d58b346bcd39d5bf5d49de70df2">$cursor</a>;
+<a name="l00024"></a><a class="code" href="class_twig___lexer.html#a865384ce49abf1c78f8aea48c7b5aa48">00024</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___lexer.html#a865384ce49abf1c78f8aea48c7b5aa48">$lineno</a>;
+<a name="l00025"></a><a class="code" href="class_twig___lexer.html#ac2040b96cd66d4d79b1d9fe0027d2f9b">00025</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___lexer.html#ac2040b96cd66d4d79b1d9fe0027d2f9b">$end</a>;
+<a name="l00026"></a><a class="code" href="class_twig___lexer.html#ae82306c4f2d17d8dd5c7d8d916b33bed">00026</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___lexer.html#ae82306c4f2d17d8dd5c7d8d916b33bed">$state</a>;
+<a name="l00027"></a><a class="code" href="class_twig___lexer.html#a549939c02296e57c0416f3dedccc61ec">00027</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___lexer.html#a549939c02296e57c0416f3dedccc61ec">$states</a>;
+<a name="l00028"></a><a class="code" href="class_twig___lexer.html#ac30f5445e81f9ac70363bcadd89dca49">00028</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___lexer.html#ac30f5445e81f9ac70363bcadd89dca49">$brackets</a>;
+<a name="l00029"></a><a class="code" href="class_twig___lexer.html#aa99ce9ae015e958eef5782267276fbb4">00029</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___lexer.html#aa99ce9ae015e958eef5782267276fbb4">$env</a>;
+<a name="l00030"></a><a class="code" href="class_twig___lexer.html#a0722441477f957078ee2437054556cbc">00030</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___lexer.html#a0722441477f957078ee2437054556cbc">$filename</a>;
+<a name="l00031"></a><a class="code" href="class_twig___lexer.html#a011800c63ece4cbbfa77136a20607023">00031</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___lexer.html#a011800c63ece4cbbfa77136a20607023">$options</a>;
+<a name="l00032"></a><a class="code" href="class_twig___lexer.html#a34afd5550704b8ca87b38e805bb31627">00032</a>     <span class="keyword">protected</span> <a class="code" href="class_twig___lexer.html#a34afd5550704b8ca87b38e805bb31627">$regexes</a>;
+<a name="l00033"></a>00033 
+<a name="l00034"></a><a class="code" href="class_twig___lexer.html#aed1034ab76d6f68a9936141fb43e46c4">00034</a>     <span class="keyword">const</span> <a class="code" href="class_twig___lexer.html#aed1034ab76d6f68a9936141fb43e46c4">STATE_DATA</a>            = 0;
+<a name="l00035"></a><a class="code" href="class_twig___lexer.html#a7943cc4ef427db839acf8405ab7622b1">00035</a>     <span class="keyword">const</span> <a class="code" href="class_twig___lexer.html#a7943cc4ef427db839acf8405ab7622b1">STATE_BLOCK</a>           = 1;
+<a name="l00036"></a><a class="code" href="class_twig___lexer.html#ace602c247a72e20792de0cbbaece8d4e">00036</a>     <span class="keyword">const</span> <a class="code" href="class_twig___lexer.html#ace602c247a72e20792de0cbbaece8d4e">STATE_VAR</a>             = 2;
+<a name="l00037"></a><a class="code" href="class_twig___lexer.html#aee10c9511fcc8204cd8ba7ced221e096">00037</a>     <span class="keyword">const</span> <a class="code" href="class_twig___lexer.html#aee10c9511fcc8204cd8ba7ced221e096">STATE_STRING</a>          = 3;
+<a name="l00038"></a><a class="code" href="class_twig___lexer.html#ab366646ed1df9dc0a6b90e96dbaa2293">00038</a>     <span class="keyword">const</span> <a class="code" href="class_twig___lexer.html#ab366646ed1df9dc0a6b90e96dbaa2293">STATE_INTERPOLATION</a>   = 4;
+<a name="l00039"></a>00039 
+<a name="l00040"></a><a class="code" href="class_twig___lexer.html#a16ad69f49b3f1e3d15823ce6760c49c1">00040</a>     <span class="keyword">const</span> <a class="code" href="class_twig___lexer.html#a16ad69f49b3f1e3d15823ce6760c49c1">REGEX_NAME</a>            = <span class="stringliteral">&#39;/[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/A&#39;</span>;
+<a name="l00041"></a><a class="code" href="class_twig___lexer.html#aba3337b652ecdf16df6874ebc9307462">00041</a>     <span class="keyword">const</span> <a class="code" href="class_twig___lexer.html#aba3337b652ecdf16df6874ebc9307462">REGEX_NUMBER</a>          = <span class="stringliteral">&#39;/[0-9]+(?:\.[0-9]+)?/A&#39;</span>;
+<a name="l00042"></a><a class="code" href="class_twig___lexer.html#ae6555ae628472b4a4b9c77f0ffb77538">00042</a>     <span class="keyword">const</span> <a class="code" href="class_twig___lexer.html#ae6555ae628472b4a4b9c77f0ffb77538">REGEX_STRING</a>          = <span class="stringliteral">&#39;/&quot;([^#&quot;\\\\]*(?:\\\\.[^#&quot;\\\\]*)*)&quot;|\&#39;([^\&#39;\\\\]*(?:\\\\.[^\&#39;\\\\]*)*)\&#39;/As&#39;</span>;
+<a name="l00043"></a><a class="code" href="class_twig___lexer.html#a4b8929b8c0c28e947ed9f7bb68ad2b1f">00043</a>     <span class="keyword">const</span> <a class="code" href="class_twig___lexer.html#a4b8929b8c0c28e947ed9f7bb68ad2b1f">REGEX_DQ_STRING_DELIM</a> = <span class="stringliteral">&#39;/&quot;/A&#39;</span>;
+<a name="l00044"></a><a class="code" href="class_twig___lexer.html#a703a02d213d85b11041fa5b74f756dcf">00044</a>     <span class="keyword">const</span> <a class="code" href="class_twig___lexer.html#a703a02d213d85b11041fa5b74f756dcf">REGEX_DQ_STRING_PART</a>  = <span class="stringliteral">&#39;/[^#&quot;\\\\]*(?:(?:\\\\.|#(?!\{))[^#&quot;\\\\]*)*/As&#39;</span>;
+<a name="l00045"></a><a class="code" href="class_twig___lexer.html#a11e565318270644ea275995c4a100291">00045</a>     <span class="keyword">const</span> <a class="code" href="class_twig___lexer.html#a11e565318270644ea275995c4a100291">PUNCTUATION</a>           = <span class="stringliteral">&#39;()[]{}?:.,|&#39;</span>;
+<a name="l00046"></a>00046 
+<a name="l00047"></a><a class="code" href="class_twig___lexer.html#ab85dfd54ab416c689e2df82e0b783cc1">00047</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#ab85dfd54ab416c689e2df82e0b783cc1">__construct</a>(<a class="code" href="class_twig___environment.html">Twig_Environment</a> <a class="code" href="class_twig___lexer.html#aa99ce9ae015e958eef5782267276fbb4">$env</a>, array <a class="code" href="class_twig___lexer.html#a011800c63ece4cbbfa77136a20607023">$options</a> = array())
+<a name="l00048"></a>00048     {
+<a name="l00049"></a>00049         $this-&gt;env = <a class="code" href="class_twig___lexer.html#aa99ce9ae015e958eef5782267276fbb4">$env</a>;
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051         $this-&gt;options = array_merge(array(
+<a name="l00052"></a>00052             <span class="stringliteral">&#39;tag_comment&#39;</span>     =&gt; array(<span class="stringliteral">&#39;{#&#39;</span>, <span class="stringliteral">&#39;#}&#39;</span>),
+<a name="l00053"></a>00053             <span class="stringliteral">&#39;tag_block&#39;</span>       =&gt; array(<span class="stringliteral">&#39;{%&#39;</span>, <span class="stringliteral">&#39;%}&#39;</span>),
+<a name="l00054"></a>00054             <span class="stringliteral">&#39;tag_variable&#39;</span>    =&gt; array(<span class="stringliteral">&#39;{{&#39;</span>, <span class="stringliteral">&#39;}}&#39;</span>),
+<a name="l00055"></a>00055             <span class="stringliteral">&#39;whitespace_trim&#39;</span> =&gt; <span class="charliteral">&#39;-&#39;</span>,
+<a name="l00056"></a>00056             <span class="stringliteral">&#39;interpolation&#39;</span>   =&gt; array(<span class="stringliteral">&#39;#{&#39;</span>, <span class="charliteral">&#39;}&#39;</span>),
+<a name="l00057"></a>00057         ), <a class="code" href="class_twig___lexer.html#a011800c63ece4cbbfa77136a20607023">$options</a>);
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059         $this-&gt;regexes = array(
+<a name="l00060"></a>00060             <span class="stringliteral">&#39;lex_var&#39;</span>             =&gt; <span class="stringliteral">&#39;/\s*&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;whitespace_trim&#39;</span>].$this-&gt;options[<span class="stringliteral">&#39;tag_variable&#39;</span>][1], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;\s*|\s*&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;tag_variable&#39;</span>][1], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;/A&#39;</span>,
+<a name="l00061"></a>00061             <span class="stringliteral">&#39;lex_block&#39;</span>           =&gt; <span class="stringliteral">&#39;/\s*(?:&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;whitespace_trim&#39;</span>].$this-&gt;options[<span class="stringliteral">&#39;tag_block&#39;</span>][1], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;\s*|\s*&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;tag_block&#39;</span>][1], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;)\n?/A&#39;</span>,
+<a name="l00062"></a>00062             <span class="stringliteral">&#39;lex_raw_data&#39;</span>        =&gt; <span class="stringliteral">&#39;/(&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;tag_block&#39;</span>][0].$this-&gt;options[<span class="stringliteral">&#39;whitespace_trim&#39;</span>], <span class="charliteral">&#39;/&#39;</span>).<span class="charliteral">&#39;|&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;tag_block&#39;</span>][0], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;)\s*endraw\s*(?:&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;whitespace_trim&#39;</span>].$this-&gt;options[<span class="stringliteral">&#39;tag_block&#39;</span>][1], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;\s*|\s*&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;tag_block&#39;</span>][1], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;)/s&#39;</span>,
+<a name="l00063"></a>00063             <span class="stringliteral">&#39;operator&#39;</span>            =&gt; $this-&gt;<a class="code" href="class_twig___lexer.html#a913a065161fe1951bffdd776414a6643">getOperatorRegex</a>(),
+<a name="l00064"></a>00064             <span class="stringliteral">&#39;lex_comment&#39;</span>         =&gt; <span class="stringliteral">&#39;/(?:&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;whitespace_trim&#39;</span>], <span class="charliteral">&#39;/&#39;</span>).preg_quote($this-&gt;options[<span class="stringliteral">&#39;tag_comment&#39;</span>][1], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;\s*|&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;tag_comment&#39;</span>][1], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;)\n?/s&#39;</span>,
+<a name="l00065"></a>00065             <span class="stringliteral">&#39;lex_block_raw&#39;</span>       =&gt; <span class="stringliteral">&#39;/\s*raw\s*(?:&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;whitespace_trim&#39;</span>].$this-&gt;options[<span class="stringliteral">&#39;tag_block&#39;</span>][1], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;\s*|\s*&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;tag_block&#39;</span>][1], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;)/As&#39;</span>,
+<a name="l00066"></a>00066             <span class="stringliteral">&#39;lex_block_line&#39;</span>      =&gt; <span class="stringliteral">&#39;/\s*line\s+(\d+)\s*&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;tag_block&#39;</span>][1], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;/As&#39;</span>,
+<a name="l00067"></a>00067             <span class="stringliteral">&#39;lex_tokens_start&#39;</span>    =&gt; <span class="stringliteral">&#39;/(&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;tag_variable&#39;</span>][0], <span class="charliteral">&#39;/&#39;</span>).<span class="charliteral">&#39;|&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;tag_block&#39;</span>][0], <span class="charliteral">&#39;/&#39;</span>).<span class="charliteral">&#39;|&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;tag_comment&#39;</span>][0], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;)(&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;whitespace_trim&#39;</span>], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;)?/s&#39;</span>,
+<a name="l00068"></a>00068             <span class="stringliteral">&#39;interpolation_start&#39;</span> =&gt; <span class="charliteral">&#39;/&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;interpolation&#39;</span>][0], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;\s*/A&#39;</span>,
+<a name="l00069"></a>00069             <span class="stringliteral">&#39;interpolation_end&#39;</span>   =&gt; <span class="stringliteral">&#39;/\s*&#39;</span>.preg_quote($this-&gt;options[<span class="stringliteral">&#39;interpolation&#39;</span>][1], <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;/A&#39;</span>,
+<a name="l00070"></a>00070         );
+<a name="l00071"></a>00071     }
+<a name="l00072"></a>00072 
+<a name="l00081"></a><a class="code" href="class_twig___lexer.html#a8db0ea9f7a98bc3fd2ba77126ab20491">00081</a>     <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#a8db0ea9f7a98bc3fd2ba77126ab20491">tokenize</a>(<a class="code" href="class_twig___lexer.html#a7949acdaecc70b9f035c12a7069db132">$code</a>, <a class="code" href="class_twig___lexer.html#a0722441477f957078ee2437054556cbc">$filename</a> = null)
+<a name="l00082"></a>00082     {
+<a name="l00083"></a>00083         <span class="keywordflow">if</span> (function_exists(<span class="stringliteral">&#39;mb_internal_encoding&#39;</span>) &amp;&amp; ((<span class="keywordtype">int</span>) ini_get(<span class="stringliteral">&#39;mbstring.func_overload&#39;</span>)) &amp; 2) {
+<a name="l00084"></a>00084             $mbEncoding = mb_internal_encoding();
+<a name="l00085"></a>00085             mb_internal_encoding(<span class="stringliteral">&#39;ASCII&#39;</span>);
+<a name="l00086"></a>00086         }
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088         $this-&gt;code = str_replace(array(<span class="stringliteral">&quot;\r\n&quot;</span>, <span class="stringliteral">&quot;\r&quot;</span>), <span class="stringliteral">&quot;\n&quot;</span>, <a class="code" href="class_twig___lexer.html#a7949acdaecc70b9f035c12a7069db132">$code</a>);
+<a name="l00089"></a>00089         $this-&gt;filename = <a class="code" href="class_twig___lexer.html#a0722441477f957078ee2437054556cbc">$filename</a>;
+<a name="l00090"></a>00090         $this-&gt;cursor = 0;
+<a name="l00091"></a>00091         $this-&gt;lineno = 1;
+<a name="l00092"></a>00092         $this-&gt;end = strlen($this-&gt;code);
+<a name="l00093"></a>00093         $this-&gt;tokens = array();
+<a name="l00094"></a>00094         $this-&gt;state = <a class="code" href="class_twig___lexer.html#aed1034ab76d6f68a9936141fb43e46c4">self::STATE_DATA</a>;
+<a name="l00095"></a>00095         $this-&gt;states = array();
+<a name="l00096"></a>00096         $this-&gt;brackets = array();
+<a name="l00097"></a>00097         $this-&gt;position = -1;
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099         <span class="comment">// find all token starts in one go</span>
+<a name="l00100"></a>00100         preg_match_all($this-&gt;regexes[<span class="stringliteral">&#39;lex_tokens_start&#39;</span>], $this-&gt;code, $matches, PREG_OFFSET_CAPTURE);
+<a name="l00101"></a>00101         $this-&gt;positions = $matches;
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103         <span class="keywordflow">while</span> ($this-&gt;cursor &lt; $this-&gt;end) {
+<a name="l00104"></a>00104             <span class="comment">// dispatch to the lexing functions depending</span>
+<a name="l00105"></a>00105             <span class="comment">// on the current state</span>
+<a name="l00106"></a>00106             <span class="keywordflow">switch</span> ($this-&gt;state) {
+<a name="l00107"></a>00107                 <span class="keywordflow">case</span> self::STATE_DATA:
+<a name="l00108"></a>00108                     $this-&gt;<a class="code" href="class_twig___lexer.html#a2add928259bb030ac402cc33590ba64a">lexData</a>();
+<a name="l00109"></a>00109                     <span class="keywordflow">break</span>;
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111                 <span class="keywordflow">case</span> self::STATE_BLOCK:
+<a name="l00112"></a>00112                     $this-&gt;<a class="code" href="class_twig___lexer.html#a30dd86720deb6f2a0e87dbfc48937c57">lexBlock</a>();
+<a name="l00113"></a>00113                     <span class="keywordflow">break</span>;
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115                 <span class="keywordflow">case</span> self::STATE_VAR:
+<a name="l00116"></a>00116                     $this-&gt;<a class="code" href="class_twig___lexer.html#a848a6f31f1b60791ecb8c3193c64c6e0">lexVar</a>();
+<a name="l00117"></a>00117                     <span class="keywordflow">break</span>;
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119                 <span class="keywordflow">case</span> self::STATE_STRING:
+<a name="l00120"></a>00120                     $this-&gt;<a class="code" href="class_twig___lexer.html#a3ed3bf6449b50d0c0e3695ba465477c3">lexString</a>();
+<a name="l00121"></a>00121                     <span class="keywordflow">break</span>;
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123                 <span class="keywordflow">case</span> self::STATE_INTERPOLATION:
+<a name="l00124"></a>00124                     $this-&gt;<a class="code" href="class_twig___lexer.html#a17e2f99891071f122a720e5067bfd883">lexInterpolation</a>();
+<a name="l00125"></a>00125                     <span class="keywordflow">break</span>;
+<a name="l00126"></a>00126             }
+<a name="l00127"></a>00127         }
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129         $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#a8568089262d18bfd0fb76f3d783b15f0">Twig_Token::EOF_TYPE</a>);
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131         <span class="keywordflow">if</span> (!empty($this-&gt;brackets)) {
+<a name="l00132"></a>00132             list($expect, <a class="code" href="class_twig___lexer.html#a865384ce49abf1c78f8aea48c7b5aa48">$lineno</a>) = array_pop($this-&gt;brackets);
+<a name="l00133"></a>00133             <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(sprintf(<span class="stringliteral">&#39;Unclosed &quot;%s&quot;&#39;</span>, $expect), <a class="code" href="class_twig___lexer.html#a865384ce49abf1c78f8aea48c7b5aa48">$lineno</a>, $this-&gt;filename);
+<a name="l00134"></a>00134         }
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136         <span class="keywordflow">if</span> (isset($mbEncoding)) {
+<a name="l00137"></a>00137             mb_internal_encoding($mbEncoding);
+<a name="l00138"></a>00138         }
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140         <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_twig___token_stream.html">Twig_TokenStream</a>($this-&gt;tokens, $this-&gt;filename);
+<a name="l00141"></a>00141     }
+<a name="l00142"></a>00142 
+<a name="l00143"></a><a class="code" href="class_twig___lexer.html#a2add928259bb030ac402cc33590ba64a">00143</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#a2add928259bb030ac402cc33590ba64a">lexData</a>()
+<a name="l00144"></a>00144     {
+<a name="l00145"></a>00145         <span class="comment">// if no matches are left we return the rest of the template as simple text token</span>
+<a name="l00146"></a>00146         <span class="keywordflow">if</span> ($this-&gt;position == count($this-&gt;positions[0]) - 1) {
+<a name="l00147"></a>00147             $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#aa60308f9919cac81f3d6d8f0c61a1b7e">Twig_Token::TEXT_TYPE</a>, substr($this-&gt;code, $this-&gt;cursor));
+<a name="l00148"></a>00148             $this-&gt;cursor = $this-&gt;end;
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150             <span class="keywordflow">return</span>;
+<a name="l00151"></a>00151         }
+<a name="l00152"></a>00152 
+<a name="l00153"></a>00153         <span class="comment">// Find the first token after the current cursor</span>
+<a name="l00154"></a>00154         $position = $this-&gt;positions[0][++$this-&gt;position];
+<a name="l00155"></a>00155         <span class="keywordflow">while</span> ($position[1] &lt; $this-&gt;cursor) {
+<a name="l00156"></a>00156             <span class="keywordflow">if</span> ($this-&gt;position == count($this-&gt;positions[0]) - 1) {
+<a name="l00157"></a>00157                 <span class="keywordflow">return</span>;
+<a name="l00158"></a>00158             }
+<a name="l00159"></a>00159             $position = $this-&gt;positions[0][++$this-&gt;position];
+<a name="l00160"></a>00160         }
+<a name="l00161"></a>00161 
+<a name="l00162"></a>00162         <span class="comment">// push the template text first</span>
+<a name="l00163"></a>00163         $text = $textContent = substr($this-&gt;code, $this-&gt;cursor, $position[1] - $this-&gt;cursor);
+<a name="l00164"></a>00164         <span class="keywordflow">if</span> (isset($this-&gt;positions[2][$this-&gt;position][0])) {
+<a name="l00165"></a>00165             $text = rtrim($text);
+<a name="l00166"></a>00166         }
+<a name="l00167"></a>00167         $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#aa60308f9919cac81f3d6d8f0c61a1b7e">Twig_Token::TEXT_TYPE</a>, $text);
+<a name="l00168"></a>00168         $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($textContent.$position[0]);
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170         <span class="keywordflow">switch</span> ($this-&gt;positions[1][$this-&gt;position][0]) {
+<a name="l00171"></a>00171             <span class="keywordflow">case</span> $this-&gt;options[<span class="stringliteral">&#39;tag_comment&#39;</span>][0]:
+<a name="l00172"></a>00172                 $this-&gt;<a class="code" href="class_twig___lexer.html#a83490c3c77d548d2bc407e7a765a6294">lexComment</a>();
+<a name="l00173"></a>00173                 <span class="keywordflow">break</span>;
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175             <span class="keywordflow">case</span> $this-&gt;options[<span class="stringliteral">&#39;tag_block&#39;</span>][0]:
+<a name="l00176"></a>00176                 <span class="comment">// raw data?</span>
+<a name="l00177"></a>00177                 <span class="keywordflow">if</span> (preg_match($this-&gt;regexes[<span class="stringliteral">&#39;lex_block_raw&#39;</span>], $this-&gt;code, $match, null, $this-&gt;cursor)) {
+<a name="l00178"></a>00178                     $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($match[0]);
+<a name="l00179"></a>00179                     $this-&gt;<a class="code" href="class_twig___lexer.html#a54349677d9fb8eecb2d66228fa7c42d5">lexRawData</a>();
+<a name="l00180"></a>00180                 <span class="comment">// {% line \d+ %}</span>
+<a name="l00181"></a>00181                 } elseif (preg_match($this-&gt;regexes[<span class="stringliteral">&#39;lex_block_line&#39;</span>], $this-&gt;code, $match, null, $this-&gt;cursor)) {
+<a name="l00182"></a>00182                     $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($match[0]);
+<a name="l00183"></a>00183                     $this-&gt;lineno = (int) $match[1];
+<a name="l00184"></a>00184                 } <span class="keywordflow">else</span> {
+<a name="l00185"></a>00185                     $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#aabd9adcf26fada59ef8f5a0be748f1c5">Twig_Token::BLOCK_START_TYPE</a>);
+<a name="l00186"></a>00186                     $this-&gt;<a class="code" href="class_twig___lexer.html#a6afabfaebdb88d6101172b462198eead">pushState</a>(self::STATE_BLOCK);
+<a name="l00187"></a>00187                 }
+<a name="l00188"></a>00188                 <span class="keywordflow">break</span>;
+<a name="l00189"></a>00189 
+<a name="l00190"></a>00190             <span class="keywordflow">case</span> $this-&gt;options[<span class="stringliteral">&#39;tag_variable&#39;</span>][0]:
+<a name="l00191"></a>00191                 $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#a20be04a5646a40886dfa4b824f2f43f6">Twig_Token::VAR_START_TYPE</a>);
+<a name="l00192"></a>00192                 $this-&gt;<a class="code" href="class_twig___lexer.html#a6afabfaebdb88d6101172b462198eead">pushState</a>(self::STATE_VAR);
+<a name="l00193"></a>00193                 <span class="keywordflow">break</span>;
+<a name="l00194"></a>00194         }
+<a name="l00195"></a>00195     }
+<a name="l00196"></a>00196 
+<a name="l00197"></a><a class="code" href="class_twig___lexer.html#a30dd86720deb6f2a0e87dbfc48937c57">00197</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#a30dd86720deb6f2a0e87dbfc48937c57">lexBlock</a>()
+<a name="l00198"></a>00198     {
+<a name="l00199"></a>00199         <span class="keywordflow">if</span> (empty($this-&gt;brackets) &amp;&amp; preg_match($this-&gt;regexes[<span class="stringliteral">&#39;lex_block&#39;</span>], $this-&gt;code, $match, null, $this-&gt;cursor)) {
+<a name="l00200"></a>00200             $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#af7d3a5dbc1cdaae75625ef1383029251">Twig_Token::BLOCK_END_TYPE</a>);
+<a name="l00201"></a>00201             $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($match[0]);
+<a name="l00202"></a>00202             $this-&gt;<a class="code" href="class_twig___lexer.html#a5f794f6e5f021c7755fb4dd8145f8f75">popState</a>();
+<a name="l00203"></a>00203         } <span class="keywordflow">else</span> {
+<a name="l00204"></a>00204             $this-&gt;<a class="code" href="class_twig___lexer.html#ac956b3fcfa0824c6a4e45e807c650a9e">lexExpression</a>();
+<a name="l00205"></a>00205         }
+<a name="l00206"></a>00206     }
+<a name="l00207"></a>00207 
+<a name="l00208"></a><a class="code" href="class_twig___lexer.html#a848a6f31f1b60791ecb8c3193c64c6e0">00208</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#a848a6f31f1b60791ecb8c3193c64c6e0">lexVar</a>()
+<a name="l00209"></a>00209     {
+<a name="l00210"></a>00210         <span class="keywordflow">if</span> (empty($this-&gt;brackets) &amp;&amp; preg_match($this-&gt;regexes[<span class="stringliteral">&#39;lex_var&#39;</span>], $this-&gt;code, $match, null, $this-&gt;cursor)) {
+<a name="l00211"></a>00211             $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#a90edfcf33c8637deddaa97a0f89d7f1e">Twig_Token::VAR_END_TYPE</a>);
+<a name="l00212"></a>00212             $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($match[0]);
+<a name="l00213"></a>00213             $this-&gt;<a class="code" href="class_twig___lexer.html#a5f794f6e5f021c7755fb4dd8145f8f75">popState</a>();
+<a name="l00214"></a>00214         } <span class="keywordflow">else</span> {
+<a name="l00215"></a>00215             $this-&gt;<a class="code" href="class_twig___lexer.html#ac956b3fcfa0824c6a4e45e807c650a9e">lexExpression</a>();
+<a name="l00216"></a>00216         }
+<a name="l00217"></a>00217     }
+<a name="l00218"></a>00218 
+<a name="l00219"></a><a class="code" href="class_twig___lexer.html#ac956b3fcfa0824c6a4e45e807c650a9e">00219</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#ac956b3fcfa0824c6a4e45e807c650a9e">lexExpression</a>()
+<a name="l00220"></a>00220     {
+<a name="l00221"></a>00221         <span class="comment">// whitespace</span>
+<a name="l00222"></a>00222         <span class="keywordflow">if</span> (preg_match(<span class="stringliteral">&#39;/\s+/A&#39;</span>, $this-&gt;code, $match, null, $this-&gt;cursor)) {
+<a name="l00223"></a>00223             $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($match[0]);
+<a name="l00224"></a>00224 
+<a name="l00225"></a>00225             <span class="keywordflow">if</span> ($this-&gt;cursor &gt;= $this-&gt;end) {
+<a name="l00226"></a>00226                 <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(sprintf(<span class="stringliteral">&#39;Unexpected end of file: Unclosed &quot;%s&quot;&#39;</span>, $this-&gt;state === self::STATE_BLOCK ? <span class="stringliteral">&#39;block&#39;</span> : <span class="stringliteral">&#39;variable&#39;</span>), $this-&gt;lineno, $this-&gt;filename);
+<a name="l00227"></a>00227             }
+<a name="l00228"></a>00228         }
+<a name="l00229"></a>00229 
+<a name="l00230"></a>00230         <span class="comment">// operators</span>
+<a name="l00231"></a>00231         <span class="keywordflow">if</span> (preg_match($this-&gt;regexes[<span class="stringliteral">&#39;operator&#39;</span>], $this-&gt;code, $match, null, $this-&gt;cursor)) {
+<a name="l00232"></a>00232             $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#a143eb58464c5398fe7aeb1d482d5822f">Twig_Token::OPERATOR_TYPE</a>, $match[0]);
+<a name="l00233"></a>00233             $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($match[0]);
+<a name="l00234"></a>00234         }
+<a name="l00235"></a>00235         <span class="comment">// names</span>
+<a name="l00236"></a>00236         elseif (preg_match(self::REGEX_NAME, $this-&gt;code, $match, null, $this-&gt;cursor)) {
+<a name="l00237"></a>00237             $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#a5dde6b9e81eb5c8dd046842570c5dab4">Twig_Token::NAME_TYPE</a>, $match[0]);
+<a name="l00238"></a>00238             $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($match[0]);
+<a name="l00239"></a>00239         }
+<a name="l00240"></a>00240         <span class="comment">// numbers</span>
+<a name="l00241"></a>00241         elseif (preg_match(self::REGEX_NUMBER, $this-&gt;code, $match, null, $this-&gt;cursor)) {
+<a name="l00242"></a>00242             $number = (float) $match[0];  <span class="comment">// floats</span>
+<a name="l00243"></a>00243             <span class="keywordflow">if</span> (ctype_digit($match[0]) &amp;&amp; $number &lt;= PHP_INT_MAX) {
+<a name="l00244"></a>00244                 $number = (int) $match[0]; <span class="comment">// integers lower than the maximum</span>
+<a name="l00245"></a>00245             }
+<a name="l00246"></a>00246             $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#a0053ba5957db87c3549cd18418ddc7ec">Twig_Token::NUMBER_TYPE</a>, $number);
+<a name="l00247"></a>00247             $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($match[0]);
+<a name="l00248"></a>00248         }
+<a name="l00249"></a>00249         <span class="comment">// punctuation</span>
+<a name="l00250"></a>00250         elseif (<span class="keyword">false</span> !== strpos(self::PUNCTUATION, $this-&gt;code[$this-&gt;cursor])) {
+<a name="l00251"></a>00251             <span class="comment">// opening bracket</span>
+<a name="l00252"></a>00252             <span class="keywordflow">if</span> (<span class="keyword">false</span> !== strpos(<span class="stringliteral">&#39;([{&#39;</span>, $this-&gt;code[$this-&gt;cursor])) {
+<a name="l00253"></a>00253                 $this-&gt;brackets[] = array($this-&gt;code[$this-&gt;cursor], $this-&gt;lineno);
+<a name="l00254"></a>00254             }
+<a name="l00255"></a>00255             <span class="comment">// closing bracket</span>
+<a name="l00256"></a>00256             elseif (<span class="keyword">false</span> !== strpos(<span class="stringliteral">&#39;)]}&#39;</span>, $this-&gt;code[$this-&gt;cursor])) {
+<a name="l00257"></a>00257                 <span class="keywordflow">if</span> (empty($this-&gt;brackets)) {
+<a name="l00258"></a>00258                     <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(sprintf(<span class="stringliteral">&#39;Unexpected &quot;%s&quot;&#39;</span>, $this-&gt;code[$this-&gt;cursor]), $this-&gt;lineno, $this-&gt;filename);
+<a name="l00259"></a>00259                 }
+<a name="l00260"></a>00260 
+<a name="l00261"></a>00261                 list($expect, <a class="code" href="class_twig___lexer.html#a865384ce49abf1c78f8aea48c7b5aa48">$lineno</a>) = array_pop($this-&gt;brackets);
+<a name="l00262"></a>00262                 <span class="keywordflow">if</span> ($this-&gt;code[$this-&gt;cursor] != strtr($expect, <span class="stringliteral">&#39;([{&#39;</span>, <span class="stringliteral">&#39;)]}&#39;</span>)) {
+<a name="l00263"></a>00263                     <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(sprintf(<span class="stringliteral">&#39;Unclosed &quot;%s&quot;&#39;</span>, $expect), <a class="code" href="class_twig___lexer.html#a865384ce49abf1c78f8aea48c7b5aa48">$lineno</a>, $this-&gt;filename);
+<a name="l00264"></a>00264                 }
+<a name="l00265"></a>00265             }
+<a name="l00266"></a>00266 
+<a name="l00267"></a>00267             $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#a096168514425d8726b9baa79da07b24d">Twig_Token::PUNCTUATION_TYPE</a>, $this-&gt;code[$this-&gt;cursor]);
+<a name="l00268"></a>00268             ++$this-&gt;cursor;
+<a name="l00269"></a>00269         }
+<a name="l00270"></a>00270         <span class="comment">// strings</span>
+<a name="l00271"></a>00271         elseif (preg_match(self::REGEX_STRING, $this-&gt;code, $match, null, $this-&gt;cursor)) {
+<a name="l00272"></a>00272             $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#a8f9407ce6f57b891a8bd3dc9a2614cb5">Twig_Token::STRING_TYPE</a>, stripcslashes(substr($match[0], 1, -1)));
+<a name="l00273"></a>00273             $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($match[0]);
+<a name="l00274"></a>00274         }
+<a name="l00275"></a>00275         <span class="comment">// opening double quoted string</span>
+<a name="l00276"></a>00276         elseif (preg_match(self::REGEX_DQ_STRING_DELIM, $this-&gt;code, $match, null, $this-&gt;cursor)) {
+<a name="l00277"></a>00277             $this-&gt;brackets[] = array(<span class="charliteral">&#39;&quot;&#39;</span>, $this-&gt;lineno);
+<a name="l00278"></a>00278             $this-&gt;<a class="code" href="class_twig___lexer.html#a6afabfaebdb88d6101172b462198eead">pushState</a>(self::STATE_STRING);
+<a name="l00279"></a>00279             $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($match[0]);
+<a name="l00280"></a>00280         }
+<a name="l00281"></a>00281         <span class="comment">// unlexable</span>
+<a name="l00282"></a>00282         <span class="keywordflow">else</span> {
+<a name="l00283"></a>00283             <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(sprintf(<span class="stringliteral">&#39;Unexpected character &quot;%s&quot;&#39;</span>, $this-&gt;code[$this-&gt;cursor]), $this-&gt;lineno, $this-&gt;filename);
+<a name="l00284"></a>00284         }
+<a name="l00285"></a>00285     }
+<a name="l00286"></a>00286 
+<a name="l00287"></a><a class="code" href="class_twig___lexer.html#a54349677d9fb8eecb2d66228fa7c42d5">00287</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#a54349677d9fb8eecb2d66228fa7c42d5">lexRawData</a>()
+<a name="l00288"></a>00288     {
+<a name="l00289"></a>00289         <span class="keywordflow">if</span> (!preg_match($this-&gt;regexes[<span class="stringliteral">&#39;lex_raw_data&#39;</span>], $this-&gt;code, $match, PREG_OFFSET_CAPTURE, $this-&gt;cursor)) {
+<a name="l00290"></a>00290             <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(sprintf(<span class="stringliteral">&#39;Unexpected end of file: Unclosed &quot;block&quot;&#39;</span>), $this-&gt;lineno, $this-&gt;filename);
+<a name="l00291"></a>00291         }
+<a name="l00292"></a>00292 
+<a name="l00293"></a>00293         $text = substr($this-&gt;code, $this-&gt;cursor, $match[0][1] - $this-&gt;cursor);
+<a name="l00294"></a>00294         $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($text.$match[0][0]);
+<a name="l00295"></a>00295 
+<a name="l00296"></a>00296         <span class="keywordflow">if</span> (<span class="keyword">false</span> !== strpos($match[1][0], $this-&gt;options[<span class="stringliteral">&#39;whitespace_trim&#39;</span>])) {
+<a name="l00297"></a>00297             $text = rtrim($text);
+<a name="l00298"></a>00298         }
+<a name="l00299"></a>00299 
+<a name="l00300"></a>00300         $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#aa60308f9919cac81f3d6d8f0c61a1b7e">Twig_Token::TEXT_TYPE</a>, $text);
+<a name="l00301"></a>00301     }
+<a name="l00302"></a>00302 
+<a name="l00303"></a><a class="code" href="class_twig___lexer.html#a83490c3c77d548d2bc407e7a765a6294">00303</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#a83490c3c77d548d2bc407e7a765a6294">lexComment</a>()
+<a name="l00304"></a>00304     {
+<a name="l00305"></a>00305         <span class="keywordflow">if</span> (!preg_match($this-&gt;regexes[<span class="stringliteral">&#39;lex_comment&#39;</span>], $this-&gt;code, $match, PREG_OFFSET_CAPTURE, $this-&gt;cursor)) {
+<a name="l00306"></a>00306             <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(<span class="stringliteral">&#39;Unclosed comment&#39;</span>, $this-&gt;lineno, $this-&gt;filename);
+<a name="l00307"></a>00307         }
+<a name="l00308"></a>00308 
+<a name="l00309"></a>00309         $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>(substr($this-&gt;code, $this-&gt;cursor, $match[0][1] - $this-&gt;cursor).$match[0][0]);
+<a name="l00310"></a>00310     }
+<a name="l00311"></a>00311 
+<a name="l00312"></a><a class="code" href="class_twig___lexer.html#a3ed3bf6449b50d0c0e3695ba465477c3">00312</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#a3ed3bf6449b50d0c0e3695ba465477c3">lexString</a>()
+<a name="l00313"></a>00313     {
+<a name="l00314"></a>00314         <span class="keywordflow">if</span> (preg_match($this-&gt;regexes[<span class="stringliteral">&#39;interpolation_start&#39;</span>], $this-&gt;code, $match, null, $this-&gt;cursor)) {
+<a name="l00315"></a>00315             $this-&gt;brackets[] = array($this-&gt;options[<span class="stringliteral">&#39;interpolation&#39;</span>][0], $this-&gt;lineno);
+<a name="l00316"></a>00316             $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#a74d54f60a6d271eb3b268a00b0fca731">Twig_Token::INTERPOLATION_START_TYPE</a>);
+<a name="l00317"></a>00317             $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($match[0]);
+<a name="l00318"></a>00318             $this-&gt;<a class="code" href="class_twig___lexer.html#a6afabfaebdb88d6101172b462198eead">pushState</a>(self::STATE_INTERPOLATION);
+<a name="l00319"></a>00319 
+<a name="l00320"></a>00320         } elseif (preg_match(self::REGEX_DQ_STRING_PART, $this-&gt;code, $match, null, $this-&gt;cursor) &amp;&amp; strlen($match[0]) &gt; 0) {
+<a name="l00321"></a>00321             $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#a8f9407ce6f57b891a8bd3dc9a2614cb5">Twig_Token::STRING_TYPE</a>, stripcslashes($match[0]));
+<a name="l00322"></a>00322             $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($match[0]);
+<a name="l00323"></a>00323 
+<a name="l00324"></a>00324         } elseif (preg_match(self::REGEX_DQ_STRING_DELIM, $this-&gt;code, $match, null, $this-&gt;cursor)) {
+<a name="l00325"></a>00325 
+<a name="l00326"></a>00326             list($expect, <a class="code" href="class_twig___lexer.html#a865384ce49abf1c78f8aea48c7b5aa48">$lineno</a>) = array_pop($this-&gt;brackets);
+<a name="l00327"></a>00327             <span class="keywordflow">if</span> ($this-&gt;code[$this-&gt;cursor] != <span class="charliteral">&#39;&quot;&#39;</span>) {
+<a name="l00328"></a>00328                 <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_twig___error___syntax.html">Twig_Error_Syntax</a>(sprintf(<span class="stringliteral">&#39;Unclosed &quot;%s&quot;&#39;</span>, $expect), <a class="code" href="class_twig___lexer.html#a865384ce49abf1c78f8aea48c7b5aa48">$lineno</a>, $this-&gt;filename);
+<a name="l00329"></a>00329             }
+<a name="l00330"></a>00330 
+<a name="l00331"></a>00331             $this-&gt;<a class="code" href="class_twig___lexer.html#a5f794f6e5f021c7755fb4dd8145f8f75">popState</a>();
+<a name="l00332"></a>00332             ++$this-&gt;cursor;
+<a name="l00333"></a>00333 
+<a name="l00334"></a>00334             <span class="keywordflow">return</span>;
+<a name="l00335"></a>00335         }
+<a name="l00336"></a>00336     }
+<a name="l00337"></a>00337 
+<a name="l00338"></a><a class="code" href="class_twig___lexer.html#a17e2f99891071f122a720e5067bfd883">00338</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#a17e2f99891071f122a720e5067bfd883">lexInterpolation</a>()
+<a name="l00339"></a>00339     {
+<a name="l00340"></a>00340         $bracket = end($this-&gt;brackets);
+<a name="l00341"></a>00341         <span class="keywordflow">if</span> ($this-&gt;options[<span class="stringliteral">&#39;interpolation&#39;</span>][0] === $bracket[0] &amp;&amp; preg_match($this-&gt;regexes[<span class="stringliteral">&#39;interpolation_end&#39;</span>], $this-&gt;code, $match, null, $this-&gt;cursor)) {
+<a name="l00342"></a>00342             array_pop($this-&gt;brackets);
+<a name="l00343"></a>00343             $this-&gt;<a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>(<a class="code" href="class_twig___token.html#a6f5d78c437002c2ab0496c6322a940fb">Twig_Token::INTERPOLATION_END_TYPE</a>);
+<a name="l00344"></a>00344             $this-&gt;<a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($match[0]);
+<a name="l00345"></a>00345             $this-&gt;<a class="code" href="class_twig___lexer.html#a5f794f6e5f021c7755fb4dd8145f8f75">popState</a>();
+<a name="l00346"></a>00346         } <span class="keywordflow">else</span> {
+<a name="l00347"></a>00347             $this-&gt;<a class="code" href="class_twig___lexer.html#ac956b3fcfa0824c6a4e45e807c650a9e">lexExpression</a>();
+<a name="l00348"></a>00348         }
+<a name="l00349"></a>00349     }
+<a name="l00350"></a>00350 
+<a name="l00351"></a><a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">00351</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#a2a4e2b0b3f1bf74213d5536b6668106d">pushToken</a>($type, $value = <span class="stringliteral">&#39;&#39;</span>)
+<a name="l00352"></a>00352     {
+<a name="l00353"></a>00353         <span class="comment">// do not push empty text tokens</span>
+<a name="l00354"></a>00354         <span class="keywordflow">if</span> (<a class="code" href="class_twig___token.html#aa60308f9919cac81f3d6d8f0c61a1b7e">Twig_Token::TEXT_TYPE</a> === $type &amp;&amp; <span class="stringliteral">&#39;&#39;</span> === $value) {
+<a name="l00355"></a>00355             <span class="keywordflow">return</span>;
+<a name="l00356"></a>00356         }
+<a name="l00357"></a>00357 
+<a name="l00358"></a>00358         $this-&gt;tokens[] = <span class="keyword">new</span> <a class="code" href="class_twig___token.html">Twig_Token</a>($type, $value, $this-&gt;lineno);
+<a name="l00359"></a>00359     }
+<a name="l00360"></a>00360 
+<a name="l00361"></a><a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">00361</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#a5dbd7870991505f65e5cc292a4b30272">moveCursor</a>($text)
+<a name="l00362"></a>00362     {
+<a name="l00363"></a>00363         $this-&gt;cursor += strlen($text);
+<a name="l00364"></a>00364         $this-&gt;lineno += substr_count($text, <span class="stringliteral">&quot;\n&quot;</span>);
+<a name="l00365"></a>00365     }
+<a name="l00366"></a>00366 
+<a name="l00367"></a><a class="code" href="class_twig___lexer.html#a913a065161fe1951bffdd776414a6643">00367</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#a913a065161fe1951bffdd776414a6643">getOperatorRegex</a>()
+<a name="l00368"></a>00368     {
+<a name="l00369"></a>00369         $operators = array_merge(
+<a name="l00370"></a>00370             array(<span class="charliteral">&#39;=&#39;</span>),
+<a name="l00371"></a>00371             array_keys($this-&gt;env-&gt;getUnaryOperators()),
+<a name="l00372"></a>00372             array_keys($this-&gt;env-&gt;getBinaryOperators())
+<a name="l00373"></a>00373         );
+<a name="l00374"></a>00374 
+<a name="l00375"></a>00375         $operators = array_combine($operators, array_map(<span class="stringliteral">&#39;strlen&#39;</span>, $operators));
+<a name="l00376"></a>00376         arsort($operators);
+<a name="l00377"></a>00377 
+<a name="l00378"></a>00378         $regex = array();
+<a name="l00379"></a>00379         <span class="keywordflow">foreach</span> ($operators as $operator =&gt; $length) {
+<a name="l00380"></a>00380             <span class="comment">// an operator that ends with a character must be followed by</span>
+<a name="l00381"></a>00381             <span class="comment">// a whitespace or a parenthesis</span>
+<a name="l00382"></a>00382             <span class="keywordflow">if</span> (ctype_alpha($operator[$length - 1])) {
+<a name="l00383"></a>00383                 $regex[] = preg_quote($operator, <span class="charliteral">&#39;/&#39;</span>).<span class="stringliteral">&#39;(?=[\s()])&#39;</span>;
+<a name="l00384"></a>00384             } <span class="keywordflow">else</span> {
+<a name="l00385"></a>00385                 $regex[] = preg_quote($operator, <span class="charliteral">&#39;/&#39;</span>);
+<a name="l00386"></a>00386             }
+<a name="l00387"></a>00387         }
+<a name="l00388"></a>00388 
+<a name="l00389"></a>00389         <span class="keywordflow">return</span> <span class="charliteral">&#39;/&#39;</span>.implode(<span class="charliteral">&#39;|&#39;</span>, $regex).<span class="stringliteral">&#39;/A&#39;</span>;
+<a name="l00390"></a>00390     }
+<a name="l00391"></a>00391 
+<a name="l00392"></a><a class="code" href="class_twig___lexer.html#a6afabfaebdb88d6101172b462198eead">00392</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#a6afabfaebdb88d6101172b462198eead">pushState</a>(<a class="code" href="class_twig___lexer.html#ae82306c4f2d17d8dd5c7d8d916b33bed">$state</a>)
+<a name="l00393"></a>00393     {
+<a name="l00394"></a>00394         $this-&gt;states[] = $this-&gt;state;
+<a name="l00395"></a>00395         $this-&gt;state = <a class="code" href="class_twig___lexer.html#ae82306c4f2d17d8dd5c7d8d916b33bed">$state</a>;
+<a name="l00396"></a>00396     }
+<a name="l00397"></a>00397 
+<a name="l00398"></a><a class="code" href="class_twig___lexer.html#a5f794f6e5f021c7755fb4dd8145f8f75">00398</a>     <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_twig___lexer.html#a5f794f6e5f021c7755fb4dd8145f8f75">popState</a>()
+<a name="l00399"></a>00399     {
+<a name="l00400"></a>00400         <span class="keywordflow">if</span> (0 === count($this-&gt;states)) {
+<a name="l00401"></a>00401             <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;Cannot pop state without a previous state&#39;</span>);
+<a name="l00402"></a>00402         }
+<a name="l00403"></a>00403 
+<a name="l00404"></a>00404         $this-&gt;state = array_pop($this-&gt;states);
+<a name="l00405"></a>00405     }
+<a name="l00406"></a>00406 }
+</pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Énumérations</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_lexer_8php.html">Lexer.php</a>      </li>
+
+    <li class="footer">Généré le Jeudi Mai 17 2012 16:28:58 pour Nina par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

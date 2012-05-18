@@ -1,0 +1,17 @@
+<extension>
+
+    <nom>Bootstrap</nom>
+    <version>0.1</version>
+    <auteurs>
+        <auteur>MARTIN Damien [damien@martin-damien.fr]</auteur>
+    </auteurs>
+    <description>
+    <![CDATA[
+        Inclus la librairie Bootstrap de Twitter dans Nina.
+    ]]>
+    </description>
+    <dependances>
+        <extension version=">0.1">nina</extension>
+    </dependances>
+
+</extension>

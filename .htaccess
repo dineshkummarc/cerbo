@@ -6,6 +6,14 @@ RewriteRule ^var/.*     -   [L]
 RewriteRule ^design/.*  -   [L]
 
 # Fichiers bruts
-RewriteRule ^.*\.([css|jpg|jpeg|png|gif])$ - [L]
+RewriteRule ^extensions/[^/]+/design/[^/]+/.*   - [L]
 
+# Fichiers de base
+RewriteRule ^favicon\.[ico|png|jpe?g|gif]   - [L]
+RewriteRule ^robots\.txt                    - [L]
+RewriteRule ^humans.txt                     - [L]
+RewriteRule ^sitemap\.xml                   - [L]
+rewriteRule ^p3p\.xml                       - [L]
+
+# Point d'entrée du site
 RewriteRule .*          index\.php

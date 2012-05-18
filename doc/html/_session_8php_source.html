@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Nina:  Fichier source de /home/damien/www/nina/classes/Session.php</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Nina
+   
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_session_8php.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">/home/damien/www/nina/classes/Session.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_session_8php.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
+<a name="l00002"></a>00002 
+<a name="l00006"></a><a class="code" href="class_session.html">00006</a> <span class="keyword">class </span><a class="code" href="class_session.html">Session</a>
+<a name="l00007"></a>00007 {
+<a name="l00008"></a>00008 
+<a name="l00012"></a><a class="code" href="class_session.html#a095c5d389db211932136b53f25f39685">00012</a>     <span class="keyword">function</span> <a class="code" href="class_session.html#a095c5d389db211932136b53f25f39685">__construct</a>()
+<a name="l00013"></a>00013     {
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015         session_start();
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017         <span class="keywordflow">if</span> ( !isset( $_SESSION[<span class="stringliteral">&#39;login&#39;</span>] ) )
+<a name="l00018"></a>00018         {
+<a name="l00019"></a>00019             <a class="code" href="class_session.html#a1768f9e0b18b9f9e1c4e2eca3d8054c8">Session::initialiserSession</a>();
+<a name="l00020"></a>00020         }
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022     }
+<a name="l00023"></a>00023 
+<a name="l00024"></a><a class="code" href="class_session.html#a421831a265621325e1fdd19aace0c758">00024</a>     <span class="keyword">function</span> <a class="code" href="class_session.html#a421831a265621325e1fdd19aace0c758">__destruct</a>()
+<a name="l00025"></a>00025     {
+<a name="l00026"></a>00026     }
+<a name="l00027"></a>00027 
+<a name="l00028"></a><a class="code" href="class_session.html#a219028ca0818f2b3d3f0d839d5ffd710">00028</a>     <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_session.html#a219028ca0818f2b3d3f0d839d5ffd710">terminer</a>()
+<a name="l00029"></a>00029     {
+<a name="l00030"></a>00030         session_destroy();
+<a name="l00031"></a>00031         <a class="code" href="class_session.html#a1768f9e0b18b9f9e1c4e2eca3d8054c8">Session::initialiserSession</a>();
+<a name="l00032"></a>00032     }
+<a name="l00033"></a>00033 
+<a name="l00037"></a><a class="code" href="class_session.html#a1768f9e0b18b9f9e1c4e2eca3d8054c8">00037</a>     <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_session.html#a1768f9e0b18b9f9e1c4e2eca3d8054c8">initialiserSession</a>()
+<a name="l00038"></a>00038     {
+<a name="l00039"></a>00039         $_SESSION[<span class="stringliteral">&#39;login&#39;</span>]  = <span class="stringliteral">&#39;anonymous&#39;</span>;
+<a name="l00040"></a>00040         $_SESSION[<span class="stringliteral">&#39;nom&#39;</span>]    = <span class="stringliteral">&#39;Anonymous&#39;</span>;
+<a name="l00041"></a>00041         $_SESSION[<span class="stringliteral">&#39;id&#39;</span>]     = 2;
+<a name="l00042"></a>00042     }
+<a name="l00043"></a>00043 
+<a name="l00044"></a><a class="code" href="class_session.html#a7d13146715af92e384213d2161ab78b9">00044</a>     <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_session.html#a7d13146715af92e384213d2161ab78b9">estIdentifie</a>()
+<a name="l00045"></a>00045     {
+<a name="l00046"></a>00046         <span class="keywordflow">return</span> ( $_SESSION[<span class="stringliteral">&#39;login&#39;</span>] == <span class="stringliteral">&#39;anonymous&#39;</span> ) ? <span class="keyword">false</span> : true ;
+<a name="l00047"></a>00047     }
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 }
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 ?&gt;
+</pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Énumérations</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_session_8php.html">Session.php</a>      </li>
+
+    <li class="footer">Généré le Jeudi Mai 17 2012 16:28:58 pour Nina par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

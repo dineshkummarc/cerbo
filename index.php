@@ -6,6 +6,13 @@
 
     $config = parse_ini_file( 'settings/application.ini', true );
 
+    // Chargement des fichiers de design à charger automatiquement
+    $_DESIGN = array(); // Tableau qui va recevoir les fichiers de design à inclure automatiquement
+    foreach ( $config['DESIGN']['FichiersDeBase'] as $fichier )
+    {
+        $_DESIGN[] = $fichier;
+    }
+
     // Définition des dossiers où se trouvent les templates
     $templates_folders = array();
 

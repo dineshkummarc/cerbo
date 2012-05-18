@@ -5,15 +5,25 @@
 
         <title>{% block titre %}{%endblock%} - Nina</title>
 
-        <link rel="stylesheet" href="{{ 'stylesheets/style.css'|design }}" />
-
-        <script type="text/javascript" src="{{ 'javascript/jquery.js'|design }}"></script>
+        {{ bootstrap( {'responsive': false} ) }}
+        {{ design_autoload() }}
+        {{ lesscss() }}
 
     </head>
 
     <body>
 
-        {% block body %}{% endblock %}
+        <menu>
+
+        </menu>
+
+        <article>
+            {% block body %}{% endblock %}
+        </article>
+
+        <div id="viewport">
+            Toto
+        </div>
 
     </body>
 
