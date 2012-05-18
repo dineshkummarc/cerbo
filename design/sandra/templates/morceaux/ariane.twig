@@ -1,0 +1,23 @@
+<div class="row-fluid">
+
+    <div class="span12">
+        <ul class="breadcrumb">
+            {% set bcl = 1 %}
+            {% for element, url in FilAriane %}
+            <li>
+                {% if url == null %}
+                    {{ element }} 
+                {% else %}
+                    <a href="{{ url }}">{{ element }}</a>
+                {% endif %}
+                {% if bcl < FilAriane|length %}
+                    <span class="divider">/</span>
+                {% endif %}
+            </li>
+            {% set bcl = bcl + 1 %}
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+

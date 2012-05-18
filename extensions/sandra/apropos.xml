@@ -1,17 +1,15 @@
 <extension>
 
-    <nom>Vote</nom>
+    <nom>Sandra</nom>
     <version>0.1</version>
     <auteurs>
         <auteur>MARTIN Damien [damien@martin-damien.fr]</auteur>
     </auteurs>
     <description>
     <![CDATA[
-        Possibilité de voter (vote par étoile) sur un objet dans Sandra.
+        Extension de base de Sandra.
     ]]>
     </description>
-    <dependances>
-        <extension version=">0.1">sandra</extension>
-    </dependances>
+    <dependances></dependances>
 
 </extension>

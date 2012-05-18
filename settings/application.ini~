@@ -39,14 +39,12 @@ Connection=
 # A noter : sandra est le design de base, vous devriez le laisser
 # pour n'avoir qu'a appliquer vos modifications.
 Utiliser[]=sandra
+Utiliser[]=damz
 
 # Liste des fichiers qui doivent être chargés pour toutes les pages
 # du site (vous pouvez mixer les fichiers JS, CSS et LESS)
 FichiersDeBase[]=js/jquery.js
-FichiersDeBase[]=js/prefixfree.min.js
 FichiersDeBase[]=less/design.less
-FichiersDeBase[]=css/base.css
-FichiersDeBase[]=js/base.js
 
 [EXTENSIONS]
 
@@ -54,7 +52,6 @@ FichiersDeBase[]=js/base.js
 # sur votre site.
 # Veuillez TOUJOURS laisser l'extension 'sandra' active.
 ExtensionsActives[]=sandra
-ExtensionsActives[]=damien
 ExtensionsActives[]=bootstrap
 ExtensionsActives[]=lesscss
 ExtensionsActives[]=i18n

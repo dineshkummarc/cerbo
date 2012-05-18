@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+
+        <title>{% block titre %}{%endblock%} - Sandra</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {{ bootstrap( {'responsive': false} ) }}
+        {{ design_autoload() }}
+        {{ lesscss() }}
+
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+
+                        <a class="brand" href="{{ ''|url_propre }}">
+                            Sandra's
+                        </a>
+
+                        <ul class="nav">
+                            <li {% if Module == 'galerie' %}class="active"{% endif %}>
+                            <a href="{{ 'galerie'|url_propre }}">Galeries photos</a>
+                            </li>
+                            <li><a href="#">Mon compte</a></li>
+                            <li><a href="#">Nous contacter</a></li>
+                        </ul>
+
+                        <ul class="nav pull-right">
+                            <li>
+                            <a href="{{ 'logout'|url_propre }}">
+                                    Me déconnecter
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            {% if FilAriane|length > 0 %}
+                {% include 'morceaux/ariane.twig' %}
+            {% endif %}
+
+            <div class="row-fluid">
+
+                <div class="span12">
+
+                    <article>
+                        {% block body %}{% endblock %}
+                    </article>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

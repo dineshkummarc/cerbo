@@ -10,6 +10,7 @@ class Page
     public $template = "pages/blank";
     public $parameters = array();
     public $securite = null;
+    public $fil_ariane = array();
 
     /**
      * Constructeur.
@@ -76,9 +77,18 @@ class Page
             }
         }
 
+        // Ajout de variables dans le template
+        $this->parameters['FilAriane'] = $this->fil_ariane;
+        $this->parameters['Module'] = $this->module->module;
+
         // Lance le rendu
         echo $twig_renderer->render( "$this->template.twig", $this->parameters );
 
+    }
+
+    function setFilAriane( $tableau )
+    {
+        $this->fil_ariane = $tableau;
     }
 
     /**

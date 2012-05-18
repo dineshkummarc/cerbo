@@ -20,11 +20,11 @@ class TwigBootstrap extends Twig_Extension
 
         if ( isset( $params['responsive'] ) && $params['responsive'] == true )
         {
-            $responsive = '-responsive';
+            $responsive = "\n<link rel=\"stylesheet\" href=\"" . Design::getFichier( 'css/bootstrap-reposnsive.min.css' ) . "\" />\n";
         }
         else{ $responsive = ''; }
 
-        $val = "<link rel=\"stylesheet\" href=\"" . Design::getFichier( "css/bootstrap$responsive.min.css" ) . "\" />
+        $val = "<link rel=\"stylesheet\" href=\"" . Design::getFichier( 'css/bootstrap.min.css' ) . "\" />$responsive
         <script type=\"text/javascript\" src=\"" . Design::getFichier( 'js/bootstrap.min.js' ) . "\"></script>\n";
 
         echo $val;
