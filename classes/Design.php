@@ -7,7 +7,7 @@ class Design
     {
 
         // Charge les paramètres de configuration
-        $config = parse_ini_file( 'settings/application.ini', true );
+        $config = Configuration::charger( 'application.ini' );
 
         // Extraction des tableaux des extensions et des designs
         $extensions = array_reverse( $config['EXTENSIONS']['ExtensionsActives'] );

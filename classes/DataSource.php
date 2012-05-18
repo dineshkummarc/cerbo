@@ -22,7 +22,7 @@ class DataSource
     {
 
         // Récuperation de l'handler à utiliser
-        $config = parse_ini_file( 'settings/application.ini', true );
+        $config = Configuration::charger( 'application.ini' );
 
         // Initialisation de l'handler
         $handler = $config['BASEDEDONNEES']['DataSourceHandler'];

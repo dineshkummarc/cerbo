@@ -45,7 +45,7 @@ class Page
         $Page = $this;
         $Securite = $this->securite;
 
-        $config = parse_ini_file( 'settings/application.ini', true );
+        $config = Configuration::charger( 'application.ini' );
 
         // Charge les données depuis le module (et déroule code du module si il y a)
 
@@ -120,7 +120,7 @@ class Page
      */
     public static function rediriger( $module )
     {
-        $config = parse_ini_file( 'settings/application.ini', true );
+        $config = Configuration::charger( 'application.ini' );
         $prefix = $config['URL']['EnleverDuChemin'];
         header("Location: $prefix/$module");
     }
@@ -132,7 +132,7 @@ class Page
     public static function creerURL( $uri )
     {
 
-        $config = parse_ini_file( 'settings/application.ini', true );
+        $config = Configuration::charger( 'application.ini' );
 
         if ( substr( $uri, 0, 1 ) != '/' )
         {

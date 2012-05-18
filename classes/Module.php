@@ -19,7 +19,7 @@ class Module
     {
 
         $query = $_SERVER['REQUEST_URI'];
-        $config = parse_ini_file( "settings/application.ini", true );
+        $config = Configuration::charger( 'application.ini' );
 
         // Suppression du début de l'URL (si besoins)
         if ( isset( $config['URL']['EnleverDuChemin'] ) && $config['URL']['EnleverDuChemin'] != '' )

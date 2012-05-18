@@ -4,7 +4,7 @@
     require_once 'lib/Twig/Autoloader.php'; 
     Twig_Autoloader::register();
 
-    $config = parse_ini_file( 'settings/application.ini', true );
+    $config = Configuration::charger( 'application.ini' );
 
     // Chargement des fichiers de design à charger automatiquement
     $_DESIGN = array(); // Tableau qui va recevoir les fichiers de design à inclure automatiquement

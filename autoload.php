@@ -9,7 +9,7 @@ function __sandra_autoload( $class_name )
     else
     {
         // On regarde dans les extensions
-        $config = parse_ini_file( 'settings/application.ini', true );
+        $config = Configuration::charger( 'application.ini' );
         foreach ( $config['EXTENSIONS']['ExtensionsActives'] as $extension )
         {
             if ( file_exists( dirname( __FILE__ )."/extensions/$extension/classes/$class_name.php" ) )

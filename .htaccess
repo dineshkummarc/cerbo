@@ -7,6 +7,7 @@ RewriteRule ^design/.*  -   [L]
 
 # Fichiers bruts
 RewriteRule ^extensions/[^/]+/design/[^/]+/.*   - [L]
+RewriteRule ^extensions/[^/]+/data/[^/]+/.*     - [L]
 
 # Fichiers de base
 RewriteRule ^favicon\.[ico|png|jpe?g|gif]   - [L]

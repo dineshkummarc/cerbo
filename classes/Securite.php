@@ -18,7 +18,7 @@ class Securite
     public function estAutorise()
     {
 
-        $config = parse_ini_file( 'settings/application.ini', true );
+        $config = Configuration::charger( 'application.ini' );
 
         // Règle pour l'identification
         // C'est la seule règle en dur (c'est le seul élément standard)
