@@ -52,9 +52,12 @@ class Page
         // On regarde si le module existe dans les modules courants.
         // Autrement on regarde dans les extensions pour l'existance du module.
 
+        $module_trouve = false;
+
         if ( file_exists( 'modules/'.$this->module->file ) )
         {
             include 'modules/'.$this->module->file;
+            $module_trouve = true;
         }
         else
         {
@@ -64,23 +67,57 @@ class Page
                 if ( file_exists( 'extensions/'.$extension.'/modules/'.$this->module->file ) )
                 {
                     include 'extensions/'.$extension.'/modules/'.$this->module->file;
+                    $module_trouve = true;
                 }
             }
         }
 
-        // Vérifie les paramètres de sécurité
-        if ( $this->module->module != 'login' && $this->module->module != 'logout' )
+        if ( $module_trouve )
         {
-            if ( !$this->securite->estAutorise() )
+
+            // Vérifie les paramètres de sécurité
+            if ( $this->module->module != 'login' && $this->module->module != 'logout' )
             {
-                Page::rediriger( 'login' );
+                if ( !$this->securite->estAutorise() )
+                {
+                    Page::rediriger( 'login' );
+                }
             }
+
+            // Ajout de variables dans le template
+            $this->parameters['FilAriane'] = $this->fil_ariane;
+            $this->parameters['Module'] = $this->module->module;
+        
+        }
+        else
+        {
+        
+            // Ce n'est pas un module, nous allons donc regarder dans les pages
+
+            $pages = Configuration::charger( 'pages.ini' );
+
+            if ( isset( $pages[$this->module->module] ) )
+            {
+
+                $this->parameters['HTML'] = file_get_contents( 'pages/' . $pages[$this->module->module]['FichierHTML'] );
+                $this->parameters['TitrePage'] = $pages[$this->module->module]['TitrePage'];
+                // TODO Ajouter les metas
+                $this->parameters['FilAriane'] = array( 'TODO' => null );
+                $this->parameters['Module'] = 'page:a-propos';
+
+                $this->template = $config['PAGES']['TemplatePourLesPages'];
+
+            }
+            else
+            {
+            
+                // TODO GERER UNE PAGE 404
+
+            }
+
         }
 
-        // Ajout de variables dans le template
-        $this->parameters['FilAriane'] = $this->fil_ariane;
-        $this->parameters['Module'] = $this->module->module;
-
+        
         // Lance le rendu
         echo $twig_renderer->render( "$this->template.twig", $this->parameters );
 

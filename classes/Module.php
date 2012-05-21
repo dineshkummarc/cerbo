@@ -55,6 +55,7 @@ class Module
 
         $this->module = $query;
         $this->file = "$query.php";
+        $this->page = "$query.html";
 
     }
 
