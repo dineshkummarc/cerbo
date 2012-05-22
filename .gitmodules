@@ -13,3 +13,6 @@
 [submodule "extensions/i18n"]
 	path = extensions/i18n
 	url = git://github.com/martin-damien/sandra-i18n.git
+[submodule "extensions/damien"]
+	path = extensions/damien
+	url = git://github.com/martin-damien/sandra-damien.git
