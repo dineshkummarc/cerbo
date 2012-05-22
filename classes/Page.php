@@ -6,11 +6,11 @@
 class Page
 {
 
-    public $module = null;
-    public $template = "pages/blank";
-    public $parameters = array();
-    public $securite = null;
-    public $fil_ariane = array();
+    public $module      = null;
+    public $template    = 'pages/blank';
+    public $parameters  = array();
+    public $securite    = null;
+    public $fil_ariane  = array();
 
     /**
      * Constructeur.
