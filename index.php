@@ -1,7 +1,7 @@
 <?php
 
 	require_once 'autoload.php';
-    require_once 'lib/Twig/Autoloader.php'; 
+    require_once 'lib/twig/lib/Twig/Autoloader.php'; 
     Twig_Autoloader::register();
 
     $config = Configuration::charger( 'application.ini' );
