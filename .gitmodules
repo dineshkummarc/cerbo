@@ -7,3 +7,6 @@
 [submodule "extensions/XMLDataSource"]
 	path = extensions/XMLDataSource
 	url = git://github.com/martin-damien/sandra-xmldatasource.git
+[submodule "extensions/lesscss"]
+	path = extensions/lesscss
+	url = git://github.com/martin-damien/sandra-lesscss.git
