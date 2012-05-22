@@ -16,3 +16,12 @@
 [submodule "extensions/damien"]
 	path = extensions/damien
 	url = git://github.com/martin-damien/sandra-damien.git
+[submodule "lib/twig"]
+	path = lib/twig
+	url = git://github.com/fabpot/Twig.git
+[submodule "extensions/phototheque"]
+	path = extensions/phototheque
+	url = git://github.com/martin-damien/sandra-phototheque.git
+[submodule "extensions/vote"]
+	path = extensions/vote
+	url = git://github.com/martin-damien/sandra-vote.git
