@@ -27,10 +27,14 @@
 
                         <ul class="nav">
                             <li {% if Module == 'galerie' %}class="active"{% endif %}>
-                            <a href="{{ 'galerie'|url_propre }}">Galeries photos</a>
+                                <a href="{{ 'galerie'|url_propre }}">Galeries photos</a>
                             </li>
-                            <li><a href="#">Mon compte</a></li>
-                            <li><a href="#">Nous contacter</a></li>
+                            <li>
+                            <a href="#">{{ 'Mon compte'|i18n }}</a>
+                            </li>
+                            <li>
+                                <a href="#">Nous contacter</a>
+                            </li>
                             <li {% if Module == 'page:a-propos' %}class="active"{% endif %}>
                                 <a href="{{ 'a-propos'|url_propre }}">A propos...</a>
                             </li>
@@ -38,8 +42,8 @@
 
                         <ul class="nav pull-right">
                             <li>
-                            <a href="{{ 'logout'|url_propre }}">
-                                    Me déconnecter
+                                <a href="{{ 'logout'|url_propre }}">
+                                    {{ 'Me d&eacute;connecter'|i18n }}
                                 </a>
                             </li>
                         </ul>

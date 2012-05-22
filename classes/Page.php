@@ -42,6 +42,7 @@ class Page
     function render( $twig_renderer )
     {
 
+        global $_LANG;
         $Page = $this;
         $Securite = $this->securite;
 
@@ -98,13 +99,19 @@ class Page
 
             if ( isset( $pages[$this->module->module] ) )
             {
+                
+                $html = file_get_contents( 'pages/' . $_LANG . '/' . $pages[$this->module->module]['FichierHTML'][$_LANG] );
 
-                $this->parameters['HTML'] = file_get_contents( 'pages/' . $pages[$this->module->module]['FichierHTML'] );
-                $this->parameters['TitrePage'] = $pages[$this->module->module]['TitrePage'];
+                $this->parameters['HTML'] = $html;
+                $this->chargerInformationsPage( $html );
+                
+                // $this->parameters['TitrePage'] = $pages[$this->module->module]['TitrePage'];
                 // TODO Ajouter les metas
-                $this->parameters['FilAriane'] = array( 'TODO' => null );
-                $this->parameters['Module'] = 'page:a-propos';
+                
+                // $this->parameters['FilAriane'] = array( 'TODO' => null );
+                $this->parameters['Module'] = 'page:' . $this->module->module;
 
+                // Gérer les appels de templates personnalisé
                 $this->template = $config['PAGES']['TemplatePourLesPages'];
 
             }
@@ -120,6 +127,11 @@ class Page
         
         // Lance le rendu
         echo $twig_renderer->render( "$this->template.twig", $this->parameters );
+
+    }
+
+    function chargerInformationsPage( $xml )
+    {
 
     }
 
