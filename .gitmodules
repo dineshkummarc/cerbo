@@ -1,3 +1,6 @@
 [submodule "extensions/sandra"]
 	path = extensions/sandra
 	url = git://github.com/martin-damien/sandra-sandra.git
+[submodule "extensions/bootstrap"]
+	path = extensions/bootstrap
+	url = git://github.com/martin-damien/sandra-bootstrap.git
