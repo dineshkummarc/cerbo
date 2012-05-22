@@ -4,3 +4,6 @@
 [submodule "extensions/bootstrap"]
 	path = extensions/bootstrap
 	url = git://github.com/martin-damien/sandra-bootstrap.git
+[submodule "extensions/XMLDataSource"]
+	path = extensions/XMLDataSource
+	url = git://github.com/martin-damien/sandra-xmldatasource.git
