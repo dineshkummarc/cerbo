@@ -1,0 +1,3 @@
+[submodule "extensions/sandra"]
+	path = extensions/sandra
+	url = git://github.com/martin-damien/sandra-sandra.git
