@@ -5,30 +5,17 @@ namespace sandra\kernel;
 /**
  * All the modules have to extend from this class !
  */
-class Module
+class Content
 {
 
-    public function __construct( $uri )
-    {
+    private $template;
 
-    }
-
-    public function isModule( $uri )
+    public function setTemplate( $template )
     {
-        // TODO Detect modules
-        return true;
+        $this->template = $template;
     }
 
 }
 
-interface ModuleInterface
-{
-
-    public function run();
-    public function submited();
-    public function toJSON();
-    public function toXML();
-
-}
 
 ?>

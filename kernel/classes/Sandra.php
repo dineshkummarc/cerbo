@@ -18,13 +18,13 @@ class Sandra
     public function render()
     {
         
-        if ( \sandra\kernel\Module::isModule( $this->request->getURI() ) )
+        if ( \sandra\kernel\ModuleHandler::isModule( $this->request->getURI() ) )
         {
-            $content = new \sandra\kernel\Module( $this->request->getURI() );
+            $content = new \sandra\kernel\ModuleHandler( $this->request->getURI() );
         }
         else
         {
-            $content = new \sandra\kernel\Page( $this->request->getURI() );
+            $content = new \sandra\kernel\PageHandler( $this->request->getURI() );
         }
 
     }
