@@ -20,12 +20,19 @@ class Sandra
         
         if ( \sandra\kernel\ModuleHandler::isModule( $this->request->getURI() ) )
         {
-            $content = new \sandra\kernel\ModuleHandler( $this->request->getURI() );
+            $content_handler = new \sandra\kernel\ModuleHandler( $this->request->getURI() );
         }
         else
         {
-            $content = new \sandra\kernel\PageHandler( $this->request->getURI() );
+            $content_handler = new \sandra\kernel\PageHandler( $this->request->getURI() );
         }
+
+        $content_handler->getContent()->build();
+
+        echo "<p>Content : ";
+        print_r( $content_handler );
+        echo "</p>";
+
 
     }
 

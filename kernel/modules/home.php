@@ -2,7 +2,7 @@
 
 namespace sandra\modules;
 
-class Home extends \sandra\kernel\Module implements \sandra\kernel\ModuleInterface
+class Home extends \sandra\kernel\Module
 {
 
     public function __construct()
@@ -10,10 +10,11 @@ class Home extends \sandra\kernel\Module implements \sandra\kernel\ModuleInterfa
         $this->setTemplate( 'modules/home' );
     }
 
-    public function run()
+    public function build()
     {
 
         // Add your module logic here
+        $this->addToDataMap( 'body', '<h1>Home</h1>' );
 
     }
 

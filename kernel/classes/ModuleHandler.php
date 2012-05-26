@@ -5,7 +5,7 @@ namespace sandra\kernel;
 /**
  * All the modules have to extend from this class !
  */
-class ModuleHandler
+class ModuleHandler extends \sandra\kernel\ContentHandler
 {
 
     private $uri;
@@ -28,7 +28,12 @@ class ModuleHandler
 
     }
 
-    public function detectModulePath( $uri )
+    public function getContent()
+    {
+        return $this->module_instance;
+    }
+
+    private function detectModulePath( $uri )
     {
 
         global $_CONFIGURATION;
@@ -80,17 +85,8 @@ class ModuleHandler
         }
         
         return false;
+
     }
-
-}
-
-interface ModuleInterface
-{
-
-    public function run();
-    public function submited();
-    public function toJSON();
-    public function toXML();
 
 }
 
