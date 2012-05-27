@@ -36,7 +36,7 @@ class ModuleHandler extends \sandra\kernel\ContentHandler
     private function detectModulePath( $uri )
     {
 
-        global $_CONFIGURATION;
+        $config = \sandra\kernel\Configuration::getConfiguration();
         $found  = false;
 
         if ( file_exists( 'kernel/modules/' . $uri . '.php' ) )
@@ -48,7 +48,7 @@ class ModuleHandler extends \sandra\kernel\ContentHandler
         if ( !$found )
         {
 
-            foreach ( $_CONFIGURATION['application.ini']['EXTENSIONS']['Use'] as $extension )
+            foreach ( $config['application.ini']['EXTENSIONS']['Use'] as $extension )
             {
                 if ( \sandra\kernel\Extension::haveModule( $extension, $uri ) )
                 {
@@ -67,7 +67,7 @@ class ModuleHandler extends \sandra\kernel\ContentHandler
     public function isModule( $uri )
     {
 
-        global $_CONFIGURATION;
+        $config = \sandra\kernel\Configuration::getConfiguration();
 
         // First, check in kernel modules
         if ( file_exists( 'kernel/modules/' . $uri . '.php' ) )
@@ -76,7 +76,7 @@ class ModuleHandler extends \sandra\kernel\ContentHandler
         }
 
         // Check through extensions
-        foreach ( $_CONFIGURATION['application.ini']['EXTENSIONS']['Use'] as $extension )
+        foreach ( $config['application.ini']['EXTENSIONS']['Use'] as $extension )
         {
             if ( \sandra\kernel\Extension::haveModule( $extension, $uri ) )
             {

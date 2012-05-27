@@ -1,1 +1,10 @@
-<h1>Home</h1>
+{% extends 'layouts/standard.twig' %}
+
+{% block title %}{{ DataMap.title }}{% endblock %}
+
+{% block body %}
+
+    <h1>{{ DataMap.title }}</h1>
+    {{ DataMap.body }}
+
+{% endblock %}

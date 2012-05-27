@@ -32,6 +32,11 @@ abstract class Content
         $this->data_map[$name] = $value;
     }
 
+    public function getDataMap()
+    {
+        return $this->data_map;
+    }
+
     /**
      * This method is here to allow you to add all you need
      * to DataMap.

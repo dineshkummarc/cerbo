@@ -64,7 +64,7 @@ class Sandra
             // Render with Twig
             $result = $this->twig->render(
                 $content_handler->getContent()->getTemplate(). '.twig' ,
-                array()
+                array( 'DataMap' => $content_handler->getContent()->getDataMap() )
             );
 
         }

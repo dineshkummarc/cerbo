@@ -5,16 +5,24 @@ namespace sandra\kernel;
 class Configuration
 {
 
-    /**
-     * Load all the available configuration files and store them
-     * in the global variable $_CONFIGURATION. It is an indexed
-     * array where the key is the name of the configuration file.
-     */
+    private static $config = null;
+
+    public static function getConfiguration()
+    {
+
+        if ( \sandra\kernel\Configuration::$config == null )
+        {
+            \sandra\kernel\Configuration::load();
+        }
+
+        return \sandra\kernel\Configuration::$config;
+
+    }
+
     public static function load()
     {
 
-        // $_CONFIGURATION is set as a global variable to avoid reloading them.
-        global $_CONFIGURATION;
+        $config = array();
 
         // Load basic configuration files
         $handler = opendir( 'settings' );
@@ -22,28 +30,28 @@ class Configuration
         {
             if ( !is_dir( $dir ) && $dir != '.' && $dir != '..' )
             {
-                $_CONFIGURATION[$dir] = parse_ini_file( 'settings/' . $dir, true );
+                $config[$dir] = parse_ini_file( 'settings/' . $dir, true );
             }
         }
         closedir( $handler );
 
         // Load configuration files from extensions and merge their data with the basics.
         
-        foreach ( $_CONFIGURATION['application.ini']['EXTENSIONS']['Use'] as $extension )
+        foreach ( $config['application.ini']['EXTENSIONS']['Use'] as $extension )
         {
-            foreach ( $_CONFIGURATION as $file => $values )
+            foreach ( $config as $file => $values )
             {
                 if ( file_exists( 'extensions/' . $extension . '/settings/' . $file ) )
                 {
-                    $_CONFIGURATION[$file] = array_merge(
-                        $_CONFIGURATION[$file],
+                    $config[$file] = array_merge(
+                        $config[$file],
                         parse_ini_file( 'extensions/' . $extension . '/settings/' . $file )
                     );
                 }
             }
         }
 
-        return $_CONFIGURATION;
+        \sandra\kernel\Configuration::$config = $config;
 
     }
 

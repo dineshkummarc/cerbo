@@ -1,0 +1,11 @@
+{
+
+    'kernel/login': [
+
+        'Username': 'Nom d\'utilisateur',
+        'Password': 'Mot de passe',
+        'Login' : 'Me connecter'
+
+    ]
+
+}

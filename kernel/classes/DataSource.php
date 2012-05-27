@@ -2,27 +2,34 @@
 
 namespace sandra\kernel;
 
-interface DataSourceInterface
+abstract class DataSource
 {
 
-    public function setParameters( $parameters );
+    private static $db_pointer = null;
 
-    public function select( $table, $parameters );
-
-}
-
-class DataSource
-{
+    abstract protected function __construct( $parameters );
+    abstract protected function select( $table, $parameters );
+    abstract protected function remove( $table, $parameters );
+    abstract protected function update( $table, $parameters );
 
     public static function getInstance()
     {
 
-        // Initialisation de l'handler
-        $handler = $_CONFIGURATION['application.ini']['DATABASE']['DataSourceHandler'];
-        $cnx = new $handler();
-        $cnx->setParameters( $_CONFIGURATION['application.ini']['BASEDEDONNEES']['Connection'] );
+        $config = \sandra\kernel\Configuration::getConfiguration();
 
-        return $cnx;
+        // Initialize DataSource connection if it doesn't exists.
+        if ( \sandra\kernel\DataSource::$db_pointer == null )
+        {
+
+            $handler = $config['application.ini']['DATABASE']['DataSourceHandler'];
+            $parameters = $config['application.ini']['DATABASE']['Connection'];
+
+            $class = '\\sandra\\datasource\\' . $handler;
+            \sandra\kernel\DataSource::$db_pointer = new $class( $parameters );
+
+        }
+
+        return \sandra\kernel\DataSource::$db_pointer;
 
     }
 

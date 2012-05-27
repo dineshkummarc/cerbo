@@ -25,12 +25,12 @@ class Request
     public function resolveURI()
     {
 
-        global $_CONFIGURATION;
+        $config = \sandra\kernel\Configuration::getConfiguration();
 
         // Remove extra content from the URI
-        if ( trim( $_CONFIGURATION['application.ini']['URL']['RemoveFromPath'] ) != '' )
+        if ( trim( $config['application.ini']['URL']['RemoveFromPath'] ) != '' )
         {
-            $remove = $_CONFIGURATION['application.ini']['URL']['RemoveFromPath'];
+            $remove = $config['application.ini']['URL']['RemoveFromPath'];
             if ( substr( $this->requested_uri, 0, strlen( $remove ) ) == $remove )
             {
                 $this->requested_uri = substr( 
