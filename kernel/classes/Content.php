@@ -19,6 +19,11 @@ abstract class Content
         $this->template = $template;
     }
 
+    public function getTemplate()
+    {
+        return $this->template;
+    }
+
     /**
      * Add a field to the DataMap.
      */
@@ -42,12 +47,28 @@ abstract class Content
     /**
      * Format as you need the data to a valid JSON format.
      */
-    abstract protected function toJSON();
+    public function toJSON()
+    {
+        return $this->forgeJSON();
+    }
 
     /**
-     * FOrmat as you need the data to a valid XML format.
+     * Format as you need the data to a valid XML format.
      */
-    abstract protected function toXML();
+    public function toXML()
+    {
+        return $this->forgeXML();
+    }
+
+    private function forgeJSON()
+    {
+        return json_encode( $this->data_map );
+    }
+
+    private function forgeXML()
+    {
+        return "TODO forgeXML";
+    }
 
 }
 

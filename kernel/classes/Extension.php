@@ -97,6 +97,18 @@ class Extension
         }
     }
 
+    public static function getCorrectFilePath( $extension, $file )
+    {
+
+        if ( \sandra\kernel\Extension::isPHAR( $extension ) )
+        {
+            return 'phar://extensions/' . $extension . '/' . $file;
+        }
+
+        return 'extensions/' . $extension . '/' . $file;
+
+    }
+
 }
 
 ?>

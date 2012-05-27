@@ -14,30 +14,12 @@ class Home extends \sandra\kernel\Module
     {
 
         // Add your module logic here
-        $this->addToDataMap( 'body', '<h1>Home</h1>' );
+        $this->addToDataMap( 'title', 'Home' );
+        $this->addToDataMap( 'body', 'Welcome my dear.' );
 
     }
 
-    public function submited()
-    {
-        
-        // Add your module logic here when a form is submited
-
-    }
-
-    public function toJSON()
-    {
-
-        // Add the JSON format export here
-        
-    }
-
-    public function toXML()
-    {
-        
-        // Add the XML format export here
-
-    }
+    public function submited(){}
 
 }
 

@@ -51,7 +51,10 @@ class Request
         $last_uri_element = $uri_elements[count($uri_elements) - 1];
         if ( strrpos( $last_uri_element, '.' ) !== false )
         {
+            // Extract format
             $this->format = substr( $last_uri_element, strrpos( $last_uri_element, '.' ) + 1 );
+            // Remove format from URI
+            $this->uri = substr( $this->uri, 0, strrpos( $this->uri, '.' ) );
         }
 
         // Extract parameters
@@ -78,7 +81,7 @@ class Request
 
     public function getFormat()
     {
-        return $this->format;
+        return strtoupper( $this->format );
     }
 
 }

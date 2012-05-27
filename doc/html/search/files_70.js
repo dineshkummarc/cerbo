@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['page_2ephp',['Page.php',['../_page_8php.html',1,'']]]
+  ['pagehandler_2ephp',['PageHandler.php',['../_page_handler_8php.html',1,'']]]
 ];
