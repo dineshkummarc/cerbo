@@ -13,6 +13,7 @@ class Sandra
     {
         $this->request = new \sandra\kernel\Request();
         $this->twig = null;
+        \sandra\kernel\I18n::load();
     }
 
     public function render()

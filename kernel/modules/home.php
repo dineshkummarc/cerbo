@@ -2,6 +2,8 @@
 
 namespace sandra\modules;
 
+use \sandra\kernel\I18n as i18n;
+
 class Home extends \sandra\kernel\Module
 {
 
@@ -14,8 +16,15 @@ class Home extends \sandra\kernel\Module
     {
 
         // Add your module logic here
-        $this->addToDataMap( 'title', 'Home' );
-        $this->addToDataMap( 'body', 'Welcome my dear.' );
+        $this->addToDataMap(
+            'title', 
+            i18n::translate( 'kernel/home', 'Home' )
+        );
+
+        $this->addToDataMap( 
+            'body', 
+            i18n::translate( 'kernel/home', 'Welcome my dear.' ) 
+        );
 
     }
 
