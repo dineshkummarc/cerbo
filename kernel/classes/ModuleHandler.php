@@ -64,7 +64,7 @@ class ModuleHandler extends \sandra\kernel\ContentHandler
 
     }
 
-    public function isModule( $uri )
+    public static function isModule( $uri )
     {
 
         $config = \sandra\kernel\Configuration::getConfiguration();
