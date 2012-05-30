@@ -11,9 +11,13 @@ class Sandra
 
     public function __construct()
     {
+
         $this->request = new \sandra\kernel\Request();
         $this->twig = null;
+
+        \sandra\kernel\Extension::load();
         \sandra\kernel\I18n::load();
+
     }
 
     public function render()

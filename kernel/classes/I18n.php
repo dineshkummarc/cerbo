@@ -33,12 +33,10 @@ class I18n
     {
         
         $config = \sandra\kernel\Configuration::getConfiguration();
-
         $language = \sandra\kernel\I18n::detectTranslation();
-        $json = file_get_contents( 'extensions/sandra/translations/' . $language . '.json' );
 
         // Loading base translation
-        \sandra\kernel\I18n::$translations = json_decode( $json, true );
+        \sandra\kernel\I18n::$translations = array();
 
         // Extract translations from the extensions
         foreach ( $config['application.ini']['EXTENSIONS']['Use'] as $extension )

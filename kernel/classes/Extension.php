@@ -22,6 +22,23 @@ class Extension
 
     }
 
+    public static function load()
+    {
+/*
+        $config = \sandra\kernel\Configuration::getConfiguration();
+
+        foreach ( $config['application.ini']['EXTENSIONS']['Use'] as $extension )
+        {
+
+            if ( \sandra\kernel\Extension::isPHAR( $extension ) )
+            {
+                require_once 'phar://extensions/' . $extension . '.phar';
+            }
+
+        }
+ */
+    }
+
     /**
      * Check if an extensin have a Module or not.
      */
@@ -102,7 +119,7 @@ class Extension
 
         if ( \sandra\kernel\Extension::isPHAR( $extension ) )
         {
-            return 'phar://extensions/' . $extension . '/' . $file;
+            return 'phar://extensions/' . $extension . '.phar/' . $file;
         }
 
         return 'extensions/' . $extension . '/' . $file;
