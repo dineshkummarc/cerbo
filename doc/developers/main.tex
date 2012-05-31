@@ -1,0 +1,37 @@
+\documentclass[a4paper,10pt,twoside]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[OT1]{fontenc}
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{titlepic}
+\usepackage{graphicx}
+
+\lstset{language=PHP,
+  frame=single,
+  numbers=left,
+  morecomment=[l]{//},
+  keywordstyle=\color{codekeyword}\bfseries,
+  commentstyle=\color{codecomments},
+  stringstyle=\color{codestrings},
+  numberstyle=\tiny\color{black},
+  breaklines=true
+}
+
+\begin{document}
+
+\pagestyle{fancy} 
+
+\title{SANDRA}
+\author{A developer guide}
+\date{\today}
+
+\maketitle
+
+\tableofcontents
+
+\include{intro}
+
+\end{document}
