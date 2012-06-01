@@ -39,6 +39,10 @@ class Request
                 );
             }
         }
+        else
+        {
+            $this->requested_uri = substr( $this->requested_uri, 1 ); // Remove first '/'
+        }
         
         // Split real URI with parameters
         $parts = explode( '//', $this->requested_uri );
