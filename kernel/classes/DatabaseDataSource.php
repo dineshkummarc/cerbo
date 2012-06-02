@@ -1,6 +1,6 @@
 <?php
 
-namespace sandra\datasource;
+namespace sandra\kernel;
 
 class DatabaseDataSource extends \sandra\kernel\DataSource
 {
@@ -28,8 +28,51 @@ class DatabaseDataSource extends \sandra\kernel\DataSource
 
     }
 
+    private static function resolveParametersArray( $parameters, $current_operator = null )
+    {
+
+        $sql_string = '';
+        $first = true;
+
+        foreach ( $parameters as $operator => $value )
+        {
+
+            // We are on a LOGICAL array
+            if ( strtoupper( $operator ) == 'AND' || strtoupper( $operator ) == 'OR' )
+            {
+                $current_operator = strtoupper( $operator );
+                // TODO Place parenthesis when there is more than 1 element in the subarray
+                $sql_string .= ' ' . $current_operator . ' ( ';
+                $sql_string .= \sandra\kernel\DatabaseDataSource::resolveParametersArray( $value, $current_operator );
+                $sql_string .= ' ) ';
+            }
+            else
+            {
+
+                $field = $operator; // Missnamed variable for this case
+
+                switch ( $value[0] )
+                {
+                    case '=':
+                        $sql_string .=  ' ' . ( ( $first ) ? '' : $current_operator ) . ' ' . $field . ' = \'' . $value[1] . '\' ';
+                        break;
+                }
+
+                $first = false;
+
+            }
+
+        }
+
+        return $sql_string;
+
+    }
+
     public function select( $table, $parameters )
     {
+
+        $sql = 'SELECT * FROM ' . $table . ' WHERE ' . \sandra\kernel\DatabaseDataSource::resolveParametersArray( $parameters );
+        echo "<p>$sql</p>";
 
     }
 
@@ -40,6 +83,13 @@ class DatabaseDataSource extends \sandra\kernel\DataSource
 
     public function update( $table, $parameters )
     {
+
+    }
+
+    public function fetch( $line = null )
+    {
+
+        return false;
 
     }
 

@@ -1,4 +1,5 @@
 all: kernel
 
 kernel:
-	pandoc kernel.md -o Understanding\ Kernel.pdf
+	pandoc kernel.mkd -o dist/Understanding\ Kernel.pdf
+	pandoc datasources.mkd -o dist/Understanding\ Datasources.pdf

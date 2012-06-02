@@ -11,6 +11,7 @@ abstract class DataSource
     abstract protected function select( $table, $parameters );
     abstract protected function remove( $table, $parameters );
     abstract protected function update( $table, $parameters );
+    abstract protected function fetch( $line = null );
 
     public static function getInstance()
     {
@@ -24,7 +25,7 @@ abstract class DataSource
             $handler = $config['application.ini']['DATABASE']['DataSourceHandler'];
             $parameters = $config['application.ini']['DATABASE']['Connection'];
 
-            $class = '\\sandra\\datasource\\' . $handler;
+            $class = '\\sandra\\kernel\\' . $handler;
             \sandra\kernel\DataSource::$db_pointer = new $class( $parameters );
 
         }

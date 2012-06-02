@@ -11,5 +11,10 @@ $_AUTOLOAD_ARRAY[] = 'kernel/classes/ModuleHandler.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/Content.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/Module.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/Design.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/DataSource.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/DatabaseDataSource.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/DatabaseDataSource.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/DataSource.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/DatabaseDataSource.php';
 
 ?>
