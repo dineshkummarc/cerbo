@@ -1,2 +1,51 @@
 # Understanding the Kernel
 
+## Folders
+
+The kernel is composed of the base classes that are used by Sandra.
+
+It is composed of the following folders :
+
+* classes
+* datatypes
+* modules
+
+classes
+:   It contains all the base classes : Managing requests, modules,
+    pages, translations, ...
+
+datatypes
+:   The classes that define the base datatypes of the application :
+    TextLine, XMLBlock, Date, Integer, ...
+
+modules
+:   The basic complex actions of the application : login, logout,
+    search engine, ...
+
+## The way it works
+
+1. The requested URI is parsed to extract :
+    * real URI
+    * parameters
+    * language
+    * the output format (none given, XML or JSON)
+2. The URI is tested trough the existing extensions and kernel.
+    * In the kernel
+    * In the extensions, following the call order in
+        `application.ini`
+3. If the module exists
+    1. The module is loaded (`include` of the file)
+    2. The class is called with :
+        * `__construct()`
+        * `submited()`
+        * `build()`
+    3. Then we try to deliver the correct format by calling one the
+        dedicated methods : `toXML()`, `toJSON()`.
+    4. If no format is defined, we use *Twig* and the configured
+        template to render the webpage.
+4. If the module doesn't exists
+    1. We load the page with the URI found by parsing the request.
+    2. We render the content with the configured template using
+        *Twig*.
+5. If the module and the page doesn't exists
+    * We load the `Error404` module from the kernel.

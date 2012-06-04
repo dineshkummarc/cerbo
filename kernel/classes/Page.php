@@ -17,13 +17,7 @@ class Page extends Content
 
         $db = \sandra\kernel\DataSource::getInstance();
         $db->select( 'content', array(
-
-            array( 'and' => array(
-
-                'id' => array( '=', $node_id )
-
-            )
-
+            'id' => array( '=', $node_id )
         ) );
 
         while ( ( $row = $db->fetch() ) == true )
