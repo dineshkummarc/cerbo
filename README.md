@@ -3,6 +3,15 @@
 Cerbo (Pronounce /t͡serbo/) is a CMS/CMF to easily create and extends
 web sites.
 
+## Requirements
+
+* PHP >= 5.2.4
+
+If you want to use *phar* version of the extensions (his is absolutly
+not mandatory) :
+
+* PHP >= 5.3
+
 ## ToDo
 
 * Content structures

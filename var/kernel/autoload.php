@@ -11,5 +11,8 @@ $_AUTOLOAD_ARRAY[] = 'kernel/classes/I18n.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/ContentHandler.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/ModuleHandler.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/PageHandler.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/Content.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/Module.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/Design.php';
 
 ?>
