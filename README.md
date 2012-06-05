@@ -1,4 +1,7 @@
-# Cerbo /t͡serbo/
+# Cerbo
+
+Cerbo (Pronounce /t͡serbo/) is a CMS/CMF to easily create and extends
+web sites.
 
 ## ToDo
 
