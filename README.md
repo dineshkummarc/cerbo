@@ -7,7 +7,7 @@ web sites.
 
 * PHP >= 5.2.4
 
-If you want to use *phar* version of the extensions (his is absolutly
+If you want to use *phar* version of the extensions (this is absolutly
 not mandatory) :
 
 * PHP >= 5.3
