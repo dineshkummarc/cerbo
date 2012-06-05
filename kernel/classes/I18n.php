@@ -74,14 +74,17 @@ class I18n
         // TODO Check all those things by modifying my hosts
 
         // Try to detect language by HOST_NAME
-        foreach ( $config['application.ini']['TRANSLATIONS']['TranslationsMap'] as $code => $hostname )
+        if ( isset( $config['application.ini']['TRANSLATIONS']['TranslationsMap'] ) )
         {
-
-            if ( $_SERVER['SERVER_NAME'] == $hostname )
+            foreach ( $config['application.ini']['TRANSLATIONS']['TranslationsMap'] as $code => $hostname )
             {
-                return $code;
-            }
 
+                if ( $_SERVER['SERVER_NAME'] == $hostname )
+                {
+                    return $code;
+                }
+
+            }
         }
 
         // TODO Detect if the language code is given in the URL
