@@ -1,6 +1,6 @@
 <?php
 
-namespace sandra\kernel;
+namespace cerbo\kernel;
 
 /**
  * All the modules have to extend from this class !
@@ -15,7 +15,7 @@ class Page extends Content
     public function fetchDataFromNodeID( $node_id )
     {
 
-        $db = \sandra\kernel\DataSource::getInstance();
+        $db = \cerbo\kernel\DataSource::getInstance();
         $db->select( 'content', array(
             'id' => array( '=', $node_id )
         ) );
@@ -40,7 +40,7 @@ class Page extends Content
     public static function fetchPageByNodeID( $node_id )
     {
 
-        $page = new \sandra\kernel\Page();
+        $page = new \cerbo\kernel\Page();
         $page->fetchDataFromNodeID( $node_id );
 
         return $page;

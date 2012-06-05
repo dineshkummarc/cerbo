@@ -14,7 +14,7 @@ else
     $_AUTOLOAD_ARRAY = array();
 }
 
-function __sandra_autoload( $class_name )
+function __cerbo_autoload( $class_name )
 {
 
     // First we need to know if it is a Twig class.
@@ -42,12 +42,12 @@ function __sandra_autoload( $class_name )
         } 
         else
         {
-            $config = \sandra\kernel\Configuration::getConfiguration();
+            $config = \cerbo\kernel\Configuration::getConfiguration();
             foreach ( $config['application.ini']['EXTENSIONS']['Use'] as $extension )
             {
 
-                $class_path = \sandra\kernel\Extension::getCorrectFilePath( $extension, "classes/$clean_class_name.php" );
-                $datatype_path = \sandra\kernel\Extension::getCorrectFilePath( $extension, "datatypes/$clean_class_name.php" );
+                $class_path = \cerbo\kernel\Extension::getCorrectFilePath( $extension, "classes/$clean_class_name.php" );
+                $datatype_path = \cerbo\kernel\Extension::getCorrectFilePath( $extension, "datatypes/$clean_class_name.php" );
 
                 if ( file_exists( $class_path ) )
                 {
@@ -92,6 +92,6 @@ function addToAutoloadCacheFile()
 
 }
 
-spl_autoload_register( '__sandra_autoload' );
+spl_autoload_register( '__cerbo_autoload' );
 
 ?>

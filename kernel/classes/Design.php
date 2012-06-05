@@ -1,6 +1,6 @@
 <?php
 
-namespace sandra\kernel;
+namespace cerbo\kernel;
 
 class Design
 {
@@ -8,7 +8,7 @@ class Design
     public static function getDesignFolders()
     {
 
-        $config = \sandra\kernel\Configuration::getConfiguration();
+        $config = \cerbo\kernel\Configuration::getConfiguration();
 
         $list = array();
 
@@ -18,7 +18,7 @@ class Design
             {
 
                 // Get the correct folder (folders are managed like file for this)
-                $path = \sandra\kernel\Extension::getCorrectFilePath(  
+                $path = \cerbo\kernel\Extension::getCorrectFilePath(  
                     $extension, 'design/' . $design . '/templates'
                 );
 

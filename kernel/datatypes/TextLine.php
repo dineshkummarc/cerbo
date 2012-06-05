@@ -1,8 +1,8 @@
 <?php
 
-namespace sandra\datatype;
+namespace cerbo\datatype;
 
-class TextLine extends \sandra\datatype\DataType
+class TextLine extends \cerbo\datatype\DataType
 {
 
     public function fetchData()

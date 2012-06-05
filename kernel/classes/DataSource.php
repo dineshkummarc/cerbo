@@ -1,6 +1,6 @@
 <?php
 
-namespace sandra\kernel;
+namespace cerbo\kernel;
 
 abstract class DataSource
 {
@@ -16,21 +16,21 @@ abstract class DataSource
     public static function getInstance()
     {
 
-        $config = \sandra\kernel\Configuration::getConfiguration();
+        $config = \cerbo\kernel\Configuration::getConfiguration();
 
         // Initialize DataSource connection if it doesn't exists.
-        if ( \sandra\kernel\DataSource::$db_pointer == null )
+        if ( \cerbo\kernel\DataSource::$db_pointer == null )
         {
 
             $handler = $config['application.ini']['DATABASE']['DataSourceHandler'];
             $parameters = $config['application.ini']['DATABASE']['Connection'];
 
-            $class = '\\sandra\\kernel\\' . $handler;
-            \sandra\kernel\DataSource::$db_pointer = new $class( $parameters );
+            $class = '\\cerbo\\kernel\\' . $handler;
+            \cerbo\kernel\DataSource::$db_pointer = new $class( $parameters );
 
         }
 
-        return \sandra\kernel\DataSource::$db_pointer;
+        return \cerbo\kernel\DataSource::$db_pointer;
 
     }
 

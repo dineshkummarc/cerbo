@@ -1,8 +1,8 @@
 <?php
 
-namespace sandra\datasource;
+namespace cerbo\datasource;
 
-class XMLDataSource extends \sandra\kernel\DataSource
+class XMLDataSource extends \cerbo\kernel\DataSource
 {
 
     public function __construct( $parameters )

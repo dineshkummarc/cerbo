@@ -1,6 +1,6 @@
 <?php
 
-namespace sandra\kernel;
+namespace cerbo\kernel;
 
 class Configuration
 {
@@ -10,12 +10,12 @@ class Configuration
     public static function getConfiguration()
     {
 
-        if ( \sandra\kernel\Configuration::$config == null )
+        if ( \cerbo\kernel\Configuration::$config == null )
         {
-            \sandra\kernel\Configuration::load();
+            \cerbo\kernel\Configuration::load();
         }
 
-        return \sandra\kernel\Configuration::$config;
+        return \cerbo\kernel\Configuration::$config;
 
     }
 
@@ -51,7 +51,7 @@ class Configuration
             }
         }
 
-        \sandra\kernel\Configuration::$config = $config;
+        \cerbo\kernel\Configuration::$config = $config;
 
     }
 

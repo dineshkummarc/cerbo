@@ -1,10 +1,10 @@
 <?php
 
-namespace sandra\modules;
+namespace cerbo\modules;
 
-use \sandra\kernel\I18n as i18n;
+use \cerbo\kernel\I18n as i18n;
 
-class Home extends \sandra\kernel\Module
+class Home extends \cerbo\kernel\Module
 {
 
     public function __construct()

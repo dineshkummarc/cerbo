@@ -1,6 +1,6 @@
 <?php
 
-namespace sandra\kernel;
+namespace cerbo\kernel;
 
 class Request
 {
@@ -25,7 +25,7 @@ class Request
     public function resolveURI()
     {
 
-        $config = \sandra\kernel\Configuration::getConfiguration();
+        $config = \cerbo\kernel\Configuration::getConfiguration();
 
         // Remove extra content from the URI
         if ( trim( $config['application.ini']['URL']['RemoveFromPath'] ) != '' )

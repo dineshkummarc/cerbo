@@ -1,6 +1,6 @@
 <?php
 
-namespace sandra\datatype;
+namespace cerbo\datatype;
 
 abstract class DataType
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace sandra\kernel;
+namespace cerbo\kernel;
 
 /**
  * All the modules have to extend from this class !
  */
-class ModuleHandler extends \sandra\kernel\ContentHandler
+class ModuleHandler extends \cerbo\kernel\ContentHandler
 {
 
     private $uri;
@@ -23,7 +23,7 @@ class ModuleHandler extends \sandra\kernel\ContentHandler
         include $this->module_path;
 
         // Load instance of the module
-        $module_class_name = '\\sandra\\modules\\' . ucfirst( $this->uri );
+        $module_class_name = '\\cerbo\\modules\\' . ucfirst( $this->uri );
         $this->module_instance = new $module_class_name();
 
     }
@@ -36,7 +36,7 @@ class ModuleHandler extends \sandra\kernel\ContentHandler
     private function detectModulePath( $uri )
     {
 
-        $config = \sandra\kernel\Configuration::getConfiguration();
+        $config = \cerbo\kernel\Configuration::getConfiguration();
         $found  = false;
 
         if ( file_exists( 'kernel/modules/' . $uri . '.php' ) )
@@ -50,9 +50,9 @@ class ModuleHandler extends \sandra\kernel\ContentHandler
 
             foreach ( $config['application.ini']['EXTENSIONS']['Use'] as $extension )
             {
-                if ( \sandra\kernel\Extension::haveModule( $extension, $uri ) )
+                if ( \cerbo\kernel\Extension::haveModule( $extension, $uri ) )
                 {
-                    $this->module_path = \sandra\kernel\Extension::getModulePath();
+                    $this->module_path = \cerbo\kernel\Extension::getModulePath();
                     $found = true;
                 }
             }
@@ -67,7 +67,7 @@ class ModuleHandler extends \sandra\kernel\ContentHandler
     public static function isModule( $uri )
     {
 
-        $config = \sandra\kernel\Configuration::getConfiguration();
+        $config = \cerbo\kernel\Configuration::getConfiguration();
 
         // First, check in kernel modules
         if ( file_exists( 'kernel/modules/' . $uri . '.php' ) )
@@ -78,7 +78,7 @@ class ModuleHandler extends \sandra\kernel\ContentHandler
         // Check through extensions
         foreach ( $config['application.ini']['EXTENSIONS']['Use'] as $extension )
         {
-            if ( \sandra\kernel\Extension::haveModule( $extension, $uri ) )
+            if ( \cerbo\kernel\Extension::haveModule( $extension, $uri ) )
             {
                 return true;
             }

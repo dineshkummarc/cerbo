@@ -1,6 +1,6 @@
 # Understanding the Datasources
 
-In *Sandra*, dynamic content is accessed using datasources. It is a
+In *Cerbo*, dynamic content is accessed using datasources. It is a
 storage agnostic way to get data from :
 
 * Databases
@@ -16,7 +16,7 @@ storage agnostic way to get data from :
 For the moment you can connect to only one datasource at a time with
 the following code :
 
-    \sandra\kernel\DataSource::getInstance();
+    \cerbo\kernel\DataSource::getInstance();
 
 This method will return a standard `DataSource` object with all the
 methods you need to fetch, update or delete data.
@@ -29,7 +29,7 @@ automaticaly the parameters it needs from `application.ini`.
     [DATABASE]
     DataSourceHandler=DatabaseDataSource
     Connection[driver]=mysql
-    Connection[database]=sandra
+    Connection[database]=cerbo
     Connection[host]=localhost
     Connection[username]=root
     Connection[password]=root
@@ -47,7 +47,7 @@ Connection
 To fetch data from the datasource, you have to use the `select`
 method :
 
-    $db = \sandra\kernel\DataSource::getInstance();
+    $db = \cerbo\kernel\DataSource::getInstance();
     $db->select(
         'mytable',
         array(
@@ -87,7 +87,7 @@ This will, for exemple, construct an SQL request like :
 
 ### Using fetched data
 
-    $db = \sandra\kernel\DataSource::getInstance();
+    $db = \cerbo\kernel\DataSource::getInstance();
     $db->select( 'users', null );
     while ( ( $user = $db->fetch() ) == true )
     {

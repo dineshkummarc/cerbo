@@ -1,8 +1,8 @@
 <?php
 
-namespace sandra\kernel;
+namespace cerbo\kernel;
 
-class Sandra
+class Cerbo
 {
 
     private $request;
@@ -12,24 +12,24 @@ class Sandra
     public function __construct()
     {
 
-        $this->request = new \sandra\kernel\Request();
+        $this->request = new \cerbo\kernel\Request();
         $this->twig = null;
 
-        \sandra\kernel\Extension::load();
-        \sandra\kernel\I18n::load();
+        \cerbo\kernel\Extension::load();
+        \cerbo\kernel\I18n::load();
 
     }
 
     public function render()
     {
         
-        if ( \sandra\kernel\ModuleHandler::isModule( $this->request->getURI() ) )
+        if ( \cerbo\kernel\ModuleHandler::isModule( $this->request->getURI() ) )
         {
-            $content_handler = new \sandra\kernel\ModuleHandler( $this->request->getURI() );
+            $content_handler = new \cerbo\kernel\ModuleHandler( $this->request->getURI() );
         }
         else
         {
-            $content_handler = new \sandra\kernel\PageHandler( $this->request->getURI() );
+            $content_handler = new \cerbo\kernel\PageHandler( $this->request->getURI() );
         }
 
         // Run the code of the module / page before returning it
@@ -58,7 +58,7 @@ class Sandra
             $this->twig = new \Twig_Environment(
 
                 new \Twig_Loader_Filesystem(
-                    \sandra\kernel\Design::getDesignFolders()
+                    \cerbo\kernel\Design::getDesignFolders()
                 ), 
                 array(
                     //'cache' => 'var/cache/templates',

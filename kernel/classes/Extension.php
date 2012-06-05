@@ -1,6 +1,6 @@
 <?php
 
-namespace sandra\kernel;
+namespace cerbo\kernel;
 
 class Extension
 {
@@ -11,7 +11,7 @@ class Extension
     {
 
         // Check what is the kind of extension ( folder or PHAR )
-        if ( \sandra\kernel\Extension::isPHAR( $name ) )
+        if ( \cerbo\kernel\Extension::isPHAR( $name ) )
         {
             $this->is_phar = true;
         }
@@ -25,12 +25,12 @@ class Extension
     public static function load()
     {
 /*
-        $config = \sandra\kernel\Configuration::getConfiguration();
+        $config = \cerbo\kernel\Configuration::getConfiguration();
 
         foreach ( $config['application.ini']['EXTENSIONS']['Use'] as $extension )
         {
 
-            if ( \sandra\kernel\Extension::isPHAR( $extension ) )
+            if ( \cerbo\kernel\Extension::isPHAR( $extension ) )
             {
                 require_once 'phar://extensions/' . $extension . '.phar';
             }
@@ -45,7 +45,7 @@ class Extension
     public static function haveModule( $extension, $module )
     {
 
-        if ( \sandra\kernel\Extension::isPHAR( $extension ) )
+        if ( \cerbo\kernel\Extension::isPHAR( $extension ) )
         {
             $extension_path = 'phar://extensions/' . $extension . '.phar';
         }
@@ -68,7 +68,7 @@ class Extension
     public static function getModulePath( $extension, $module )
     {
 
-        if ( \sandra\kernel\Extension::isPHAR( $extension ) )
+        if ( \cerbo\kernel\Extension::isPHAR( $extension ) )
         {
             $extension_path = 'phar://extensions/' . $extension . '.phar';
         }
@@ -117,7 +117,7 @@ class Extension
     public static function getCorrectFilePath( $extension, $file )
     {
 
-        if ( \sandra\kernel\Extension::isPHAR( $extension ) )
+        if ( \cerbo\kernel\Extension::isPHAR( $extension ) )
         {
             return 'phar://extensions/' . $extension . '.phar/' . $file;
         }

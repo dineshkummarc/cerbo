@@ -1,6 +1,6 @@
 <?php
 
-namespace sandra\kernel;
+namespace cerbo\kernel;
 
 class I18n
 {
@@ -13,9 +13,9 @@ class I18n
     public static function translate( $context, $string, $params = null )
     {
 
-        if ( isset( \sandra\kernel\I18n::$translations[$context][$string] ) )
+        if ( isset( \cerbo\kernel\I18n::$translations[$context][$string] ) )
         {
-            $translation = \sandra\kernel\I18n::$translations[$context][$string];
+            $translation = \cerbo\kernel\I18n::$translations[$context][$string];
         }
         else
         {
@@ -32,17 +32,17 @@ class I18n
     public static function load()
     {
         
-        $config = \sandra\kernel\Configuration::getConfiguration();
-        $language = \sandra\kernel\I18n::detectTranslation();
+        $config = \cerbo\kernel\Configuration::getConfiguration();
+        $language = \cerbo\kernel\I18n::detectTranslation();
 
         // Loading base translation
-        \sandra\kernel\I18n::$translations = array();
+        \cerbo\kernel\I18n::$translations = array();
 
         // Extract translations from the extensions
         foreach ( $config['application.ini']['EXTENSIONS']['Use'] as $extension )
         {
 
-            $extension_file = \sandra\kernel\Extension::getCorrectFilePath(
+            $extension_file = \cerbo\kernel\Extension::getCorrectFilePath(
                 $extension,
                 'translations/' . $language . '.json'
             );
@@ -55,8 +55,8 @@ class I18n
                 $content = file_get_contents( $extension_file );
                 $json = json_decode( $content, true );
 
-                \sandra\kernel\I18n::$translations = array_merge(
-                    \sandra\kernel\I18n::$translations,
+                \cerbo\kernel\I18n::$translations = array_merge(
+                    \cerbo\kernel\I18n::$translations,
                     $json
                 );
 
@@ -69,7 +69,7 @@ class I18n
     public static function detectTranslation()
     {
 
-        $config = \sandra\kernel\Configuration::getConfiguration();
+        $config = \cerbo\kernel\Configuration::getConfiguration();
 
         // TODO Check all those things by modifying my hosts
 

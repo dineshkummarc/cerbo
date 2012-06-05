@@ -1,8 +1,8 @@
 <?php
 
-namespace sandra\kernel;
+namespace cerbo\kernel;
 
-class DatabaseDataSource extends \sandra\kernel\DataSource
+class DatabaseDataSource extends \cerbo\kernel\DataSource
 {
 
     public function __construct( $parameters )
@@ -43,7 +43,7 @@ class DatabaseDataSource extends \sandra\kernel\DataSource
                 $current_operator = strtoupper( $operator );
                 // TODO Place parenthesis when there is more than 1 element in the subarray
                 $sql_string .= ' ' . $current_operator . ' ( ';
-                $sql_string .= \sandra\kernel\DatabaseDataSource::resolveParametersArray( $value, $current_operator );
+                $sql_string .= \cerbo\kernel\DatabaseDataSource::resolveParametersArray( $value, $current_operator );
                 $sql_string .= ' ) ';
             }
             else
@@ -71,7 +71,7 @@ class DatabaseDataSource extends \sandra\kernel\DataSource
     public function select( $table, $parameters )
     {
 
-        $sql = 'SELECT * FROM ' . $table . ' WHERE ' . \sandra\kernel\DatabaseDataSource::resolveParametersArray( $parameters );
+        $sql = 'SELECT * FROM ' . $table . ' WHERE ' . \cerbo\kernel\DatabaseDataSource::resolveParametersArray( $parameters );
         echo "<p>$sql</p>";
 
     }

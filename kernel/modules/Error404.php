@@ -1,8 +1,8 @@
 <?php
 
-namespace sandra\modules;
+namespace cerbo\modules;
 
-class Error404 extends \sandra\kernel\Module
+class Error404 extends \cerbo\kernel\Module
 {
 
     public function __construct()

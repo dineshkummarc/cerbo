@@ -4,9 +4,9 @@
 require_once 'autoload.php';
 
 // Load configuration parameters
-\sandra\kernel\Configuration::load();
+\cerbo\kernel\Configuration::load();
 
-$db = \sandra\kernel\DataSource::getInstance();
+$db = \cerbo\kernel\DataSource::getInstance();
 $db->select( 'content', array(
 
     'toto' => array( '=', 'tata' ),
@@ -27,7 +27,7 @@ $db->select( 'content', array(
 ) );
 
 // Create the engine and render it
-$engine = new \sandra\kernel\Sandra();
+$engine = new \cerbo\kernel\Cerbo();
 $engine->render();
 
 ?>

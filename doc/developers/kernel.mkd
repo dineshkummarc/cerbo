@@ -2,7 +2,7 @@
 
 ## Folders
 
-The kernel is composed of the base classes that are used by Sandra.
+The kernel is composed of the base classes that are used by Cerbo.
 
 It is composed of the following folders :
 
