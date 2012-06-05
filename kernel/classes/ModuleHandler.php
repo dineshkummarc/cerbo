@@ -12,7 +12,7 @@ class ModuleHandler extends \cerbo\kernel\ContentHandler
     private $module_path;
     private $module_instance;
 
-    public function __construct( $uri )
+    public function __construct( $uri, $module_name )
     {
 
         $this->uri = $uri;
@@ -23,7 +23,7 @@ class ModuleHandler extends \cerbo\kernel\ContentHandler
         include $this->module_path;
 
         // Load instance of the module
-        $module_class_name = '\\cerbo\\modules\\' . ucfirst( $this->uri );
+        $module_class_name = '\\cerbo\\modules\\' . $module_name;
         $this->module_instance = new $module_class_name();
 
     }
@@ -52,7 +52,10 @@ class ModuleHandler extends \cerbo\kernel\ContentHandler
             {
                 if ( \cerbo\kernel\Extension::haveModule( $extension, $uri ) )
                 {
-                    $this->module_path = \cerbo\kernel\Extension::getModulePath();
+                    $this->module_path = \cerbo\kernel\Extension::getModulePath(
+                        $extension,
+                        $uri
+                    );
                     $found = true;
                 }
             }

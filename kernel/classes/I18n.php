@@ -55,10 +55,17 @@ class I18n
                 $content = file_get_contents( $extension_file );
                 $json = json_decode( $content, true );
 
-                \cerbo\kernel\I18n::$translations = array_merge(
-                    \cerbo\kernel\I18n::$translations,
-                    $json
-                );
+                if ( $json != null )
+                {
+                    \cerbo\kernel\I18n::$translations = array_merge(
+                        \cerbo\kernel\I18n::$translations,
+                        $json
+                    );
+                }
+                else
+                {
+                    // TODO Raise an error
+                }
 
             }
 

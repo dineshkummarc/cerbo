@@ -7,6 +7,7 @@ class Request
 
     private $requested_uri;
     private $uri;
+    private $module_name;
     private $parameters;
     private $format;
 
@@ -17,6 +18,21 @@ class Request
     {
         $this->requested_uri = $_SERVER['REQUEST_URI'];
         $this->resolveURI();
+        $this->generateModuleName();
+    }
+
+    /**
+     * Generate the name of the class the module should be
+     */
+    public function generateModuleName()
+    {
+        $parts = explode( '/', $this->uri );
+        $module_name = array();
+        foreach ( $parts as $part )
+        {
+            $module_name[] = ucfirst( $part );
+        }
+        $this->module_name = implode( '_', $module_name );
     }
 
     /**
@@ -76,6 +92,11 @@ class Request
     public function getURI()
     {
         return $this->uri;
+    }
+
+    public function getModuleName()
+    {
+        return $this->module_name;
     }
 
     public function getParameters()
