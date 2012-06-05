@@ -3,6 +3,9 @@
 Cerbo (Pronounce /t͡serbo/) is a CMS/CMF to easily create and extends
 web sites.
 
+> Otherwise, cerbo means "brain" in esperanto. Just because *Cerbo*
+> is the only CMS zommbies wants to use !
+
 ## Requirements
 
 * PHP >= 5.2.4
