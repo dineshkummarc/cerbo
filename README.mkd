@@ -1,5 +1,8 @@
 # Cerbo
 
+**Current version** : 0.0.1 a.k.a. não
+
+
 Cerbo (pronounce /t͡serbo/) is a CMS/CMF to easily create and extends
 web sites.
 
