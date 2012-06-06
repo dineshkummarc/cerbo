@@ -1,3 +1,89 @@
-<h1>Users</h1>
+{% extends "layouts/administration/standard.twig" %}
 
-{{ cerbo_informations() }}
+{% block title%}{{ 'Users management'|i18n('administration/users') }}{% endblock %}
+
+{% block left_menu %}{% include "parts/administration/users_menu.twig" %}{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>
+            {{ 'Users'|i18n('administration/users') }}
+            <small>{{ 'List of all the users'|i18n('administration/users') }}</small>
+        </h1>
+    </div>
+
+    <div class="pull-right">
+        <a href="" class="btn btn-info">
+            <i class="icon-plus icon-white"></i>&nbsp;Create a new user
+        </a>
+    </div>
+
+    <table class="table table-striped">
+
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>Type</th>
+                <th>Active</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Administrator</td>
+                <td>administrator</td>
+                <td>yes</td>
+                <td>
+                    <div class="pull-right">
+                        <a class="btn btn-primary btn-mini">
+                            <i class="icon-edit icon-white"></i>&nbsp;Edit
+                        </a>
+                        <a class="btn btn-danger btn-mini">
+                            <i class="icon-trash icon-white"></i>&nbsp;Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Damien MARTIN</td>
+                <td>administrator</td>
+                <td>yes</td>
+                <td>
+                    <div class="pull-right">
+                        <a class="btn btn-primary btn-mini">
+                            <i class="icon-edit icon-white"></i>&nbsp;Edit
+                        </a>
+                        <a class="btn btn-danger btn-mini">
+                            <i class="icon-trash icon-white"></i>&nbsp;Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Christophe Nguyen</td>
+                <td>redactor</td>
+                <td>yes</td>
+                <td>
+                    <div class="pull-right">
+                        <a class="btn btn-primary btn-mini">
+                            <i class="icon-edit icon-white"></i>&nbsp;Edit
+                        </a>
+                        <a class="btn btn-danger btn-mini">
+                            <i class="icon-trash icon-white"></i>&nbsp;Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+
+
+        </tbody>
+
+    </table>
+
+{% endblock %}

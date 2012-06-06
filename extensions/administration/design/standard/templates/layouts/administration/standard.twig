@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title>{% block title %}{% endblock %} - Cerbo</title>
+
+        <link type="text/css" rel="stylesheet" href="{{ 'css/bootstrap.min.css'|design|url }}" />
+        <link type="text/css" rel="stylesheet" href="{{ 'css/bootstrap-responsive.min.css'|design|url }}" />
+
+        <script type="text/javascript" src="{{ 'js/jquery.min.js'|design|url }}"></script>
+        <script type="text/javascript" src="{{ 'js/bootstrap.min.js'|design|url }}"></script>
+
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            {% include "parts/administration/main_menu.twig" %}
+
+            <div class="row">
+
+                <div id="submenu" class="span3">
+                    {% block left_menu %}{% endblock %}
+                </div>
+
+                <div id="content" class="span9">
+                    {% include "parts/administration/breadcrumb.twig" %}
+                    {% block content %}{% endblock %}
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div id="footer" class="span12">
+                    {{ cerbo_informations() }}
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
