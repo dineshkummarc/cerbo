@@ -1,0 +1,34 @@
+# Easy ajax
+
+With *Cerbo*, it is very easy to fetch data for ajax requests.
+
+Every content that can be displayed as a web page could (if the
+developers of the extensions followed the specifications) be fetched
+as a JSON or XML content.
+
+## How to access those formats ?
+
+For every pages you can add `.json` or `.xml` to the URI :
+
+    # The 'standard' format
+    mywebsite.tld/mypage
+
+    # Get data as a JSON structure
+    mywebsite.tld/mypage.json
+
+    # Get data as an XML file
+    mywebsite.tld/mypage.xml
+
+## I'm a dev, how should I implement that ?
+
+As you should know, each module extends from `\cerbo\kernel\Module`
+who extends from `\cerbo\kernel\Content` and who force you to
+implements two dedicated methods :
+
+* `toJSON()` who returns the content as a valid JSON (and, of course,
+    as a `string`).
+* `toXML()` who returns the content as a valid XML (and, of course, as
+    a `string`).
+
+**NB** : Pages have already those methods. Please read the
+    documentation about *Making templates for `Page`*.
