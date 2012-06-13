@@ -1,0 +1,17 @@
+CERBO
+=====
+
+Requirements
+------------
+
+You will need the following tools on the server :
+
+ - Apache with mod_rewrite
+ - PHP >= 5.2.4
+
+If you want to use the DatabaseDataSource you will need a mysql server too.
+
+
+Installation
+------------
+

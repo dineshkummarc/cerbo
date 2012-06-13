@@ -11,7 +11,46 @@ namespace cerbo\kernel;
 
 class Design
 {
-    
+
+    private static $autoload_files = array();
+
+    /**
+     * This function only manage JS and CSS files !
+     * TODO Manage format as less (do a real file extension detection).
+     */
+    public static function getAutoloadFilesHTML()
+    {
+
+        // Clean array for duplicatas
+        \cerbo\kernel\Design::$autoload_files = array_unique(
+            \cerbo\kernel\Design::$autoload_files
+        );
+
+        $html = '';
+        foreach ( \cerbo\kernel\Design::$autoload_files as $file )
+        {
+            switch ( substr( $file, strlen( $file ) - 3 ) )
+            {
+
+                case '.js':
+                    $html .= "<script type='text/javascript' src='$file'></script>\n";
+                    break;
+
+                case 'css':
+                    $html .= "<link rel='stylesheet' type='text/css' href='$file' />"
+                    break;
+
+            }
+        }
+
+        return $html;
+    }
+
+    public static function addAutoloadFile( $file )
+    {
+        \cerbo\kernel\Design::$autoload_files[] = \cerbo\kernel\Design::getDesignFile( $file );
+    }
+
     public static function getDesignFolders()
     {
 

@@ -1,5 +1,7 @@
 <?php
 
+require_once 'extensions/cerbo/classes/TwigCerbo_DesignNeeds_TokenParser.php';
+
 class TwigCerbo extends Twig_Extension
 {
     
@@ -13,6 +15,8 @@ class TwigCerbo extends Twig_Extension
         return array(
 
             'cerbo_informations' => new Twig_Function_Method( $this, 'cerboInformations' ),
+
+            'autoload_design_files' => new Twig_Function_Method( $this, 'cerboAutoloadDesignFiles' ),
 
         );
     }
@@ -28,12 +32,28 @@ class TwigCerbo extends Twig_Extension
         );
     }
 
+    public function getTokenParsers()
+    {
+        return array(
+            new \TwigCerbo_DesignNeeds_TokenParser()
+        );
+    }
+
     // Methods called ===============================================
-    
+
+    // Functions ----------------------------------------------------
+
     public function cerboInformations()
     {
         return \cerbo\kernel\Cerbo::getApplicationInformations();
     }
+
+    public function cerboAutoloadDesignFiles()
+    {
+        echo \cerbo\kernel\Design::getAutoloadFilesHTML();
+    }
+
+    // Filters ------------------------------------------------------
 
     public function i18n( $text, $context, $params = null )
     {
