@@ -1,19 +1,8 @@
 {
 
-    "administration/global": {
+    "fotografio/global": {
 
-        "Administration": "Administration",
-        "Content": "Contenus",
-        "Medias": "Médias",
-        "Users": "Utilisateurs",
-        "Settings": "Paramètres"
-
-    },
-
-    "administration/users": {
-
-        "Users management": "Gestion des utilisateurs",
-        "Users": "Utilisateurs"
+        "Gallery": "Galerie"
 
     }
 

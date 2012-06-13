@@ -1,0 +1,47 @@
+# Making modules
+
+## PHP Files
+
+A module must be placed in the `modules` folder of your extension and
+must extends from `\cerbo\kernel\Module` like this :
+
+    class Myextension_Mymodule extends \cerbo\kernel\Module
+    {
+
+        public function __construct()
+        {
+            $this->setTemplate( 'my/template/without/extension' );
+        }
+
+        public function build(){}
+
+        public function submited(){}
+
+    }
+
+**Important** : The name of the class must follow this rules :
+
+  * The name is compound of the folders names to access the module
+  * Each component is separated with an underscore
+  * Each component must begin with an uppercase
+
+Ex. :
+
+  * My module is `modules/users/welcome.php`
+  * My classname must be : `Users_Welcome`
+
+## Designs
+
+In every design files you can say to Cerbo to load automaticaly some
+design files.
+
+It is something very easy :
+
+    {% design_needs ['your', 'files', 'array'] %}
+
+With this line at the top of your design file, layouts could
+automaticlay include the given files using the template function :
+
+    {{ autoload_design_files() }}
+
+This will create the correct calls for `JS` and `CSS` files.
