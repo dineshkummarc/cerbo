@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * File containing all you should need to translate contents in modules
+ * and templates.
+ *
+ * @copyright Copyleft MARTIN Damien <damien@martin-damien.fr>
+ * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU General Public License v2
+ */
+
 namespace cerbo\kernel;
 
 class I18n

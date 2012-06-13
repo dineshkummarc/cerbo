@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * File containing the data source dedicated to databases.
+ *
+ * @copyright Copyleft MARTIN Damien <damien@martin-damien.fr>
+ * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU General Public License v2
+ */
+
 namespace cerbo\kernel;
 
 class DatabaseDataSource extends \cerbo\kernel\DataSource

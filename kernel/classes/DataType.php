@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * File containing the model for making a DataType.
+ *
+ * @copyright Copyleft MARTIN Damien <damien@martin-damien.fr>
+ * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU General Public License v2
+ */
+
 namespace cerbo\datatype;
 
 abstract class DataType

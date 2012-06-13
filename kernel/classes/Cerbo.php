@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * File containing the main class of the Application.
+ * See index.php to know how to use it.
+ *
+ * @copyright Copyleft MARTIN Damien <damien@martin-damien.fr>
+ * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU General Public License v2
+ */
+
 namespace cerbo\kernel;
 
 class Cerbo
@@ -19,13 +27,14 @@ class Cerbo
 
     public function __construct()
     {
-
-        $this->request = new \cerbo\kernel\Request();
-        $this->twig = null;
-
+        
+        \cerbo\kernel\Session::forceSessionStart();
         \cerbo\kernel\Extension::load();
         \cerbo\kernel\I18n::load();
 
+        $this->request = new \cerbo\kernel\Request();
+        $this->twig = null;
+        
     }
 
     public function render()

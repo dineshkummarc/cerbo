@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * File containing the ModuleHandler who is a specialised ContentHandler
+ * for Cerbo.
+ *
+ * @copyright Copyleft MARTIN Damien <damien@martin-damien.fr>
+ * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU General Public License v2
+ */
+
 namespace cerbo\kernel;
 
 /**
