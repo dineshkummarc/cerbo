@@ -18,6 +18,21 @@ not mandatory) :
 
 * PHP >= 5.3
 
+## Get Files
+
+### Get files from archives
+
+By visiting the following page : https://github.com/martin-damien/cerbo/downloads
+
+### Clone git project
+
+to clone the project you must remember to fetch submodules too :
+
+    git clone git://github.com/martin-damien/cerbo.git
+    cd cerbo
+    git submodule init 
+    git submodule update
+
 ## ToDo
 
 ### Routes
