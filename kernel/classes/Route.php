@@ -12,7 +12,16 @@ namespace cerbo\kernel;
 class Route
 {
 
-    // TODO implements routes.
+    private static $routes = array();
+
+    public static function loadRoutes()
+    {
+
+        $config = \cerbo\kernel\Configuration::getConfiguration();
+
+        
+
+    }
 
 }
 

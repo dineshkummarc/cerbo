@@ -12,7 +12,13 @@ class Fotografio_Index extends \cerbo\kernel\Module
         $this->setTemplate( 'modules/fotografio/index' );
     }
 
-    public function build(){}
+    public function build()
+    {
+
+        $pictures = \FotografioGallery::getPictures();
+        $this->addTemplateVariable( 'Pictures', $pictures );
+
+    }
 
     public function submited(){}
 

@@ -1,27 +1,6 @@
-[submodule "extensions/sandra"]
-	path = extensions/sandra
-	url = git://github.com/martin-damien/sandra-sandra.git
-[submodule "extensions/bootstrap"]
-	path = extensions/bootstrap
-	url = git://github.com/martin-damien/sandra-bootstrap.git
-[submodule "extensions/XMLDataSource"]
-	path = extensions/XMLDataSource
-	url = git://github.com/martin-damien/sandra-xmldatasource.git
-[submodule "extensions/lesscss"]
-	path = extensions/lesscss
-	url = git://github.com/martin-damien/sandra-lesscss.git
-[submodule "extensions/i18n"]
-	path = extensions/i18n
-	url = git://github.com/martin-damien/sandra-i18n.git
-[submodule "extensions/damien"]
-	path = extensions/damien
-	url = git://github.com/martin-damien/sandra-damien.git
+[submodule "extensions/lesscss/lib/lessphp"]
+	path = extensions/lesscss/lib/lessphp
+	url = https://github.com/leafo/lessphp.git
 [submodule "lib/twig"]
 	path = lib/twig
-	url = git://github.com/fabpot/Twig.git
-[submodule "extensions/phototheque"]
-	path = extensions/phototheque
-	url = git://github.com/martin-damien/sandra-phototheque.git
-[submodule "extensions/vote"]
-	path = extensions/vote
-	url = git://github.com/martin-damien/sandra-vote.git
+	url = https://github.com/fabpot/Twig.git

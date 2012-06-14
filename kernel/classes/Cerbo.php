@@ -71,7 +71,7 @@ class Cerbo
             // Standard output to be well formed with a template
 
             // Load Twig
-            require_once 'lib/Twig/Autoloader.php';
+            require_once 'lib/twig/lib/Twig/Autoloader.php';
             \Twig_Autoloader::register();
 
             // Init twig
@@ -96,10 +96,18 @@ class Cerbo
 
             }
 
+            // Prepare data to send as variables to template
+            $variables = array();
+            $variables['DataMap'] = $content_handler->getContent()->getDataMap();
+            foreach ( $content_handler->getContent()->getTemplateVariables() as $key => $value )
+            {
+                $variables[$key] = $value;
+            }
+
             // Render with Twig
             $result = $this->twig->render(
                 $content_handler->getContent()->getTemplate(). '.twig' ,
-                array( 'DataMap' => $content_handler->getContent()->getDataMap() )
+                $variables
             );
 
         }

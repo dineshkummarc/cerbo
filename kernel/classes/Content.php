@@ -17,6 +17,7 @@ abstract class Content
 
     private $template;
     private $data_map;
+    private $variables;
 
     /**
      * Set the template to render this content.
@@ -29,6 +30,16 @@ abstract class Content
     public function getTemplate()
     {
         return $this->template;
+    }
+
+    public function addTemplateVariable( $name, $value )
+    {
+        $this->variables[$name] = $value;
+    }
+
+    public function getTemplateVariables()
+    {
+        return $this->variables;
     }
 
     /**
