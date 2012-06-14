@@ -29,15 +29,18 @@ class Design
         $html = '';
         foreach ( \cerbo\kernel\Design::$autoload_files as $file )
         {
+
+            $file_url = \cerbo\kernel\URL::makeCleanURL( $file );
+
             switch ( substr( $file, strlen( $file ) - 3 ) )
             {
 
                 case '.js':
-                    $html .= "<script type='text/javascript' src='$file'></script>\n";
+                    $html .= "<script type='text/javascript' src='$file_url'></script>\n";
                     break;
 
                 case 'css':
-                    $html .= "<link rel='stylesheet' type='text/css' href='$file' />";
+                    $html .= "<link rel='stylesheet' type='text/css' href='$file_url' />\n";
                     break;
 
             }

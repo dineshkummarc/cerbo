@@ -1,0 +1,18 @@
+{
+
+    "kernel/login": {
+
+        "Username": "Nom d'utilisateur",
+        "Password": "Mot de passe",
+        "Login" : "Me connecter"
+
+    },
+
+    "kernel/home": {
+
+        "Home": "Accueil",
+        "Welcome my dear.": "Bienvenus mon chère."
+
+    }
+
+}

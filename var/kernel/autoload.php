@@ -13,5 +13,6 @@ $_AUTOLOAD_ARRAY[] = 'kernel/classes/Content.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/Module.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/Design.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/PageHandler.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/URL.php';
 
 ?>

@@ -16,7 +16,7 @@ class TwigCerbo extends Twig_Extension
 
             'cerbo_informations' => new Twig_Function_Method( $this, 'cerboInformations' ),
 
-            'autoload_design_files' => new Twig_Function_Method( $this, 'cerboAutoloadDesignFiles' ),
+            'autoload_design_files' => new Twig_Function_Method( $this, 'autoloadDesignFiles' ),
 
         );
     }
@@ -48,7 +48,7 @@ class TwigCerbo extends Twig_Extension
         return \cerbo\kernel\Cerbo::getApplicationInformations();
     }
 
-    public function cerboAutoloadDesignFiles()
+    public function autoloadDesignFiles()
     {
         echo \cerbo\kernel\Design::getAutoloadFilesHTML();
     }
@@ -67,16 +67,7 @@ class TwigCerbo extends Twig_Extension
 
     public function url( $uri )
     {
-
-        $config = \cerbo\kernel\Configuration::getConfiguration();
-
-        if ( trim( $config['application.ini']['URL']['RemoveFromPath'] ) != '' )
-        {
-            return $config['application.ini']['URL']['RemoveFromPath'] . '/' . $uri;
-        }
-
-        return $uri;
-
+        return \cerbo\kernel\URL::makeCleanURL( $uri );
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-class TwigAdministration extends Twig_Extension
+class TwigAdministracio extends Twig_Extension
 {
     
     public function getName()

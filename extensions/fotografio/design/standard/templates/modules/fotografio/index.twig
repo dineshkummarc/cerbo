@@ -1,4 +1,10 @@
-{% design_needs ['js/jquery.min.js', 'js/guggenheim.min.js'] %}
+{% design_needs
+[
+    'css/guggenheim.css',
+    'js/jquery.min.js',
+    'js/guggenheim.min.js'
+]
+%}
 
 {% extends "layouts/standard.twig" %}
 
@@ -7,5 +13,54 @@
 {% block body %}
 
     <h1>{{ 'Gallery'|i18n('fotografio/global') }}</h1>
+
+    {#
+
+        We use the Guggeinheim jquery plugin to create galleries.
+
+        GitHub repo : https://github.com/OiNutter/guggenheim.js
+        Demo : http://oinutter.co.uk/guggenheim.js/
+
+    #}
+    <div id="guggenheim-container">
+        <div class="guggenheim-slider">
+            <div class='guggenheim-item'>1</div>
+            <div class='guggenheim-item'>2</div>
+            <div class='guggenheim-item'>3</div>
+            <div class='guggenheim-item'>4</div>
+            <div class='guggenheim-item'>5</div>
+            <div class='guggenheim-item'>6</div>
+            <div class='guggenheim-item'>7</div>
+            <div class='guggenheim-item'>8</div>
+            <div class='guggenheim-item'>9</div>
+            <div class='guggenheim-item'>10</div>
+            <div class='guggenheim-item'>11</div>
+            <div class='guggenheim-item'>12</div>
+            <div class='guggenheim-item'>13</div>
+            <div class='guggenheim-item'>14</div>
+            <div class='guggenheim-item'>15</div>
+            <div class='guggenheim-item'>16</div>
+            <div class='guggenheim-item'>17</div>
+        </div>
+        <div class="buttons">
+            <a onclick="gallery.prev();">{{ 'Prev'|i18n('fotografio/global') }}</a>
+            <a onclick="gallery.next();">{{ 'Next'|i18n('fotografio/global') }}</a>
+        </div>
+    </div>
+
+    <h2>{{ 'Filters'|i18n('fotografio/global') }}</h2>
+
+    <script type="text/javascript">
+
+        window.onload = function(){
+
+            gallery = guggenheim('#guggenheim-container', {
+                'rows': 'auto',
+                'cols' : 'auto'
+            });
+
+        };
+
+    </script>
 
 {% endblock %}

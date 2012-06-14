@@ -2,7 +2,11 @@
 
     "fotografio/global": {
 
-        "Gallery": "Galerie"
+        "Gallery": "Galerie",
+        "Filters": "Filtres",
+
+        "Prev": "Précédant",
+        "Next": "Suivant"
 
     }
 
