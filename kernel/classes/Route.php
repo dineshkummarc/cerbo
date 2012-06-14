@@ -14,12 +14,53 @@ class Route
 
     private static $routes = array();
 
-    public static function loadRoutes()
+    public static function getRoutes()
+    {
+        return \cerbo\kernel\Route::$routes;
+    }
+
+    public static function load()
     {
 
         $config = \cerbo\kernel\Configuration::getConfiguration();
 
-        
+        // Load default routes
+        if ( file_exists( 'settings/routes.json' ) )
+        {
+
+            $content = file_get_contents( 'settings/routes.json' );
+            $json = json_decode( $content, true );
+
+            if ( $json != null )
+            {
+                \cerbo\kernel\Route::$routes = array_merge(
+                    \cerbo\kernel\Route::$route,
+                    $json
+                );
+            }
+
+        }
+
+        // Get routes from extensions
+        foreach ( $config['application.ini']['EXTENSIONS']['Use'] as $extension)
+        {
+            $file_path = 'extensions/' . $extension . '/settings/routes.json';
+            if ( file_exists( $file_path ) )
+            {
+
+                $content = file_get_contents( $file_path );
+                $json = json_decode( $content, true );
+
+                if ( $json != null )
+                {
+                    \cerbo\kernel\Route::$routes = array_merge(
+                        \cerbo\kernel\Route::$routes,
+                        $json
+                    );
+                }
+
+            }
+        }
 
     }
 

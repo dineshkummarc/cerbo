@@ -48,6 +48,7 @@ class Request
     public function resolveURI()
     {
 
+        $routes = \cerbo\kernel\Route::getRoutes();
         $config = \cerbo\kernel\Configuration::getConfiguration();
 
         // Remove extra content from the URI
@@ -92,6 +93,19 @@ class Request
         else
         {
             $this->parameters = array();
+        }
+
+        // Look into routes for something to replace with
+
+        if ( isset( $routes[$this->uri] ) )
+        {
+
+            // Look for a module to override
+            if ( $routes[$this->uri]['module'] )
+            {
+                $this->uri = $routes[$this->uri]['module']; // Change the module to load
+            }
+
         }
 
     }

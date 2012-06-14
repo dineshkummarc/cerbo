@@ -3,12 +3,12 @@
 class FotografioGallery
 {
 
-    public static function getPictures( $folder = '' )
+    public static function getPictures( $folder = '', $recursive = false )
     {
-        return FotografioGallery::scanFolder( $folder );
+        return FotografioGallery::scanFolder( $folder, $recursive );
     }
 
-    public static function scanFolder( $folder )
+    public static function scanFolder( $folder, $recursive )
     {
 
         $root = 'extensions/fotografio/data';
@@ -20,10 +20,10 @@ class FotografioGallery
         {
             if ( $file != '.' && $file != '..' )
             {
-                if ( is_dir( $root . $folder . '/' . $file ) )
+                if ( is_dir( $root . $folder . '/' . $file ) && $recursive )
                 {
                     // Scan folders recursively
-                    $files = array_merge( $files, FotografioGallery::scanFolder( $folder . '/' . $file ) );
+                    $files = array_merge( $files, FotografioGallery::scanFolder( $folder . '/' . $file ), true );
                 }
                 else
                 {

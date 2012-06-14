@@ -1,23 +1,5 @@
 {
-
-    "routes": [
-
-        {
-            "uri": "/users",
-            "route": "/users/index"
-        },
-
-        {
-            "uri": "/articles",
-            "route": "/articles/index"
-        },
-
-        {
-            "uri": "/settings",
-            "route": "/settings/edit"
-        }
-
-
-    ]
-
+    "users": {
+        "module": "users/index"
+    }
 }

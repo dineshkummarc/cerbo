@@ -30,6 +30,7 @@ class Cerbo
         
         \cerbo\kernel\Session::forceSessionStart();
         \cerbo\kernel\Extension::load();
+        \cerbo\kernel\Route::load();
         \cerbo\kernel\I18n::load();
 
         $this->request = new \cerbo\kernel\Request();
