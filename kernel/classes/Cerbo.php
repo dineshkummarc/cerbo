@@ -27,7 +27,9 @@ class Cerbo
 
     public function __construct()
     {
-        
+
+        \cerbo\kernel\Debug::addNotice( get_class(), "Starting Cerbo." );
+
         \cerbo\kernel\Session::forceSessionStart();
         \cerbo\kernel\Extension::load();
         \cerbo\kernel\Route::load();

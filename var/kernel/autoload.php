@@ -16,5 +16,6 @@ $_AUTOLOAD_ARRAY[] = 'kernel/classes/PageHandler.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/URL.php';
 $_AUTOLOAD_ARRAY[] = 'extensions/fotografio/classes/FotografioGallery.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/Route.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/Debug.php';
 
 ?>

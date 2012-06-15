@@ -1,0 +1,42 @@
+/* DEBUG */
+table.cerbo-debug
+{
+    width: 100%;
+    border: 1px solid #666;
+    border-collapse: collapse;
+    margin-top: 60px;
+}
+
+table.cerbo-debug tr.cerbo-debug td
+{
+    padding: 5px;
+    font-weight: bold;
+}
+
+table.cerbo-debug tr.cerbo-debug
+{
+    color: #fff;
+}
+
+table.cerbo-debug tr.cerbo-debug.debug-php
+{
+    background-color: #99c;
+}
+
+table.cerbo-debug tr.cerbo-debug.debug-notice
+{
+    background-color: #20bc2b;
+}
+
+table.cerbo-debug tr.cerbo-debug.debug-warning
+{
+    background-color: #ff8400;
+}
+
+
+table.cerbo-debug tr.cerbo-debug.debug-message td
+{
+    padding: 10px;
+    color: #666;
+    font-weight: normal;
+}

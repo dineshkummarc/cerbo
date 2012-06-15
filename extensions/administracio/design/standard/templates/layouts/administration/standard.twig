@@ -5,6 +5,8 @@
 
         <title>{% block title %}{% endblock %} - Cerbo</title>
 
+        <link rel="stylesheet" href="{{ 'css/standard.css'|design|url }}" />
+
         <link type="text/css" rel="stylesheet" href="{{ 'css/bootstrap.min.css'|design|url }}" />
         <link type="text/css" rel="stylesheet" href="{{ 'css/bootstrap-responsive.min.css'|design|url }}" />
 
@@ -37,6 +39,8 @@
                 <div id="footer" class="span12">
                     {{ cerbo_informations() }}
                 </div>
+
+                {{ debug_output() }}
 
             </div>
 

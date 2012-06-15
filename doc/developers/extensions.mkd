@@ -1,0 +1,48 @@
+# Making extensions
+
+Making extensions for *Cerbo* is simple and don't need a lot of
+configuration files because everything is discovered automaticaly.
+
+## Creating an extension and activating it
+
+First, you need to create a folder with your extension's name in
+`/extensions`.
+
+Then, you only have to add the extension to the list of the used
+extensions in `/settings/application.ini`.
+
+    [EXTENSIONS]
+    Use[]=cerbo
+    Use[]=administracio
+    Use[]=your_application_folder_name
+
+## Basic structure of extensions
+
+Once you have a new extension folder, you can add the following
+folders :
+
+ * **classes** : For the classes of your application.
+ * **design** : For the design files.
+ * **modules** : For the available modules.
+ * **settings** : For the configuration files.
+ * **translations** : For the translations dedicated to your classes and modules.
+
+## Classes
+
+Classes are free but you should made class names like :
+
+    <extension name><class name>
+
+For exemple, if your extension's name is *Foo* and your logical class
+name is *Bar*, the real classname should be *FooBar* to avoid
+possible classnames scope.
+
+## Design
+
+In the `design` folder, you have as many folders as you wants who correspond each to a design name. Those designs are used in `/settings/application.ini` :
+
+    [DESIGN]
+    Use[]=standard
+    Use[]=my_design
+
+

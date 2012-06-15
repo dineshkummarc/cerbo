@@ -94,4 +94,7 @@ function addToAutoloadCacheFile()
 
 spl_autoload_register( '__cerbo_autoload' );
 
+// Set a custom error handler
+set_error_handler( '\cerbo\kernel\Debug::catchPHPError' );
+
 ?>

@@ -28,7 +28,10 @@ class I18n
         else
         {
             $translation = $string;
-            // TODO Raise error
+            \cerbo\kernel\Debug::addWarning(
+                get_class(),
+                "Can't find translation for <b>$string</b> using the following context : <b>$context</b>."
+            );
         }
 
         // TODO Manage parameters

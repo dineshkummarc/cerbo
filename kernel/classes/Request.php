@@ -103,6 +103,10 @@ class Request
             // Look for a module to override
             if ( $routes[$this->uri]['module'] )
             {
+                \cerbo\kernel\Debug::addNotice(
+                    get_class(), 
+                    "Module <b>$this->uri</b> is routed to <b>" . $routes[$this->uri]['module'] . "</b>"
+                );
                 $this->uri = $routes[$this->uri]['module']; // Change the module to load
             }
 

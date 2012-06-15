@@ -1,0 +1,8 @@
+{
+    "fotografio": {
+        "module": "fotografio/index"
+    },
+    "gallery": {
+        "module": "fotografio/index"
+    }
+}

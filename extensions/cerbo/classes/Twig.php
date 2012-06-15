@@ -17,6 +17,7 @@ class TwigCerbo extends Twig_Extension
             'cerbo_informations' => new Twig_Function_Method( $this, 'cerboInformations' ),
 
             'autoload_design_files' => new Twig_Function_Method( $this, 'autoloadDesignFiles' ),
+            'debug_output' => new Twig_Function_Method( $this, 'debugOutput' ),
 
         );
     }
@@ -52,6 +53,12 @@ class TwigCerbo extends Twig_Extension
     {
         echo \cerbo\kernel\Design::getAutoloadFilesHTML();
     }
+
+    public function debugOutput()
+    {
+        echo \cerbo\kernel\Debug::getDebugHTML();
+    }
+
 
     // Filters ------------------------------------------------------
 
