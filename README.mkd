@@ -13,8 +13,13 @@ web sites.
 
 * PHP >= 5.2.4
 
-If you want to use *phar* version of the extensions (this is absolutly
-not mandatory) :
+But you will need to use the *ugly* version who can be generated from
+current source code with :
+
+    generate_ugly_version.sh
+
+If you want to use a clean version (with namespaces) and *phar* version
+of the extensions (this is absolutly not mandatory) :
 
 * PHP >= 5.3
 
@@ -33,13 +38,11 @@ to clone the project you must remember to fetch submodules too :
     git submodule init 
     git submodule update
 
+or
+
+    git clone --recursive git://github.com/martin-damien/cerbo.git
+
 ## ToDo
-
-### Routes
-
-* Implement a system of routes (url alias) with the possibility to
-    make a clean redirection (301) or just to make an invisible
-    redirection.
 
 ### Content structures
 
@@ -57,3 +60,4 @@ to clone the project you must remember to fetch submodules too :
     long data extraction and get the page faster.
 * **Content** : Content should be stored in `var/cache` will
     re-creating datatree.
+* **Routes** : Routes should be cached too.
