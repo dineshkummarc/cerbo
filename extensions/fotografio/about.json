@@ -1,0 +1,11 @@
+{
+
+    "name": "Fotografio",
+    "version": "0.1",
+    "authors": [ "Damien MARTIN <damien@martin-damien.fr>" ],
+
+    "rights": [],
+
+    "dependencies": [ { "stelo": "0.1" } ]
+
+}

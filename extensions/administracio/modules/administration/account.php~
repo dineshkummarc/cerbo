@@ -1,0 +1,21 @@
+<?php
+
+namespace cerbo\modules;
+
+use \cerbo\kernel\I18n as i18n;
+
+class Administration_My_account extends \cerbo\kernel\Module
+{
+
+    public function __construct()
+    {
+        $this->setTemplate( 'modules/administration/my_account' );
+    }
+
+    public function build(){}
+
+    public function submited(){}
+
+}
+
+?>

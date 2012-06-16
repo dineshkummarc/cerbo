@@ -1,5 +1,43 @@
 {
-    "users": {
-        "module": "users/index"
+
+    "administration": {
+        "module": "administration/index"
+    },
+
+    "administration/login": {
+        "module": "login",
+        "template": "modules/administration/login",
+        "params": {
+            "redirect_after_login": "administration"
+        }
+    },
+
+    "administration/logout": {
+        "module": "logout",
+        "template": "modules/administration/logout",
+        "params": {
+            "redirect_after_logout": "administration"
+        }
+    },
+
+    "administration/account": {
+        "module": "administration/account/index"
+    },
+
+    "administration/content": {
+        "module": "administration/content/index"
+    },
+
+    "administration/media": {
+        "module": "administration/media/index"
+    },
+
+    "administration/users": {
+        "module": "administration/users/index"
+    },
+
+    "administration/settings": {
+        "module": "administration/settings/index"
     }
+
 }

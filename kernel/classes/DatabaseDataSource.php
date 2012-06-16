@@ -12,6 +12,9 @@ namespace cerbo\kernel;
 class DatabaseDataSource extends \cerbo\kernel\DataSource
 {
 
+    private $pdo_cnx = null;
+    private $pdo_res = null;
+
     public function __construct( $parameters )
     {
 
@@ -26,7 +29,7 @@ class DatabaseDataSource extends \cerbo\kernel\DataSource
         {
             // Connect DB through PDO
             $cnx_string = $driver . ':dbname=' . $database . ';host=' . $host;
-            $db = new \PDO( $cnx_string, $username, $password );
+            $this->pdo_cnx = new \PDO( $cnx_string, $username, $password );
         }
         catch(PDOException $e)
         {
@@ -40,6 +43,7 @@ class DatabaseDataSource extends \cerbo\kernel\DataSource
 
         $sql_string = '';
         $first = true;
+        $current_operator = 'AND';
 
         foreach ( $parameters as $operator => $value )
         {
@@ -79,7 +83,10 @@ class DatabaseDataSource extends \cerbo\kernel\DataSource
     {
 
         $sql = 'SELECT * FROM ' . $table . ' WHERE ' . \cerbo\kernel\DatabaseDataSource::resolveParametersArray( $parameters );
-        echo "<p>$sql</p>";
+
+        $this->pdo_res = $this->pdo_cnx->query( $sql );
+
+        \cerbo\kernel\Debug::addDataSourceQuery( get_class(), $sql );
 
     }
 
@@ -95,9 +102,12 @@ class DatabaseDataSource extends \cerbo\kernel\DataSource
 
     public function fetch( $line = null )
     {
+        return $this->pdo_res->fetch( \PDO::FETCH_OBJ );
+    }
 
-        return false;
-
+    public function nbResults()
+    {
+        return $this->pdo_res->rowCount();
     }
 
 }

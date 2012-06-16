@@ -6,14 +6,94 @@
         "Content": "Contenus",
         "Medias": "Médias",
         "Users": "Utilisateurs",
-        "Settings": "Paramètres"
+        "Settings": "Paramètres",
+        "My account": "Mon compte",
+        "Logout": "Déconnexion",
+        "yes": "oui",
+        "no": "non",
+        "Edit": "Modifier",
+        "Delete": "Supprimer"
+
+    },
+
+    "administration/home": {
+
+        "Cerbo's Administration": "Administration de Cerbo",
+        "Cerbo": "Cerbo",
+        "Administration interface": "Interface d'administration"
+
+    },
+
+    "administration/content": {
+
+        "Content": "Contenu",
+        "Content management": "Gestion de contenu",
+        "Add, modify and delete content on your website": "Ajouter, modifier et supprimer le contenu de votre site"
+
+    },
+
+    "administration/media": {
+
+        "Media": "Multimédia",
+        "Explore and manage your media library": "Explorer et gérer votre bibliothèque mulimédia",
+        "Media management": "Gestion des médias"
 
     },
 
     "administration/users": {
 
+        "Users": "Utilisateurs",
         "Users management": "Gestion des utilisateurs",
-        "Users": "Utilisateurs"
+        "List of all the users": "Liste de tous les utilisateurs",
+        "Users": "Utilisateurs",
+        "Create a new user": "Créer un nouvel utilisateur",
+        "User ID": "ID utilisateur",
+        "Username": "Nom utilisateur",
+        "Type": "Type",
+        "Active": "Actif",
+        "Users list": "Liste des utilisateurs",
+        "Usergroups list": "Liste des groupes utilisateurs",
+        "Permissions": "Permissions"
+
+    },
+
+    "administration/settings": {
+
+        "Settings management": "Gestion des paramètres",
+        "Settings": "Paramètres",
+        "Configure Cerbo and the extensions": "Configurer Cerbo et les extensions"
+
+    },
+
+    "administration/settings/extensions": {
+
+        "Extensions": "Extensions"
+
+    },
+
+    "administration/settings/routes": {
+
+        "Routes": "Routes"
+
+    },
+
+    "administration/settings/caches": {
+
+        "Caches": "Caches"
+
+    },
+
+    "administration/settings/translations": {
+
+        "Translations": "Traductions"
+
+    },
+
+    "administration/account": {
+
+        "My account": "Mon compte",
+        "My profile": "Mon profile",
+        "Change my password": "Changer mon mot de passe"
 
     }
 

@@ -1,10 +1,28 @@
 {
 
+    "kernel/global": {
+
+        "Anonymous": "Invité",
+        "Login": "Identification"
+
+    },
+
     "kernel/login": {
 
         "Username": "Nom d'utilisateur",
         "Password": "Mot de passe",
-        "Login" : "Me connecter"
+        "Login" : "Me connecter",
+        "User login": "Identifiant",
+        "User password": "Mot de passe",
+        "I lost my password": "J'ai oublié mon mot de passe",
+        "A valid username and password is required to login.": "Un nom d'utilisateur et un mot de passe valides sont requis."
+
+    },
+
+    "kernel/logout": {
+
+        "Logout": "Déconnexion",
+        "You are now disconnected.": "Vous êtes maintenant déconnecté."
 
     },
 

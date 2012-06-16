@@ -13,6 +13,7 @@ class Request
 {
 
     private $requested_uri;
+    private $original_uri;
     private $uri;
     private $module_name;
     private $parameters;
@@ -73,6 +74,7 @@ class Request
 
         // Extract URI
         $this->uri = $parts[0];
+        $this->original_uri = $parts[0];
 
         // Extract format
         $uri_elements = explode( '/', $this->uri );
@@ -117,6 +119,11 @@ class Request
     public function getURI()
     {
         return $this->uri;
+    }
+
+    public function getOriginalURI()
+    {
+        return $this->original_uri;
     }
 
     public function getModuleName()

@@ -17,5 +17,9 @@ $_AUTOLOAD_ARRAY[] = 'kernel/classes/URL.php';
 $_AUTOLOAD_ARRAY[] = 'extensions/fotografio/classes/FotografioGallery.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/Route.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/Debug.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/User.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/DataSource.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/DatabaseDataSource.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/Security.php';
 
 ?>

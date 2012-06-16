@@ -5,6 +5,7 @@ table.cerbo-debug
     border: 1px solid #666;
     border-collapse: collapse;
     margin-top: 60px;
+    background: #fff;
 }
 
 table.cerbo-debug tr.cerbo-debug td
@@ -33,6 +34,16 @@ table.cerbo-debug tr.cerbo-debug.debug-warning
     background-color: #ff8400;
 }
 
+table.cerbo-debug tr.cerbo-debug.debug-error
+{
+    background-color: #ff0000;
+}
+
+table.cerbo-debug tr.cerbo-debug.debug-datasource
+{
+    background-color: #ffff00;
+    color: #91901a;
+}
 
 table.cerbo-debug tr.cerbo-debug.debug-message td
 {

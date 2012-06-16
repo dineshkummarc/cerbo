@@ -7,6 +7,11 @@ class Debug
 
     private static $errors = array();
 
+    public static function addDataSourceQuery( $from, $message )
+    {
+        \cerbo\kernel\Debug::genericDebugMessage( 'DATASOURCE', $from, $message );
+    }
+
     public static function addNotice( $from, $message )
     {
         \cerbo\kernel\Debug::genericDebugMessage( 'NOTICE', $from, $message );
@@ -39,19 +44,22 @@ class Debug
 
     public static function getDebugHTML()
     {
+    
+        $config = \cerbo\kernel\Configuration::getConfiguration();
+
         $str = "<table class='cerbo-debug'>\n";
         foreach ( \cerbo\kernel\Debug::$errors as $error )
         {
-
-            $str .= "<tr class='cerbo-debug debug-" . strtolower( $error['type'] ) . "'>\n";
-            $str .= "   <td width='70'>" . $error['type'] . "</td>\n";
-            $str .= "   <td>" . $error['from'] . "</td>\n";
-            $str .= "</tr>\n";
-            
-            $str .= "<tr class='cerbo-debug debug-message'>\n";
-            $str .= "   <td colspan='2'>" . $error['message'] . "</td>\n";
-            $str .= "</tr>\n";
-
+            if ( in_array( $error['type'], $config['application.ini']['DEBUG']['DebugDisplay'] ) )
+            {
+                $str .= "<tr class='cerbo-debug debug-" . strtolower( $error['type'] ) . "'>\n";
+                $str .= "   <td width='70'>" . $error['type'] . "</td>\n";
+                $str .= "   <td>" . $error['from'] . "</td>\n";
+                $str .= "</tr>\n";
+                $str .= "<tr class='cerbo-debug debug-message'>\n";
+                $str .= "   <td colspan='2'>" . $error['message'] . "</td>\n";
+                $str .= "</tr>\n";
+            }
         }
         $str .= "</table>\n";
         return $str;

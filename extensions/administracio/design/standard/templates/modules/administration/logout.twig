@@ -1,0 +1,19 @@
+{% extends "layouts/administration/login.twig" %}
+
+{% block title%}{{ 'Cerbo\'s Administration'|i18n('administration/home') }}{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>
+            {{ 'Cerbo'|i18n('administration/home') }}
+            <small>{{ 'Logout'|i18n('kernel/logout') }}</small>
+        </h1>
+    </div>
+
+    <p>
+        {{ 'You are now disconnected.'|i18n('kernel/logout') }}
+    </p>
+
+
+{% endblock %}

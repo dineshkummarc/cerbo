@@ -2,28 +2,28 @@
     <div class="navbar-inner">
         <div class="container">
 
-            <a class="brand" href="#">
+            <a class="brand" href="{{ 'administration'|url }}">
                 Cerbo
             </a>
 
             <ul class="nav">
                 <li class="active">
-                    <a href="#">
+                    <a href="{{ 'administration/content'|url }}">
                         <i class="icon-file icon-white"></i>&nbsp;{{ 'Content'|i18n('administration/global') }}
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ 'administration/media'|url }}">
                         <i class="icon-picture icon-white"></i>&nbsp;{{ 'Medias'|i18n('administration/global') }}
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ 'administration/users'|url }}">
                         <i class="icon-user icon-white"></i>&nbsp;{{ 'Users'|i18n('administration/global') }}
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ 'administration/settings'|url }}">
                         <i class="icon-cog icon-white"></i>&nbsp;{{ 'Settings'|i18n('administration/global') }}
                     </a>
                 </li>
@@ -32,15 +32,15 @@
             <ul class="nav pull-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-off icon-white"></i>&nbsp;Administrator&nbsp;<b class="caret"></b>
+                        <i class="icon-off icon-white"></i>&nbsp;{{ CurrentUser.name }}&nbsp;<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="">{{ 'My account'|i18n('administration/global') }}</a>
+                            <a href="{{ 'administration/account'|url }}">{{ 'My account'|i18n('administration/global') }}</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="">{{ 'Logout'|i18n('administration/global') }}</a>
+                            <a href="{{ 'administration/logout'|url }}">{{ 'Logout'|i18n('administration/global') }}</a>
                         </li>
                     </ul>
                 </li>

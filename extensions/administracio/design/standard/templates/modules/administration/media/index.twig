@@ -1,0 +1,16 @@
+{% extends "layouts/administration/standard.twig" %}
+
+{% block title%}{{ 'Media management'|i18n('administration/media') }}{% endblock %}
+
+{% block left_menu %}{% include "parts/administration/media_menu.twig" %}{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>
+            {{ 'Media'|i18n('administration/media') }}
+            <small>{{ 'Explore and manage your media library'|i18n('administration/media') }}</small>
+        </h1>
+    </div>
+
+{% endblock %}

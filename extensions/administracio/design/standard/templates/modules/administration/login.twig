@@ -1,0 +1,46 @@
+{% extends "layouts/administration/login.twig" %}
+
+{% block title%}{{ 'Cerbo\'s Administration'|i18n('administration/home') }}{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>
+            {{ 'Cerbo'|i18n('administration/home') }}
+            <small>{{ 'Login'|i18n('kernel/global') }}</small>
+        </h1>
+    </div>
+
+    {% if ErrorMessage is defined %}
+    <div class="alert">
+        <button class="close" data-dismiss="alert">×</button>
+        {{ ErrorMessage }}
+    </div>
+    {% endif %}
+
+    <form class="form-horizontal" method="post" action="{{ 'administration/login'|url }}">
+
+        <div class="control-group">
+            <label class="control-label" for="login">{{ 'User login'|i18n('kernel/login') }}</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="login" name="login">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="password">{{ 'User password'|i18n('kernel/login') }}</label>
+            <div class="controls">
+                <input type="password" class="input-xlarge" id="password" name="password">
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button class="btn btn-primary" type="submit">{{ 'Login'|i18n('kernel/login') }}</button>
+            <button class="btn">{{ 'I lost my password'|i18n('kernel/login') }}</button>
+        </div>
+
+        <input type="hidden" name="redirect_after_login" value="{{ RedirectAfterLogin }}" />
+
+    </form>
+
+{% endblock %}

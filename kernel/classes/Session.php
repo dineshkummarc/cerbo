@@ -13,13 +13,16 @@ class Session
 {
 
     private static $current_session = null;
-
-    private $current_user = null;
+    private $current_user_id = null;
 
     private function __construct()
     {
         session_start();
-        // $this->current_user = \cerbo\kernel\User::getCurrentUser();
+    }
+
+    public function end()
+    {
+        session_destroy();
     }
 
     public function hasVariable( $variable_name )
@@ -37,6 +40,11 @@ class Session
     public function getVariable( $variable_name )
     {
         return $_SESSION[$variable_name];
+    }
+
+    public function setVariable( $variable_name, $value )
+    {
+        $_SESSION[$variable_name] = $value;
     }
 
     public static function forceSessionStart()

@@ -20,26 +20,10 @@
 
         <div class="container">
 
-            {% include "parts/administration/main_menu.twig" %}
-
             <div class="row">
 
-                <div id="submenu" class="span3">
-                    {% block left_menu %}{% endblock %}
-                </div>
-
-                <div id="content" class="span9">
+                <div id="content" class="span12">
                     {% block content %}{% endblock %}
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div id="footer" class="span12">
-
-                    {{ cerbo_informations() }} by <a href="http://www.martin-damien.fr">MARTIN Damien</a>. Visit the project's page at <a href="http://cerbo.martin-damien.fr">http://cerbo.martin-damien.fr</a> and on <a href="http://www.github.com">GitHub</a> at <a href="https://github.com/martin-damien/cerbo">https://github.com/martin-damien/cerbo</a>.<br/>
-                    This software is under the free license : <a href="http://www.gnu.org/copyleft/gpl.html">GNU/GPL3</a>.
                 </div>
 
             </div>

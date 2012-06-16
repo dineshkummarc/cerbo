@@ -14,6 +14,12 @@ class User
 
     private static $current_user = null;
 
+    private $user_id = -1;
+    private $user_name = '';
+    private $user_firstname = '';
+    private $user_lastname = '';
+    private $user_login = '';
+
     /**
      * If the user_id is set to null, it will load the anonymous user
      */
@@ -26,15 +32,32 @@ class User
         }
         else
         {
-            // TODO Load user's data from DB
+    
+            $ds = \cerbo\kernel\DataSource::getInstance();
+            $ds->select( 'users', array( 'id' => array( '=', $user_id ) ) );
+
+            $user_row = $ds->fetch();
+
+            $this->user_id          = $user_row->id;
+            $this->user_name        = $user_row->firstname . ' ' . $user_row->lastname;
+            $this->user_firstname   = $user_row->firstname;
+            $this->user_lastname    = $user_row->lastname;
+            $this->user_login       = $user_row->login;
+
         }
 
     }
 
+    public static function changeCurrentUser( $change_to )
+    {
+
+        \cerbo\kernel\User::$current_user = new \cerbo\kernel\User( $change_to );
+    }
+
     private function setAnonymousData()
     {
-        $this->id = -1;
-        $this->name = \cerbo\kernel\I18n::translate( 'Anonymous', 'cerbo/kernel' );
+        $this->user_id = -1;
+        $this->user_name = \cerbo\kernel\I18n::translate( 'kernel/global', 'Anonymous' );
     }
 
     public static function identifyUser()
@@ -42,12 +65,12 @@ class User
 
         $session = \cerbo\kernel\Session::getSession();
 
-        if ( \cerbo\kernel\User::$current_page == null )
+        if ( \cerbo\kernel\User::$current_user == null )
         {
-            if ( $session->hasVariable( 'identifyed_user' ) )
+            if ( $session->hasVariable( 'identified_user' ) )
             {
                 \cerbo\kernel\User::$current_user = new \cerbo\kernel\User(
-                    $session->getVariable( 'identifyed_user' )
+                    $session->getVariable( 'identified_user' )
                 );
             }
             else
@@ -65,6 +88,11 @@ class User
             \cerbo\kernel\User::identifyUser();
         }
         return \cerbo\kernel\User::$current_user;
+    }
+
+    public function getUserName()
+    {
+        return $this->user_name;
     }
 
 }

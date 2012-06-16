@@ -1,0 +1,11 @@
+{
+
+    "name": "Cerbo",
+    "version": "0.1",
+    "authors": [ "Damien MARTIN <damien@martin-damien.fr>" ],
+
+    "rights": [],
+
+    "dependencies": [ { "bootstrap": "0.1" } ]
+
+}

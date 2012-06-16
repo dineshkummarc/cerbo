@@ -1,0 +1,16 @@
+{% extends "layouts/administration/standard.twig" %}
+
+{% block title%}{{ 'Settings management'|i18n('administration/settings') }}{% endblock %}
+
+{% block left_menu %}{% include "parts/administration/settings_menu.twig" %}{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>
+            {{ 'Settings'|i18n('administration/settings') }}
+            <small>{{ 'Configure Cerbo and the extensions'|i18n('administration/settings') }}</small>
+        </h1>
+    </div>
+
+{% endblock %}

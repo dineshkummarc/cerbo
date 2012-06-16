@@ -1,0 +1,16 @@
+{% extends "layouts/administration/standard.twig" %}
+
+{% block title%}{{ 'Content management'|i18n('administration/content') }}{% endblock %}
+
+{% block left_menu %}{% include "parts/administration/content_menu.twig" %}{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>
+            {{ 'Content'|i18n('administration/content') }}
+            <small>{{ 'Add, modify and delete content on your website'|i18n('administration/content') }}</small>
+        </h1>
+    </div>
+
+{% endblock %}

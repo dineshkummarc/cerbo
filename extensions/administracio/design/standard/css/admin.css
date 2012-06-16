@@ -1,0 +1,13 @@
+#footer
+{
+    margin: 0px 0px 0px 30px;
+    border: 1px solid #eee;
+    border-width: 1px 0px 0px 0px;
+    padding: 20px 0px 0px 0px;
+}
+
+table.cerbo-debug
+{
+    margin: 30px 0px 0px 30px;
+    width: 1170px;
+}

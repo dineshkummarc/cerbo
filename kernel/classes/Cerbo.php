@@ -49,6 +49,7 @@ class Cerbo
                 $this->request->getURI(),
                 $this->request->getModuleName()
             );
+            $content_handler->getContent()->alterFromRoutes( $this->request->getOriginalURI() );
         }
         else
         {
@@ -101,11 +102,24 @@ class Cerbo
 
             // Prepare data to send as variables to template
             $variables = array();
+
+            // TODO DataMap should only be set for Pages
             $variables['DataMap'] = $content_handler->getContent()->getDataMap();
-            foreach ( $content_handler->getContent()->getTemplateVariables() as $key => $value )
+
+            // Get Module template variable definitions
+            if ( count( $content_handler->getContent()->getTemplateVariables() ) > 0 )
             {
-                $variables[$key] = $value;
+                foreach ( $content_handler->getContent()->getTemplateVariables() as $key => $value )
+                {
+                    $variables[$key] = $value;
+                }
             }
+
+            // Some standard variables available in all templates //
+
+            // Current User
+            $user = \cerbo\kernel\User::getCurrentUser();
+            $variables['CurrentUser']['name'] = $user->getUserName();
 
             // Render with Twig
             $result = $this->twig->render(

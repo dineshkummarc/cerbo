@@ -1,0 +1,20 @@
+{% extends "layouts/administration/standard.twig" %}
+
+{% block title%}{{ 'Cerbo\'s Administration'|i18n('administration/home') }}{% endblock %}
+
+{% block left_menu %}{% include "parts/administration/home_menu.twig" %}{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>
+            {{ 'Cerbo'|i18n('administration/home') }}
+            <small>{{ 'Administration interface'|i18n('administration/home') }}</small>
+        </h1>
+    </div>
+
+    <div>
+        <img src="{{ 'images/zombie_crossing.svg'|design|url }}" alt="" />
+    </div>
+
+{% endblock %}

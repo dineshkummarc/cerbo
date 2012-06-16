@@ -19,6 +19,7 @@ abstract class DataSource
     abstract protected function remove( $table, $parameters );
     abstract protected function update( $table, $parameters );
     abstract protected function fetch( $line = null );
+    abstract protected function nbResults();
 
     public static function getInstance()
     {

@@ -14,7 +14,32 @@ namespace cerbo\kernel;
  */
 abstract class Module extends Content
 {
+    public function alterFromRoutes( $uri )
+    {
+        $routes = \cerbo\kernel\Route::getRoutes();
+        if ( isset( $routes[$uri] ) )
+        {
 
+            if ( isset( $routes[$uri]['params'] ) )
+            {
+                // Alter $_POST variables
+                foreach ( $routes[$uri]['params'] as $key => $value )
+                {
+                    $_POST[$key] = $value;
+                }
+            }
+
+            if ( isset( $routes[$uri]['template'] ) )
+            {
+                \cerbo\kernel\Debug::addNotice(
+                    get_class(),
+                    'Route override <i>template</i> from <b>' . $this->getTemplate() . '</b> to <b>' . $routes[$uri]['template']  . '</b>.'
+                );
+                $this->setTemplate( $routes[$uri]['template'] );
+            }
+
+        }
+    }
 }
 
 ?>
