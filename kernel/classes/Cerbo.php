@@ -31,6 +31,7 @@ class Cerbo
         \cerbo\kernel\Debug::addNotice( get_class(), "Starting Cerbo." );
 
         \cerbo\kernel\Session::forceSessionStart();
+        \cerbo\kernel\Policy::loadPolicies();
         \cerbo\kernel\Extension::load();
         \cerbo\kernel\Route::load();
         \cerbo\kernel\I18n::load();

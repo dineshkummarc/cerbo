@@ -1,0 +1,124 @@
+{% design_needs [ 'js/actions.js' ] %}
+
+{% extends "layouts/administration/standard.twig" %}
+
+{% block title%}{{ 'Usergroups management'|i18n('administration/users') }}{% endblock %}
+
+{% block left_menu %}{% include "parts/administration/users_menu.twig" %}{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>
+            {{ 'Usergroups'|i18n('administration/users') }}
+            <small>{{ 'List of all the usergroups'|i18n('administration/users') }}</small>
+        </h1>
+    </div>
+
+    <div class="pull-right">
+        <a href="#" class="btn btn-info" data-toggle="modal" id="administration_users_usergroup_create">
+            <i class="icon-plus icon-white"></i>&nbsp;{{ 'Create a new usergroup'|i18n('administration/users') }}
+        </a>
+    </div>
+
+    <table class="table table-striped">
+
+        <thead>
+            <tr>
+                <th>{{ 'Usergroup ID'|i18n('administration/users') }}</th>
+                <th>{{ 'Name'|i18n('administration/users') }}</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for usergroup in Usergroups %}
+            <tr>
+                <td>{{ usergroup.id }}</td>
+                <td>{{ usergroup.name }}</td>
+                <td>
+                    <div class="pull-right">
+                        <a class="btn btn-primary btn-mini administration_users_usergroup_edit" data-id="{{ usergroup.id }}">
+                            <i class="icon-edit icon-white"></i>&nbsp;{{ 'Edit'|i18n('administration/global') }}
+                        </a>
+                        <a class="btn btn-danger btn-mini administration_users_usergroup_delete" data-id="{{ usergroup.id }}">
+                            <i class="icon-trash icon-white"></i>&nbsp;{{ 'Delete'|i18n('administration/global') }}
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+    {# Invisible modal to input new content #}
+
+    <div class="modal hide" id="create">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>{{ 'Create a new usergroup'|i18n('administration/users') }}</h3>
+        </div>
+
+        <div class="modal-body">
+
+            <input type="hidden" id="usergroup_id" name="usergroup_id" value="-1" />
+
+            <div class="tabbable">
+
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_general" data-toggle="tab">{{ 'General'|i18n('administration/global') }}</a>
+                    </li>
+                    <li>
+                        <a href="#tab_policies" data-toggle="tab">{{ 'Policies'|i18n('administration/users') }}</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <div class="tab-pane active" id="tab_general">
+
+                        <div class="control-group">
+                            <label class="control-label" for="group_name">{{ 'Name'|i18n('administration/users') }}</label>
+                            <div class="controls">
+                                <input type="text" class="input-xlarge" id="group_name" name="group_name" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane" id="tab_policies">
+                        {% for extension, policies in AvailablePolicies %}
+
+                            <h3>{{ extension }}</h3>
+
+                            <table class="table table-condensed">
+                            {% for policy in policies %}
+                                <tr>
+                                    <td>{{ policy }}</td>
+                                    <td width="20">
+                                        <input type="checkbox" value="{{ extension }}::{{ policy }}" />
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </table>
+
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">{{ 'Cancel'|i18n('kernel/global') }}</a>
+            <input type="submit" class="btn btn-primary" value="{{ 'Save'|i18n('kernel/global') }}" />
+        </div>
+
+    </div>
+
+{% endblock %}

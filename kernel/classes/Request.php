@@ -12,6 +12,8 @@ namespace cerbo\kernel;
 class Request
 {
 
+    private static $current_request;
+
     private $requested_uri;
     private $original_uri;
     private $uri;
@@ -24,9 +26,13 @@ class Request
      */
     public function __construct()
     {
+
         $this->requested_uri = $_SERVER['REQUEST_URI'];
         $this->resolveURI();
         $this->generateModuleName();
+
+        \cerbo\kernel\Request::$current_request = $this;
+
     }
 
     /**
@@ -136,9 +142,19 @@ class Request
         return $this->parameters;
     }
 
+    public function getParameter( $index )
+    {
+        return ( isset( $this->parameters[$index] ) ) ? $this->parameters[$index] : false ;
+    }
+
     public function getFormat()
     {
         return strtoupper( $this->format );
+    }
+
+    public static function getRequest()
+    {
+        return \cerbo\kernel\Request::$current_request;
     }
 
 }

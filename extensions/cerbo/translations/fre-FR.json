@@ -3,7 +3,9 @@
     "kernel/global": {
 
         "Anonymous": "Invité",
-        "Login": "Identification"
+        "Login": "Identification",
+        "Cancel": "Annuler",
+        "Save": "Enregistrer"
 
     },
 

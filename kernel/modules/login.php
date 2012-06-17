@@ -46,8 +46,11 @@ class Login extends \cerbo\kernel\Module
                 $session = \cerbo\kernel\Session::getSession();
                 $session->setVariable( 'identified_user', $user_row->id );
 
-                $redirection = \cerbo\kernel\URL::makeCleanURL( $_POST['redirect_after_login'] );
-                header( 'Location:' . $redirection );
+                if ( isset( $_POST['redirect_after_login'] ) )
+                {
+                    $redirection = \cerbo\kernel\URL::makeCleanURL( $_POST['redirect_after_login'] );
+                    header( 'Location:' . $redirection );
+                }
 
             }
             else

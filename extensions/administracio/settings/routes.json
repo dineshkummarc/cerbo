@@ -16,7 +16,7 @@
         "module": "logout",
         "template": "modules/administration/logout",
         "params": {
-            "redirect_after_logout": "administration"
+            "redirect_after_logout": "administration/login"
         }
     },
 
@@ -34,6 +34,10 @@
 
     "administration/users": {
         "module": "administration/users/index"
+    },
+
+    "administration/users/usergroups": {
+        "module": "administration/users/usergroups/index"
     },
 
     "administration/settings": {

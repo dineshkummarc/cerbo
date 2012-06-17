@@ -12,7 +12,8 @@
         "yes": "oui",
         "no": "non",
         "Edit": "Modifier",
-        "Delete": "Supprimer"
+        "Delete": "Supprimer",
+        "General": "Général"
 
     },
 
@@ -53,7 +54,14 @@
         "Active": "Actif",
         "Users list": "Liste des utilisateurs",
         "Usergroups list": "Liste des groupes utilisateurs",
-        "Permissions": "Permissions"
+        "Permissions": "Permissions",
+        "Usergroups management": "Gestion des groupes d'utilisateurs",
+        "Usergroups": "Groupes d'utilisateurs",
+        "List of all the usergroups": "Liste de tous les groupes d'utilisateurs",
+        "Create a new usergroup": "Créer un nouveau groupe d'utilisateurs",
+        "Usergroup ID": "ID du groupe",
+        "Name": "Nom",
+        "Policies": "Droits"
 
     },
 

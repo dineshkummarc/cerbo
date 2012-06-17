@@ -4,7 +4,14 @@
     "version": "0.1",
     "authors": [ "Damien MARTIN <damien@martin-damien.fr>" ],
 
-    "rights": [],
+    "rights": [
+        "*",
+        "gallery/create",
+        "gallery/edit",
+        "gallery/delete",
+        "gallery/upload",
+        "users/assign_galeries"
+    ],
 
     "dependencies": [ { "stelo": "0.1" } ]
 

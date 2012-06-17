@@ -4,7 +4,20 @@
     "version": "0.1",
     "authors": [ "Damien MARTIN <damien@martin-damien.fr>" ],
 
-    "rights": [ "login" ],
+    "rights": [
+        "*",
+        "login",
+        "content/create",
+        "content/edit",
+        "content/delete",
+        "media/create",
+        "media/edit",
+        "media/delete",
+        "users/create",
+        "users/edit",
+        "users/delete",
+        "settings"
+    ],
 
     "dependencies": []
 

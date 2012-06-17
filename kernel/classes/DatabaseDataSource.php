@@ -90,6 +90,17 @@ class DatabaseDataSource extends \cerbo\kernel\DataSource
 
     }
 
+    public function selectAll( $table )
+    {
+
+        $sql = 'SELECT * FROM ' . $table;
+
+        $this->pdo_res = $this->pdo_cnx->query( $sql );
+
+        \cerbo\kernel\Debug::addDataSourceQuery( get_class(), $sql );
+
+    }
+
     public function remove( $table, $parameters )
     {
 

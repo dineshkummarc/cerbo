@@ -21,5 +21,10 @@ $_AUTOLOAD_ARRAY[] = 'kernel/classes/User.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/DataSource.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/DatabaseDataSource.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/Security.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/Policy.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/Policy.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/Policy.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/Policy.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/Policy.php';
 
 ?>

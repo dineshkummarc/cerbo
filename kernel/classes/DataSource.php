@@ -16,6 +16,7 @@ abstract class DataSource
 
     abstract protected function __construct( $parameters );
     abstract protected function select( $table, $parameters );
+    abstract protected function selectAll( $table );
     abstract protected function remove( $table, $parameters );
     abstract protected function update( $table, $parameters );
     abstract protected function fetch( $line = null );

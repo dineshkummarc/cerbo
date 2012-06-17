@@ -14,6 +14,11 @@
         <script type="text/javascript" src="{{ 'js/jquery.min.js'|design|url }}"></script>
         <script type="text/javascript" src="{{ 'js/bootstrap.min.js'|design|url }}"></script>
 
+        <!-- Define the website root for ajax calls from javascript. -->
+        <script type="text/javascript"> WEBSITE_ROOT = '{{ ''|url }}'; </script>
+
+        {{ autoload_design_files() }}
+
     </head>
 
     <body>

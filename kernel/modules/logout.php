@@ -14,8 +14,16 @@ class Logout extends \cerbo\kernel\Module
 
     public function build()
     {
+
         $session = \cerbo\kernel\Session::getSession();
         $session->end();
+
+        if ( isset( $_POST['redirect_after_logout'] ) )
+        {
+            $redirection = \cerbo\kernel\URL::makeCleanURL( $_POST['redirect_after_logout'] );
+            header( 'Location:' . $redirection );
+        }
+
     }
 
     public function submited(){}
