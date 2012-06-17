@@ -33,7 +33,7 @@
 
         <tbody>
             {% for usergroup in Usergroups %}
-            <tr>
+            <tr data-id="{{ usergroup.id }}">
                 <td>{{ usergroup.id }}</td>
                 <td>{{ usergroup.name }}</td>
                 <td>
@@ -58,7 +58,8 @@
 
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">×</button>
-            <h3>{{ 'Create a new usergroup'|i18n('administration/users') }}</h3>
+            <h3 class="create">{{ 'Create a new usergroup'|i18n('administration/users') }}</h3>
+            <h3 class="edit">{{ 'Editing usergroup'|i18n('administration/users') }}</h3>
         </div>
 
         <div class="modal-body">

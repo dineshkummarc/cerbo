@@ -9,6 +9,9 @@ $(document).ready(function(){
     // Click on the 'Create a new usergroup' link.
     $('#administration_users_usergroup_create').bind( 'click', function (){
 
+        $('h3.create').css( 'display', 'block' );
+        $('h3.edit').css( 'display', 'none' );
+
         // Reset elements
         $('#group_name').val( '' );
         $('#usergroup_id').val( '-1' );
@@ -21,6 +24,9 @@ $(document).ready(function(){
 
     // Click on the "Edit" button at the end of a usergroup line.
     $('.administration_users_usergroup_edit').bind( 'click', function(){
+
+        $('h3.create').css( 'display', 'none' );
+        $('h3.edit').css( 'display', 'block' );
 
         var usergroup_id = $(this).attr('data-id');
         $.ajax({
@@ -52,6 +58,10 @@ $(document).ready(function(){
 
     // Click on the "Delete" button at the end of a usergroup line
     $('.administration_users_usergroup_delete').bind( 'click', function(){
+
+        // TODO Remove from DS with AJAX and remove it from DOM if success.
+
+        $('tr[data-id="' + $(this).attr('data-id') + '"]').remove();
 
     });
 
