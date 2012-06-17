@@ -26,5 +26,6 @@ $_AUTOLOAD_ARRAY[] = 'kernel/classes/Policy.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/Policy.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/Policy.php';
 $_AUTOLOAD_ARRAY[] = 'kernel/classes/Policy.php';
+$_AUTOLOAD_ARRAY[] = 'kernel/classes/Lambda.php';
 
 ?>

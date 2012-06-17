@@ -33,6 +33,16 @@ $(document).ready(function(){
 
             $('#group_name').val( element.name );
             $('#usergroup_id').val( element.id );
+            $('input:checkbox').removeAttr( 'checked' );
+
+            // Init policies
+
+            $.each( element.policies, function( index, list ){
+                $.each( list, function( id, value ){
+                    check_name = index + '::' + value;
+                    $('input[value="' + check_name + '"]').attr( 'checked', true );
+                });
+            });
 
             $('#create').modal();
 
@@ -42,8 +52,6 @@ $(document).ready(function(){
 
     // Click on the "Delete" button at the end of a usergroup line
     $('.administration_users_usergroup_delete').bind( 'click', function(){
-
-
 
     });
 
