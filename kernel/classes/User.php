@@ -19,6 +19,7 @@ class User
     private $user_firstname = '';
     private $user_lastname = '';
     private $user_login = '';
+    private $usergroup = null;
 
     /**
      * If the user_id is set to null, it will load the anonymous user
@@ -44,6 +45,8 @@ class User
             $this->user_lastname    = $user_row->lastname;
             $this->user_login       = $user_row->login;
 
+            $this->usergroup = \cerbo\kernel\Usergroup::getUsergroupForUser( $this->user_id );
+
         }
 
     }
@@ -58,6 +61,7 @@ class User
     {
         $this->user_id = -1;
         $this->user_name = \cerbo\kernel\I18n::translate( 'kernel/global', 'Anonymous' );
+        $this->usergroup = new \cerbo\kernel\Usergroup( null );
     }
 
     public static function identifyUser()
@@ -93,6 +97,11 @@ class User
     public function getUserName()
     {
         return $this->user_name;
+    }
+
+    public function getUsergroup()
+    {
+        return $this->usergroup;
     }
 
 }

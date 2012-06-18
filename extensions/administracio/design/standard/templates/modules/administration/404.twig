@@ -1,0 +1,18 @@
+{% extends "layouts/administration/login.twig" %}
+
+{% block title%}404{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>
+            {{ 'Cerbo'|i18n('administration/home') }}
+            <small>{{ 'Page not found'|i18n('kernel/global') }}</small>
+        </h1>
+    </div>
+
+    <p>
+        {{ 'The requested page could not be retrieved.'|i18n('kernel/global') }}
+    </p>
+
+{% endblock %}

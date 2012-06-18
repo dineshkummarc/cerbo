@@ -5,7 +5,13 @@
         "Anonymous": "Invité",
         "Login": "Identification",
         "Cancel": "Annuler",
-        "Save": "Enregistrer"
+        "Save": "Enregistrer",
+        "Access denied": "Accés refusé",
+        "You are not allowed to access this page.": "Vous n'êtes pas autorisé à accéder à cette page.",
+        "Login :": "Identifiez vous :",
+        "here": "ici",
+        "Page not found": "Page non trouvée",
+        "The requested page could not be retrieved.": "La page demandée n'a pas pus être trouvé."
 
     },
 

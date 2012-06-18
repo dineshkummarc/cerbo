@@ -5,6 +5,55 @@ namespace cerbo\kernel;
 class Security
 {
 
+    public static function needsPolicies( $policies )
+    {
+
+        $current_user = \cerbo\kernel\User::getCurrentUser();
+        $user_policies = $current_user->getUsergroup()->getPolicies();
+        
+        // $policies must be an array (even if there is only one element)
+        if ( !is_array( $policies ) )
+        {
+            $policy = $policies;
+            $policies = array( $policy );
+        }
+
+        foreach ( $policies as $policy )
+        {
+
+            $found = false;
+            $policy_parts = explode( '::', $policy );
+
+            // Look for wildcard
+            foreach ( $user_policies[$policy_parts[0]] as $policy )
+            {
+                if ( $policy == '*' )
+                {
+                    $found = true;
+                }
+            }
+
+            // Full detection
+            foreach ( $user_policies[$policy_parts[0]] as $available_policy )
+            {
+                if ( $available_policy == $policy_parts[1] )
+                {
+                    $found = true;
+                }
+            }
+
+            if ( !$found )
+            {
+                
+                // We are not allowed to go here, we must go away
+                header('Location:' . \cerbo\kernel\URL::makeCleanURL( 'administration/403' ) );
+
+            }
+
+        }
+
+    }
+
     public static function crypt( $string )
     {
 

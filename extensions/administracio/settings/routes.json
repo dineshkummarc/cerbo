@@ -42,6 +42,16 @@
 
     "administration/settings": {
         "module": "administration/settings/index"
+    },
+
+    "administration/403": {
+        "module": "Error403",
+        "template": "modules/administration/403"
+    },
+
+    "administration/404": {
+        "module": "Error404",
+        "template": "modules/administration/404"
     }
 
 }

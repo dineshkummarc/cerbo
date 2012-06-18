@@ -9,6 +9,7 @@ class Administration_Users_Usergroups_Index extends \cerbo\kernel\Module
 
     public function __construct()
     {
+        \cerbo\kernel\Security::needsPolicies( "administracio::login" );
         $this->setTemplate( 'modules/administration/users/usergroups/index' );
     }
 

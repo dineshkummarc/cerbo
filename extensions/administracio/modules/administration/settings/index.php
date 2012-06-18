@@ -9,6 +9,7 @@ class Administration_Settings_Index extends \cerbo\kernel\Module
 
     public function __construct()
     {
+        \cerbo\kernel\Security::needsPolicies( "administracio::login" );
         $this->setTemplate( 'modules/administration/settings/index' );
     }
 

@@ -1,0 +1,22 @@
+{% extends "layouts/administration/login.twig" %}
+
+{% block title%}404{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>
+            {{ 'Cerbo'|i18n('administration/home') }}
+            <small>{{ 'Access denied'|i18n('kernel/global') }}</small>
+        </h1>
+    </div>
+
+    <p>
+        {{ 'You are not allowed to access this page.'|i18n('kernel/global') }}
+    </p>
+
+    <p>
+        {{ 'Login :'|i18n('kernel/global') }} <a href="{{ 'administration/login'|url }}">{{ 'here'|i18n('kernel/global') }}</a>.
+    </p>
+
+{% endblock %}

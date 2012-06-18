@@ -14,7 +14,10 @@ class Administration_Users_Usergroups_Load extends \cerbo\kernel\Module
     // This module should not be used as a simple page, so we
     // don't have to add a design for it (but it will cause an
     // error if you try to access it).
-    public function __construct(){}
+    public function __construct()
+    {
+        \cerbo\kernel\Security::needsPolicies( "administracio::login" );
+    }
 
     public function build(){
 
